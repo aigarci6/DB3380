@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\Users\coung\Desktop\rnrtp3380\rocknrollthemepark\rocknrollthemepark\obj\Release\Package\PackageTmp" />
+  <setAcl path="C:\Users\coung\Desktop\rnrtp3380\rocknrollthemepark\rocknrollthemepark\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="C:\Users\coung\Desktop\rnrtp3380\rocknrollthemepark\rocknrollthemepark\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+</sitemanifest>
