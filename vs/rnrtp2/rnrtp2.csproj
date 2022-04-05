@@ -224,6 +224,7 @@
     <Content Include="AddRestaurant.aspx" />
     <Content Include="AddRide.aspx" />
     <Content Include="AddVisitor.aspx" />
+    <Content Include="CCSMAIN.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -231,6 +232,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Site.css" />
+    <Content Include="hotel.jpg" />
     <Content Include="Index.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -251,6 +253,7 @@
     <Content Include="SearchHotel.aspx" />
     <Content Include="SearchRestaurant.aspx" />
     <Content Include="SearchRide.aspx" />
+    <Content Include="Theme.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

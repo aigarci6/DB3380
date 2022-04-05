@@ -4,10 +4,36 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link rel="stylesheet" href="CCSMAIN.css">
     <title></title>
 </head>
-<body>
+<body id="index">
      <form id="form1" runat="server">
+
+         <nav id="mainNav">
+    <div class="container">
+        <ul>
+            <li><a href="AddVisitor.aspx" class="indexLink">Add Visitor</a></li>
+            <li><a href="AddRide.aspx" class="indexLink">Add Ride</a></li>
+            <li><a href="AddRestaurant.aspx" class="indexLink">Add Restaurant</a></li>
+            <li><a href="AddEmployee.aspx" class="indexLink">Add Staff</a></li>
+            <li><a href="AddHotel.aspx" class="indexLink">Add Hotel</a></li>
+            <li> <a href="" class="indexLink">Hotel Visit</a></li>
+            <li><a href="" class="indexLink">Restaurant Visit</a></li>
+            <li><a href="" class="indexLink">Closing a Ride</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
         <div>
             <h3>add new</h3>
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="/AddEmployee.aspx">Add a new employee</asp:HyperLink><br /><br />
