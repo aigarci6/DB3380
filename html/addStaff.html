@@ -10,42 +10,44 @@
 </head>
 
 <body id="employee">
-    <div class="widget">
+    
         <h1 class="row">Add Staff</h1>
         <form action="">
-            <label for="fName">First Name:</label>
-            <input type="text" name="fName" id="fName" required class="row"><br>
-            <label for="lName">Name:</label>
-            <input type="text" name="lName" id="lName" required class="row"><br>
-            <label>Gender:</label><br>
+            <fieldset>
+                <label for="fName">First Name:</label>
+                <input type="text" name="fName" id="fName" required class="row"><br>
+                <label for="lName">Name:</label>
+                <input type="text" name="lName" id="lName" required class="row"><br>
+                <label>Gender:</label><br>
 
-            <label for="male">M</label>
-            <input type="radio" name="gender" value="M" id="male" required>
-            <label for="female">F</label>
-            <input type="radio" name="gender" value="F" id="female" required>
-            <label for="undefined">U</label>
-            <input type="radio" name="gender" value="U" id="undefined" required><br>
+                <label for="male">M</label>
+                <input type="radio" name="gender" value="M" id="male" required>
+                <label for="female">F</label>
+                <input type="radio" name="gender" value="F" id="female" required>
+                <label for="undefined">U</label>
+                <input type="radio" name="gender" value="U" id="undefined" required><br>
 
-            <label>Job Category:</label><br>
+                <label>Job Category:</label><br>
 
-            <label for="maintenance">Maintenance</label>
-            <input type="radio" name="job" value="maintenance" id="maintenance" required>
-            <label for="restaurant">Restaurant</label>
-            <input type="radio" name="job" value="restaurant" id="restaurant" required><br>
-            <label for="ride">Ride</label>
-            <input type="radio" name="job" value="ride" id="ride" required>
-            <label for="hotel">Hotel</label>
-            <input type="radio" name="job" value="hotel" id="hotel" required>
-            <label for="other">Other</label>
-            <input type="radio" name="job" value="other" id="other" required><br>
-            <label> (add alert if other is picked) </label><br>
+                <label for="maintenance">Maintenance</label>
+                <input type="radio" name="job" value="maintenance" id="maintenance" required>
+                <label for="restaurant">Restaurant</label>
+                <input type="radio" name="job" value="restaurant" id="restaurant" required><br>
+                <label for="ride">Ride</label>
+                <input type="radio" name="job" value="ride" id="ride" required>
+                <label for="hotel">Hotel</label>
+                <input type="radio" name="job" value="hotel" id="hotel" required>
+                <label for="other">Other</label>
+                <input type="radio" name="job" value="other" id="other" required><br>
+                <label> (add alert if other is picked) </label><br>
 
-            <label for="wSalary">Weekly Salary</label>
-            <input type="number" name="wSalary" id="wSalary" required class="row"><br>
-            <button class="row" onclick="">Submit</button><br>
-            <a href="index.html" class="row">Back to Index Page</a>
+                <label for="wSalary">Weekly Salary</label>
+                <input type="number" name="wSalary" id="wSalary" required class="row"><br>
+                <button class="row" onclick="">Submit</button><br>
+                <a href="index.html" class="row">Back to Index Page</a>
+            </fieldset>
         </form>
-    </div>
+    
     <script src="../javascript/index.js"></script>
 </body>
 
