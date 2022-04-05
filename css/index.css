@@ -3,8 +3,13 @@
     text-align: center;
     padding-top: 10%;
 }
-#profit {
-    background-image: url("https://images.unsplash.com/photo-1583574928052-9a2563277468?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
+#restaurant {
+    background-image: url("https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
+    text-align: center;
+    padding-top: 10%;
+}
+#employee {
+    background-image: url("https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
     text-align: center;
     padding-top: 10%;
 }
@@ -18,11 +23,12 @@
 .widget {
     width: 60%;
     border-radius: 1em;
-    background-color: rgb(42, 119, 207);
+    background-color: rgb(165, 165, 148);
     margin-left: 20%;
     padding-top: 0.2em;
     padding-bottom: 1em;
 }
 .row {
     margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
