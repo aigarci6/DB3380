@@ -1,35 +1,79 @@
 #visitor {
     background-image: url("https://images.unsplash.com/photo-1561424412-6c2125ecb1cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
+    background-size: cover;
     text-align: center;
     padding-top: 10%;
+    color: white;
 }
 #restaurant {
     background-image: url("https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
     text-align: center;
     padding-top: 10%;
+    color: white;
 }
 #employee {
     background-image: url("https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
     text-align: center;
     padding-top: 10%;
+    color: white;
 }
 #hotel {
-    background-image: url("https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80");
-    text-align: center;
+    background-image: url('../css/hotel.webp');
     background-repeat: no-repeat;
-    background-size: cover;
-    padding-top: 10%;
-}
-#index {
-    background-image: url("https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
-    background-repeat: no-repeat, repeat;
+    background-size: auto;
     text-align: center;
     padding-top: 10%;
+    color: white;
 }
+
+
+#mainNav{
+    background: rgb(0, 0, 0);
+    padding: 2px;
+    color: rgb(255, 0, 0);
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    
+}
+
+#mainNav ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    
+}
+
+#mainNav li{
+    display: inline;
+    padding: 30px;
+    text-decoration-style: none;
+}
+
+#mainNav a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 25px;
+    
+
+}
+
+#mainNav li :hover {
+    background: rgb(63, 61, 61);
+
+}
+
+#index {
+    background-image: url('../css/Theme.webp');
+    background-repeat: no-repeat;
+    background-size:fill;
+    display: inline;
+}
+
 .widget {
     width: 60%;
     border-radius: 1em;
-    background-color: rgb(165, 165, 148);
+    background-color: rgb(0, 0, 0);
     margin-left: 20%;
     padding-top: 0.2em;
     padding-bottom: 1em;
@@ -37,4 +81,11 @@
 .row {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
+}
+
+.container {
+
+    text-align: center;
+    
+   
 }
