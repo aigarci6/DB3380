@@ -12,10 +12,13 @@
         <div>
             <asp:Label ID="Label1" runat="server" Text="Visit Date: "></asp:Label>
             <asp:TextBox ID="date_textbox" runat="server"></asp:TextBox> <br /><br />
-            <asp:Label ID="Label2" runat="server" Text="ID: "></asp:Label>
-            <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox> <br /><br />
-            <asp:Label ID="Label3" runat="server" Text="Ticket Type: "></asp:Label>
+
+            <asp:Label ID="Label5" runat="server" Text="Ticket Type: "></asp:Label>
             <asp:TextBox ID="type_textbox" runat="server"></asp:TextBox> <br /><br />
+
+            <asp:Label ID="Label6" runat="server" Text="Customer Email: "></asp:Label>
+            <asp:TextBox ID="email_textbox" runat="server"></asp:TextBox> <br /><br />
+
             <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" />
         </div>
     </form>

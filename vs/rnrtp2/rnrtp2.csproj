@@ -216,6 +216,13 @@
     <Compile Include="SearchRide.aspx.designer.cs">
       <DependentUpon>SearchRide.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SearchVisitor.aspx.cs">
+      <DependentUpon>SearchVisitor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchVisitor.aspx.designer.cs">
+      <DependentUpon>SearchVisitor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TicketReport.aspx.cs">
       <DependentUpon>TicketReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -260,6 +267,7 @@
     <Content Include="SearchHotel.aspx" />
     <Content Include="SearchRestaurant.aspx" />
     <Content Include="SearchRide.aspx" />
+    <Content Include="SearchVisitor.aspx" />
     <Content Include="Theme.jpg" />
     <Content Include="TicketReport.aspx" />
     <Content Include="Web.config" />
