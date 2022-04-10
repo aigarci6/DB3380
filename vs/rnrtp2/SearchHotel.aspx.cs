@@ -23,22 +23,12 @@ namespace rnrtp2
             MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
 
             //location
-            MySqlCommand updateLocation = new MySqlCommand("UPDATE hotel SET location = @location WHERE hotelID = @id AND name = @name;", dbcon);
+            MySqlCommand updateLocation = new MySqlCommand("UPDATE hotel SET h_locID = @location WHERE hotelID = @id AND name = @name;", dbcon);
             if (location_textbox.Text.Length > 0)
             {
                 updateLocation.Parameters.AddWithValue("@id", id_textbox.Text);
                 updateLocation.Parameters.AddWithValue("@name", name_textbox.Text);
                 updateLocation.Parameters.AddWithValue("@location", location_textbox.Text);
-            }
-
-            //pets
-            MySqlCommand updatePets = new MySqlCommand("UPDATE hotel SET petsAllowed = @pets WHERE hotelID = @id AND name = @name;", dbcon);
-            if (pets_textbox.Text.Length > 0)
-            {
-                int x = Int32.Parse(pets_textbox.Text);
-                updatePets.Parameters.AddWithValue("@id", id_textbox.Text);
-                updatePets.Parameters.AddWithValue("@name", name_textbox.Text);
-                updatePets.Parameters.AddWithValue("@pets", x);
             }
 
             //capacity
@@ -65,10 +55,6 @@ namespace rnrtp2
             {
                 updateLocation.ExecuteNonQuery();
             }
-            if (pets_textbox.Text.Length > 0)
-            {
-                updatePets.ExecuteNonQuery();
-            }
             if (capacity_textbox.Text.Length > 0)
             {
                 updateCapacity.ExecuteNonQuery();
@@ -84,7 +70,6 @@ namespace rnrtp2
                 id_textbox.Text = "";
                 name_textbox.Text = "";
                 location_textbox.Text = "";
-                pets_textbox.Text = "";
                 capacity_textbox.Text = "";
                 rating_textbox.Text = "";
             }

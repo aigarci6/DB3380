@@ -216,6 +216,13 @@
     <Compile Include="SearchRide.aspx.designer.cs">
       <DependentUpon>SearchRide.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TicketReport.aspx.cs">
+      <DependentUpon>TicketReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TicketReport.aspx.designer.cs">
+      <DependentUpon>TicketReport.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddEmployee.aspx" />
@@ -237,7 +244,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Properties\PublishProfiles\db3380tester - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\rocknrollthemepark - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -254,6 +261,7 @@
     <Content Include="SearchRestaurant.aspx" />
     <Content Include="SearchRide.aspx" />
     <Content Include="Theme.jpg" />
+    <Content Include="TicketReport.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

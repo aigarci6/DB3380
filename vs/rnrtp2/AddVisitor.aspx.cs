@@ -21,19 +21,20 @@ namespace rnrtp2
         protected void Button1_Click(object sender, EventArgs e)
         {
             MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
-            MySqlCommand insert = new MySqlCommand("CALL InsertVisitor(@ticketID, @visitDate, @month, @day, @year, @ticketType, @ticketCost);", dbcon);
-            insert.Parameters.AddWithValue("@ticketID", id_textbox.Text);
+            MySqlCommand insert = new MySqlCommand("CALL InsertVisitor(@visitDate, @month, @day, @year, @ticketType, @ticketCost, @email);", dbcon);
             insert.Parameters.AddWithValue("@visitDate", date_textbox.Text);
-            insert.Parameters.AddWithValue("@ticketType", type_textbox.Text);
+            insert.Parameters.AddWithValue("@email", email_textbox.Text);
 
             //get ticket cost (have to add cost to function)
             if (type_textbox.Text == "General" || type_textbox.Text == "general")
             {
+                insert.Parameters.AddWithValue("@ticketType", "general");
                 insert.Parameters.AddWithValue("@ticketCost", 150);
             }
 
             if (type_textbox.Text == "Seasonal" || type_textbox.Text == "seasonal")
             {
+                insert.Parameters.AddWithValue("@ticketType", "seasonal");
                 insert.Parameters.AddWithValue("@ticketCost", 350);
             }
 
@@ -51,7 +52,7 @@ namespace rnrtp2
 
             if (IsPostBack)
             {
-                id_textbox.Text = "";
+                email_textbox.Text = "";
                 date_textbox.Text = "";
                 type_textbox.Text = "";
             }

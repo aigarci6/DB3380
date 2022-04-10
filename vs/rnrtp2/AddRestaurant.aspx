@@ -20,7 +20,7 @@
             <asp:Label ID="Label2" runat="server" Text="Name: "></asp:Label>
             <asp:TextBox ID="name_textbox" runat="server" required="required"></asp:TextBox><br />
             <br />
-            <asp:Label ID="Label3" runat="server" Text="Location: "></asp:Label>
+            <asp:Label ID="Label3" runat="server" Text="Location ID: "></asp:Label>
             <asp:TextBox ID="location_textbox" runat="server" required="required"></asp:TextBox><br />
             <br />
             <asp:Label ID="Label4" runat="server" Text="Capacity: "></asp:Label>

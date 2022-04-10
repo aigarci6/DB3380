@@ -23,7 +23,7 @@ namespace rnrtp2
             MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
 
             //location
-            MySqlCommand updateLocation = new MySqlCommand("UPDATE rides SET location = @location WHERE rideID = @id AND name = @name;", dbcon);
+            MySqlCommand updateLocation = new MySqlCommand("UPDATE rides SET r_locID = @location WHERE rideID = @id AND name = @name;", dbcon);
             if (location_textbox.Text.Length > 0)
             {
                 updateLocation.Parameters.AddWithValue("@id", id_textbox.Text);
