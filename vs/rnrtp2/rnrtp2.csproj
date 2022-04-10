@@ -127,6 +127,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddClose.aspx.cs">
+      <DependentUpon>AddClose.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddClose.aspx.designer.cs">
+      <DependentUpon>AddClose.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddCredentials.aspx.cs">
+      <DependentUpon>AddCredentials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddCredentials.aspx.designer.cs">
+      <DependentUpon>AddCredentials.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddEmployee.aspx.cs">
       <DependentUpon>AddEmployee.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -141,12 +155,12 @@
     <Compile Include="AddHotel.aspx.designer.cs">
       <DependentUpon>AddHotel.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AddMaintenance.aspx.cs">
-      <DependentUpon>AddMaintenance.aspx</DependentUpon>
+    <Compile Include="AddLocation.aspx.cs">
+      <DependentUpon>AddLocation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddMaintenance.aspx.designer.cs">
-      <DependentUpon>AddMaintenance.aspx</DependentUpon>
+    <Compile Include="AddLocation.aspx.designer.cs">
+      <DependentUpon>AddLocation.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddRestaurant.aspx.cs">
       <DependentUpon>AddRestaurant.aspx</DependentUpon>
@@ -162,12 +176,26 @@
     <Compile Include="AddRide.aspx.designer.cs">
       <DependentUpon>AddRide.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AddVisitHotel.aspx.cs">
+      <DependentUpon>AddVisitHotel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddVisitHotel.aspx.designer.cs">
+      <DependentUpon>AddVisitHotel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddVisitor.aspx.cs">
       <DependentUpon>AddVisitor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AddVisitor.aspx.designer.cs">
       <DependentUpon>AddVisitor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddVisitRestaurant.aspx.cs">
+      <DependentUpon>AddVisitRestaurant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddVisitRestaurant.aspx.designer.cs">
+      <DependentUpon>AddVisitRestaurant.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -188,6 +216,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchCredentials.aspx.cs">
+      <DependentUpon>SearchCredentials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchCredentials.aspx.designer.cs">
+      <DependentUpon>SearchCredentials.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SearchEmployee.aspx.cs">
       <DependentUpon>SearchEmployee.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -201,6 +236,13 @@
     </Compile>
     <Compile Include="SearchHotel.aspx.designer.cs">
       <DependentUpon>SearchHotel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchLocations.aspx.cs">
+      <DependentUpon>SearchLocations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchLocations.aspx.designer.cs">
+      <DependentUpon>SearchLocations.aspx</DependentUpon>
     </Compile>
     <Compile Include="SearchRestaurant.aspx.cs">
       <DependentUpon>SearchRestaurant.aspx</DependentUpon>
@@ -216,12 +258,26 @@
     <Compile Include="SearchRide.aspx.designer.cs">
       <DependentUpon>SearchRide.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SearchVisitHotel.aspx.cs">
+      <DependentUpon>SearchVisitHotel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchVisitHotel.aspx.designer.cs">
+      <DependentUpon>SearchVisitHotel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SearchVisitor.aspx.cs">
       <DependentUpon>SearchVisitor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SearchVisitor.aspx.designer.cs">
       <DependentUpon>SearchVisitor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchVisitRestaurant.aspx.cs">
+      <DependentUpon>SearchVisitRestaurant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchVisitRestaurant.aspx.designer.cs">
+      <DependentUpon>SearchVisitRestaurant.aspx</DependentUpon>
     </Compile>
     <Compile Include="TicketReport.aspx.cs">
       <DependentUpon>TicketReport.aspx</DependentUpon>
@@ -232,12 +288,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddClose.aspx" />
+    <Content Include="AddCredentials.aspx" />
     <Content Include="AddEmployee.aspx" />
     <Content Include="AddHotel.aspx" />
-    <Content Include="AddMaintenance.aspx" />
+    <Content Include="AddLocation.aspx" />
     <Content Include="AddRestaurant.aspx" />
     <Content Include="AddRide.aspx" />
+    <Content Include="AddVisitHotel.aspx" />
     <Content Include="AddVisitor.aspx" />
+    <Content Include="AddVisitRestaurant.aspx" />
     <Content Include="CCSMAIN.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -263,11 +323,15 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="SearchCredentials.aspx" />
     <Content Include="SearchEmployee.aspx" />
     <Content Include="SearchHotel.aspx" />
+    <Content Include="SearchLocations.aspx" />
     <Content Include="SearchRestaurant.aspx" />
     <Content Include="SearchRide.aspx" />
+    <Content Include="SearchVisitHotel.aspx" />
     <Content Include="SearchVisitor.aspx" />
+    <Content Include="SearchVisitRestaurant.aspx" />
     <Content Include="Theme.jpg" />
     <Content Include="TicketReport.aspx" />
     <Content Include="Web.config" />
