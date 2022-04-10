@@ -17,7 +17,7 @@
             <asp:TextBox ID="name_textbox" runat="server"></asp:TextBox><br /><br />
 
             <h2>update information</h2>
-            <asp:Label ID="Label3" runat="server" Text="Location: "></asp:Label>
+            <asp:Label ID="Label3" runat="server" Text="Location ID: "></asp:Label>
             <asp:TextBox ID="location_textbox" runat="server"></asp:TextBox><br /><br />
             <asp:Label ID="Label4" runat="server" Text="Capacity: "></asp:Label>
             <asp:TextBox ID="capacity_textbox" runat="server"></asp:TextBox><br /><br />

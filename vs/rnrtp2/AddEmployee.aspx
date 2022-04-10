@@ -18,10 +18,8 @@
             <asp:TextBox ID="gender_textbox" runat="server"></asp:TextBox><br /><br />
             <asp:Label ID="Label4" runat="server" Text="ID: "></asp:Label>
             <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox><br /><br />
-            <asp:Label ID="Label5" runat="server" Text="Job category: "></asp:Label>
-            <asp:TextBox ID="jcategory_textbox" runat="server"></asp:TextBox><br /><br />
-            <asp:Label ID="Label6" runat="server" Text="Job Description: "></asp:Label>
-            <asp:TextBox ID="jdesc_textbox" runat="server"></asp:TextBox><br /><br />
+            <asp:Label ID="Label5" runat="server" Text="Job Site Type: "></asp:Label>
+            <asp:TextBox ID="jsite_textbox" runat="server"></asp:TextBox><br /><br />
             <asp:Label ID="Label8" runat="server" Text="Job ID: "></asp:Label>
             <asp:TextBox ID="jid_textbox" runat="server"></asp:TextBox><br /><br />
             <asp:Label ID="Label7" runat="server" Text="Weekly salary: "></asp:Label>

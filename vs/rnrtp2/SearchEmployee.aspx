@@ -12,21 +12,21 @@
         <div>
             <h2>employee information</h2>
             <asp:Label ID="Label1" runat="server" Text="ID: "></asp:Label>
-            <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox><br /><br />
+            <asp:TextBox ID="sid_textbox" runat="server"></asp:TextBox><br /><br />
             <asp:Label ID="Label2" runat="server" Text="First Name: "></asp:Label>
-            <asp:TextBox ID="first_textbox" runat="server"></asp:TextBox><br /><br />
+            <asp:TextBox ID="sfirst_textbox" runat="server"></asp:TextBox><br /><br />
+            <asp:Label ID="Label10" runat="server" Text="Job Site Type: "></asp:Label>
+            <asp:TextBox ID="sjsite_textbox" runat="server"></asp:TextBox><br /><br />
 
             <h2>update information</h2>
+            <asp:Label ID="Label9" runat="server" Text="First Name: "></asp:Label>
+            <asp:TextBox ID="first_textbox" runat="server"></asp:TextBox><br /><br />
             <asp:Label ID="Label3" runat="server" Text="Last Name: "></asp:Label>
             <asp:TextBox ID="last_textbox" runat="server"></asp:TextBox><br /><br />
-            <asp:Label ID="Label4" runat="server" Text="Job Description: "></asp:Label>
-            <asp:TextBox ID="description_textbox" runat="server"></asp:TextBox><br /><br />
             <asp:Label ID="Label5" runat="server" Text="Gender: "></asp:Label>
             <asp:TextBox ID="gender_textbox" runat="server"></asp:TextBox><br /><br />
             <asp:Label ID="Label6" runat="server" Text="Weekly Salary: "></asp:Label>
             <asp:TextBox ID="salary_textbox" runat="server"></asp:TextBox><br /><br />
-            <asp:Label ID="Label7" runat="server" Text="Job Category: "></asp:Label>
-            <asp:TextBox ID="category_textbox" runat="server"></asp:TextBox><br /><br />
             <asp:Label ID="Label8" runat="server" Text="Job ID: "></asp:Label>
             <asp:TextBox ID="jid_textbox" runat="server"></asp:TextBox><br /><br />
 

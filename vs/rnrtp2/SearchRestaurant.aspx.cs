@@ -31,15 +31,6 @@ namespace rnrtp2
                 updateLocation.Parameters.AddWithValue("@location", location_textbox.Text);
             }
 
-            //numVisitors
-            MySqlCommand updateVisitors = new MySqlCommand("UPDATE restaurant SET numVisitors = @visitors WHERE restaurantID = @id AND name = @name;", dbcon);
-            if (visitors_textbox.Text.Length > 0)
-            {
-                updateVisitors.Parameters.AddWithValue("@id", id_textbox.Text);
-                updateVisitors.Parameters.AddWithValue("@name", name_textbox.Text);
-                updateVisitors.Parameters.AddWithValue("@visitors", visitors_textbox.Text);
-            }
-
             //capacity
             MySqlCommand updateCapacity = new MySqlCommand("UPDATE restaurant SET capacity = @capacity WHERE restaurantID = @id AND name = @name;", dbcon);
             if (capacity_textbox.Text.Length > 0)
@@ -54,10 +45,6 @@ namespace rnrtp2
             {
                 updateLocation.ExecuteNonQuery();
             }
-            if (visitors_textbox.Text.Length > 0)
-            {
-                updateVisitors.ExecuteNonQuery();
-            }
             if (capacity_textbox.Text.Length > 0)
             {
                 updateCapacity.ExecuteNonQuery();
@@ -69,7 +56,6 @@ namespace rnrtp2
                 id_textbox.Text = "";
                 name_textbox.Text = "";
                 location_textbox.Text = "";
-                visitors_textbox.Text = "";
                 capacity_textbox.Text = "";
             }
         }

@@ -22,125 +22,138 @@ namespace rnrtp2
         {
             MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
 
+            //first name
+            MySqlCommand updateFirst = new MySqlCommand("UPDATE staff SET firstName = @first WHERE employeeID = @id AND firstName = @sfirst;", dbcon);
+            if (last_textbox.Text.Length > 0)
+            {
+                updateFirst.Parameters.AddWithValue("@id", sid_textbox.Text);
+                updateFirst.Parameters.AddWithValue("@first", sfirst_textbox.Text);
+                updateFirst.Parameters.AddWithValue("@first", first_textbox.Text);
+            }
+
             //last name
             MySqlCommand updateLast = new MySqlCommand("UPDATE staff SET lastName = @last WHERE employeeID = @id AND firstName = @first;", dbcon);
             if (last_textbox.Text.Length > 0)
             {
-                updateLast.Parameters.AddWithValue("@id", id_textbox.Text);
-                updateLast.Parameters.AddWithValue("@first", first_textbox.Text);
+                updateLast.Parameters.AddWithValue("@id", sid_textbox.Text);
+                updateLast.Parameters.AddWithValue("@first", sfirst_textbox.Text);
                 updateLast.Parameters.AddWithValue("@last", last_textbox.Text);
-            }
-
-            //job description
-            MySqlCommand updateDesc = new MySqlCommand("UPDATE staff SET jobDescription = @desc WHERE employeeID = @id AND firstName = @first;", dbcon);
-            if (description_textbox.Text.Length > 0)
-            {
-                updateDesc.Parameters.AddWithValue("@id", id_textbox.Text);
-                updateDesc.Parameters.AddWithValue("@first", first_textbox.Text);
-                updateDesc.Parameters.AddWithValue("@desc", description_textbox.Text);
             }
 
             //gender
             MySqlCommand updateGender = new MySqlCommand("UPDATE staff SET gender = @gender WHERE employeeID = @id AND firstName = @first;", dbcon);
             if (gender_textbox.Text.Length > 0)
             {
-                updateGender.Parameters.AddWithValue("@id", id_textbox.Text);
-                updateGender.Parameters.AddWithValue("@first", first_textbox.Text);
+                updateGender.Parameters.AddWithValue("@id", sid_textbox.Text);
+                updateGender.Parameters.AddWithValue("@first", sfirst_textbox.Text);
                 updateGender.Parameters.AddWithValue("@gender", gender_textbox.Text);
             }
 
-            //weekly salary
-            MySqlCommand updateSalary = new MySqlCommand("UPDATE staff SET weeklySalary = @salary WHERE employeeID = @id AND firstName = @first;", dbcon);
-            if (salary_textbox.Text.Length > 0)
+            //salary
+            //hotel
+            MySqlCommand updateHSalary = new MySqlCommand("UPDATE works_hotel SET staffPayroll = @salary WHERE staID = @id;", dbcon); ;
+            if (sjsite_textbox.Text.ToLower() == "hotel" && salary_textbox.Text.Length > 0)
             {
-                updateSalary.Parameters.AddWithValue("@id", id_textbox.Text);
-                updateSalary.Parameters.AddWithValue("@first", first_textbox.Text);
-                updateSalary.Parameters.AddWithValue("@salary", salary_textbox.Text);
+                updateHSalary.Parameters.AddWithValue("@id", sid_textbox.Text);
+                updateHSalary.Parameters.AddWithValue("@salary", salary_textbox.Text);
+
             }
 
-            //job category
-            MySqlCommand updateJob = new MySqlCommand("UPDATE staff SET jobCategory = @category, maintainsRide = @maintain, workAtRide = @ride, workAtRestaurant = @restaurant, workAtHotel = @hotel WHERE employeeID = @id AND firstName = @first;", dbcon);
-            if (category_textbox.Text.Length > 0)
+            //restaurant
+            MySqlCommand updateRestSalary = new MySqlCommand("UPDATE works_restaurant SET staffPayroll = @salary WHERE staID = @id;", dbcon);
+            if (sjsite_textbox.Text.ToLower() == "restaurant" && salary_textbox.Text.Length > 0)
             {
-                updateJob.Parameters.AddWithValue("@id", id_textbox.Text);
-                updateJob.Parameters.AddWithValue("@first", first_textbox.Text);
-                updateJob.Parameters.AddWithValue("@category", category_textbox.Text);
+                updateRestSalary.Parameters.AddWithValue("@id", sid_textbox.Text);
+                updateRestSalary.Parameters.AddWithValue("@salary", salary_textbox.Text);
             }
 
-            //job id
-            if (category_textbox.Text == "maintenance")
+            //ride
+            MySqlCommand updateRSalary = new MySqlCommand("UPDATE works_ride SET staffPayroll = @salary WHERE staID = @id;", dbcon);
+            if (sjsite_textbox.Text.ToLower() == "ride" && salary_textbox.Text.Length > 0)
             {
-                updateJob.Parameters.AddWithValue("@maintain", jid_textbox.Text);
+                updateRSalary.Parameters.AddWithValue("@id", sid_textbox.Text);
+                updateRSalary.Parameters.AddWithValue("@salary", salary_textbox.Text);
             }
 
-            else
+            //jid
+            //hotel
+            MySqlCommand updateHID = new MySqlCommand("UPDATE works_hotel SET hotID = @jid WHERE staID = @id;", dbcon);
+            if (sjsite_textbox.Text.ToLower() == "hotel" && jid_textbox.Text.Length > 0)
             {
-                updateJob.Parameters.AddWithValue("@maintain", null);
+                updateHID.Parameters.AddWithValue("@id", sid_textbox.Text);
+                updateHID.Parameters.AddWithValue("@jid", jid_textbox.Text);
             }
 
-            if (category_textbox.Text == "ride")
+            //restaurant
+            MySqlCommand updateRestID = new MySqlCommand("UPDATE works_restaurant SET restID = @jid WHERE staID = @id;", dbcon);
+            if (sjsite_textbox.Text.ToLower() == "restaurant" && jid_textbox.Text.Length > 0)
             {
-                updateJob.Parameters.AddWithValue("@ride", jid_textbox.Text);
+                updateRestID.Parameters.AddWithValue("@id", sid_textbox.Text);
+                updateRestID.Parameters.AddWithValue("@jid", jid_textbox.Text);
             }
 
-            else
+            //ride
+            MySqlCommand updateRID = new MySqlCommand("UPDATE works_ride SET rID = @jid WHERE staID = @id;", dbcon);
+            if (sjsite_textbox.Text.ToLower() == "ride" && jid_textbox.Text.Length > 0)
             {
-                updateJob.Parameters.AddWithValue("@ride", null);
+                updateRID.Parameters.AddWithValue("@id", sid_textbox.Text);
+                updateRID.Parameters.AddWithValue("@jid", jid_textbox.Text);
             }
 
-            if (category_textbox.Text == "restaurant")
-            {
-                updateJob.Parameters.AddWithValue("@restaurant", jid_textbox.Text);
-            }
-
-            else
-            {
-                updateJob.Parameters.AddWithValue("@restaurant", null);
-            }
-
-            if (category_textbox.Text == "hotel")
-            {
-                updateJob.Parameters.AddWithValue("@hotel", jid_textbox.Text);
-            }
-
-            else
-            {
-                updateJob.Parameters.AddWithValue("@hotel", null);
-            }
 
             dbcon.Open();
+            if (first_textbox.Text.Length > 0)
+            {
+                updateFirst.ExecuteNonQuery();
+            }
             if (last_textbox.Text.Length > 0)
             {
                 updateLast.ExecuteNonQuery();
-            }
-            if (description_textbox.Text.Length > 0)
-            {
-                updateDesc.ExecuteNonQuery();
             }
             if (gender_textbox.Text.Length > 0)
             {
                 updateGender.ExecuteNonQuery();
             }
-            if (salary_textbox.Text.Length > 0)
+
+            //salary
+            if (sjsite_textbox.Text.ToLower() == "hotel" && salary_textbox.Text.Length > 0)
             {
-                updateSalary.ExecuteNonQuery();
+                updateHSalary.ExecuteNonQuery();
             }
-            if (category_textbox.Text.Length > 0)
+            if (sjsite_textbox.Text.ToLower() == "restaurant" && salary_textbox.Text.Length > 0)
             {
-                updateJob.ExecuteNonQuery();
+                updateRestSalary.ExecuteNonQuery();
+            }
+            if (sjsite_textbox.Text.ToLower() == "ride" && salary_textbox.Text.Length > 0)
+            {
+                updateRSalary.ExecuteNonQuery();
+            }
+
+            //job id
+            if (sjsite_textbox.Text.ToLower() == "hotel" && jid_textbox.Text.Length > 0)
+            {
+                updateHID.ExecuteNonQuery();
+            }
+            if (sjsite_textbox.Text.ToLower() == "restaurant" && jid_textbox.Text.Length > 0)
+            {
+                updateRestID.ExecuteNonQuery();
+            }
+            if (sjsite_textbox.Text.ToLower() == "ride" && jid_textbox.Text.Length > 0)
+            {
+                updateRID.ExecuteNonQuery();
             }
 
             dbcon.Close();
 
             if (IsPostBack)
             {
-                id_textbox.Text = "";
+                sid_textbox.Text = "";
+                sfirst_textbox.Text = "";
+                sjsite_textbox.Text = "";
                 first_textbox.Text = "";
                 last_textbox.Text = "";
-                description_textbox.Text = "";
                 gender_textbox.Text = "";
                 salary_textbox.Text = "";
-                category_textbox.Text = "";
                 jid_textbox.Text = "";
             }
         }

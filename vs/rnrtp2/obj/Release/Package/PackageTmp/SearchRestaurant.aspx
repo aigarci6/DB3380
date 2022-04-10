@@ -19,8 +19,6 @@
             <h2>update information</h2>
             <asp:Label ID="Label3" runat="server" Text="Location ID: "></asp:Label>
             <asp:TextBox ID="location_textbox" runat="server"></asp:TextBox><br /><br />
-            <asp:Label ID="Label4" runat="server" Text="Number of Visitors: "></asp:Label>
-            <asp:TextBox ID="visitors_textbox" runat="server"></asp:TextBox><br /><br />
             <asp:Label ID="Label5" runat="server" Text="Capacity: "></asp:Label>
             <asp:TextBox ID="capacity_textbox" runat="server"></asp:TextBox><br /><br />
 
