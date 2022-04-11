@@ -24,30 +24,35 @@ namespace rnrtp2
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Label1 control.
+        /// date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl date;
 
         /// <summary>
-        /// date_textbox control.
+        /// ticket control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox date_textbox;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ticket;
 
         /// <summary>
+<<<<<<< Updated upstream
         /// Label5 control.
+=======
+        /// email control.
+>>>>>>> Stashed changes
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< Updated upstream
         protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
@@ -76,6 +81,9 @@ namespace rnrtp2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox email_textbox;
+=======
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl email;
+>>>>>>> Stashed changes
 
         /// <summary>
         /// Button1 control.
