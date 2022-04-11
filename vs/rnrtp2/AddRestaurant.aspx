@@ -14,20 +14,21 @@
     <div class="widget">
         <h1 class="row">Add Restaurant</h1>
         <form id="form1" runat="server">
-            <asp:Label ID="Label1" runat="server" Text="ID: "></asp:Label>
-            <asp:TextBox ID="id_textbox" runat="server" required="required"></asp:TextBox><br />
-            <br />
-            <asp:Label ID="Label2" runat="server" Text="Name: "></asp:Label>
-            <asp:TextBox ID="name_textbox" runat="server" required="required"></asp:TextBox><br />
-            <br />
-            <asp:Label ID="Label3" runat="server" Text="Location ID: "></asp:Label>
-            <asp:TextBox ID="location_textbox" runat="server" required="required"></asp:TextBox><br />
-            <br />
-            <asp:Label ID="Label4" runat="server" Text="Capacity: "></asp:Label>
-            <asp:TextBox ID="capacity_textbox" runat="server" required="required"></asp:TextBox><br />
-            <br />
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
-
+            <fieldset>
+                <asp:Label ID="Label1" runat="server" Text="ID: "></asp:Label>
+                <asp:TextBox ID="id_textbox" runat="server" required="required"></asp:TextBox><br />
+                <br />
+                <asp:Label ID="Label2" runat="server" Text="Name: "></asp:Label>
+                <asp:TextBox ID="name_textbox" runat="server" required="required"></asp:TextBox><br />
+                <br />
+                <asp:Label ID="Label3" runat="server" Text="Location ID: "></asp:Label>
+                <asp:TextBox ID="location_textbox" runat="server" required="required"></asp:TextBox><br />
+                <br />
+                <asp:Label ID="Label4" runat="server" Text="Capacity: "></asp:Label>
+                <asp:TextBox ID="capacity_textbox" runat="server" required="required"></asp:TextBox><br />
+                <br />
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
+            </fieldset>
         </form>
     </div>
 </body>

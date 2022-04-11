@@ -78,10 +78,15 @@
     text-align: center;
 }
 
+
+
 fieldset {
-    background-color: rgb(0,0,0,0.5);
-    width: 760px;
-    margin: auto;
-    padding: 50px;
-    text-align: center;
+    display: inline-block;
+    padding: 4px 150px;
+    text-align: right;
+    width: 300px;
+    vertical-align: top;
+    background-color: rgb(0,0,0,0.8);
+
+    
 }
