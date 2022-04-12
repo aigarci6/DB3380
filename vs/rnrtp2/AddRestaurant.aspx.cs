@@ -21,11 +21,21 @@ namespace rnrtp2
         protected void Button1_Click(object sender, EventArgs e)
         {
             MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
-            MySqlCommand insert = new MySqlCommand("CALL InsertRestaurant(@restaurantID, @name, @restlocID, @capacity);", dbcon);
+            MySqlCommand insert = new MySqlCommand("CALL InsertRestaurant(@restaurantID, @name, @restlocID, @capacity, @exp);", dbcon);
             insert.Parameters.AddWithValue("@restaurantID", id_textbox.Text);
             insert.Parameters.AddWithValue("@name", name_textbox.Text);
             insert.Parameters.AddWithValue("@restlocID", location_textbox.Text);
             insert.Parameters.AddWithValue("@capacity", capacity_textbox.Text);
+
+            if (exp_textbox.Text.Length > 0)
+            {
+                insert.Parameters.AddWithValue("@exp", exp_textbox.Text);
+            }
+
+            else
+            {
+                insert.Parameters.AddWithValue("@exp", 0);
+            }
 
             dbcon.Open();
             insert.ExecuteNonQuery();
