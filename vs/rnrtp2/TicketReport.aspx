@@ -9,7 +9,14 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <center><h1>Daily Ticket Totals Report For <% Response.Write(getDate()); %></h1>
+            <center>
+            <asp:Label ID="Label5" runat="server" Text="DATE (yyyy-mm-dd): "></asp:Label>
+            <asp:TextBox ID="date_textbox" runat="server"></asp:TextBox>
+            <asp:Label ID="Label1" runat="server" Text="TO DATE (yyyy-mm-dd): "></asp:Label>
+            <asp:TextBox ID="date2_textbox" runat="server"></asp:TextBox>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
+            <p>
+            <h1><% Response.Write(getDate()); %></h1>
             <h2>Cumulative Totals</h2>
             <table width="50%" align="center" cellpadding="2" cellspacing="2" border="0" bgcolor="#EAEAEA">
             <tr align="left" style="background-color: #004080; color: White;">
@@ -20,10 +27,12 @@
 
                 <% Response.Write(genTotals()); %>
             </table>
-
-            <h2>Today's Ticket Sales</h2>
+                </p>
+            <p>
+            <h2>Day's Ticket Sales</h2>
             <table width="50%" align="center" cellpadding="2" cellspacing="2" border="0" bgcolor="#EAEAEA">
             <tr align="left" style="background-color: #004080; color: White;">
+                <td> date </td>
                 <td> ticket id </td>
                 <td> ticket type </td>
                 <td> ticket cost </td>
@@ -32,6 +41,7 @@
 
                 <% Response.Write(currTotals()); %>
             </table>
+                </p>
             </center>
 
         </div>
