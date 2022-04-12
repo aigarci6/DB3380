@@ -303,12 +303,15 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Entrance.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Site.css" />
     <Content Include="hotel.jpg" />
     <Content Include="Index.aspx" />
+    <Content Include="Location.jpg" />
     <Content Include="Login.aspx" />
+    <Content Include="Rides.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\rocknrollthemepark - Web Deploy.pubxml" />
@@ -332,6 +335,7 @@
     <Content Include="SearchVisitHotel.aspx" />
     <Content Include="SearchVisitor.aspx" />
     <Content Include="SearchVisitRestaurant.aspx" />
+    <Content Include="Staff.jpg" />
     <Content Include="Theme.jpg" />
     <Content Include="TicketReport.aspx" />
     <Content Include="Web.config" />
