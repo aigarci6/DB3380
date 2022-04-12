@@ -118,8 +118,6 @@ namespace rnrtp2
             seasTickets.Parameters.AddWithValue("@date", date);
             seasTickets.Parameters.AddWithValue("@date2", date2);
 
-
-
             string htmlStr = "";
 
             dbcon.Open();
