@@ -54,7 +54,29 @@
     background-size: cover;
     text-align: center;
     color: white;
-    padding-top: 5%;
+    padding-top: 10%;
+    font-size: 23px;
+    color: white;
+}
+
+#AddVisitRestaurant {
+    background-image: url("VisitRest.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    color: white;
+    padding-top: 10%;
+    font-size: 23px;
+    color: white;
+}
+
+#Visitor {
+    background-image: url("Visitor.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    color: white;
+    padding-top: 10%;
     font-size: 23px;
     color: white;
 }
@@ -69,6 +91,25 @@
     color: white;
 }
 
+#SearchEmployee {
+    background-image: url("SearchEmployee.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding-top: 10%;
+    font-size: 23px;
+    color: white;
+}
+
+#SearchHotel {
+    background-image: url("SearchHotel.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding-top: 10%;
+    font-size: 23px;
+    color: white;
+}
 
 #mainNav {
     background: rgb(0, 0, 0);
@@ -121,13 +162,15 @@
 
 fieldset {
     display: inline-block;
+    border-block-color:white;
+    border-spacing:2px;
     padding-right: 125px;
     padding-top: 30px;
     text-align: right;
-    width: 375px;
+    width: 390px;
     vertical-align: top;
     background-color: rgb(0,0,0,0.8);
-    font-size: 18px;
+    font-size: 20px;
 }
 
 #mainNav1 {
@@ -167,3 +210,11 @@ fieldset1 {
     padding-bottom:25px;
 }
 
+#box1{
+    padding-top:50px;
+}
+
+fieldset3 {
+    align-content:center;
+    align-items:center;
+}

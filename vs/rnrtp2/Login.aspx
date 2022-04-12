@@ -26,7 +26,7 @@
                 <tr>
                    
                     
-                    <td><asp:Button ID="Button1" runat="server" Text="Login" ForeColor="White" Font-Size:15 BackColor="#00bb00" Height="30" OnClick="Button1_Click" Width="200"  /></td>
+                    <td><asp:Button ID="Button1" runat="server" Text="Login" ForeColor="White" Font-Size:15 BackColor="#00bb00"  Height="30" OnClick="Button1_Click" Width="200"  /></td>
                 </tr>
                 </fieldset2>
                 </fieldset1>
