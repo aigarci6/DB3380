@@ -1,4 +1,7 @@
-﻿
+﻿.table {
+    font-size: 0.9em;
+    width: 100%;
+}
 #visitor {
     background-image: url("https://images.unsplash.com/photo-1561424412-6c2125ecb1cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
     background-size: cover;

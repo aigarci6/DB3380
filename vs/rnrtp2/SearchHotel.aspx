@@ -27,7 +27,7 @@
             </select>
             <asp:TextBox ID="field_textbox" runat="server"></asp:TextBox><br />
             <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search" />
-            <table width="50%" align="center" cellpadding="2" cellspacing="2" border="0" bgcolor="#EAEAEA">
+            <table width="50%" align="center" cellpadding="2" cellspacing="2" border="0" bgcolor="#000" class="table">
             <tr align="left" style="background-color: #004080; color: White;">
                 <td> hotel id </td>
                 <td> name </td>

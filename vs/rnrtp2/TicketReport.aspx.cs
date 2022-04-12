@@ -43,7 +43,7 @@ namespace rnrtp2
             seasReader.Read();
             int stotalNum = seasReader.GetInt32(0);
             int ssum = seasReader.GetInt32(1);
-            htmlStr += "<tr><td>" + "general" + "</td><td>" + stotalNum + "</td><td> $" + ssum + "</td></tr>";
+            htmlStr += "<tr><td>" + "seasonal" + "</td><td>" + stotalNum + "</td><td> $" + ssum + "</td></tr>";
             seasReader.Close();
 
             int totalNum = gtotalNum + stotalNum;
