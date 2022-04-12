@@ -13,12 +13,42 @@
         <div>
             
             <fieldset>
+            <!-- SEARCH -->
+            <h1>Search By:</h1>
+            <select name="search" style="width:120px;" id="search" runat="server">
+                <option value="none"> </option>
+                <option value="id">ID</option>
+                <option value="first">First Name</option>
+                <option value="last">Last Name</option>
+                <option value="gender">Gender</option>
+                <option value="sal_more">Salary: More Than</option>
+                <option value="sal_less">Salary: Less Than</option>
+                <option value="category">Job Category</option>
+            </select>
+            <asp:TextBox ID="field_textbox" runat="server"></asp:TextBox><br />
+            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search" />
+            <table width="50%" align="center" cellpadding="2" cellspacing="2" border="0" bgcolor="#EAEAEA">
+            <tr align="left" style="background-color: #004080; color: White;">
+                <td> employee id </td>
+                <td> first name </td>
+                <td> last name </td>
+                <td> gender </td>
+                <td> weekly salary </td>
+                <td> job category </td>
+                <td> job id </td>
+                </tr>
+
+                <% Response.Write(getData()); %>
+            </table>
+            <br />
+
+            <!-- UPDATE -->
                 <h2>Employee information</h2>
                 <asp:Label ID="Label1" runat="server" Text="ID: "></asp:Label>
                 <asp:TextBox ID="sid_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Label ID="Label2" runat="server" Text="First Name: "></asp:Label>
                 <asp:TextBox ID="sfirst_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label10" runat="server" Text="Job Site Type: "></asp:Label>
+                <asp:Label ID="Label10" runat="server" Text="Job Category: "></asp:Label>
                 <asp:TextBox ID="sjsite_textbox" runat="server"></asp:TextBox><br /><br />
 
             <h2>Update information</h2>

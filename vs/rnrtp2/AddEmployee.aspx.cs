@@ -20,39 +20,37 @@ namespace rnrtp2
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
-            MySqlCommand insert = new MySqlCommand("CALL InsertStaff(@employeeID, @firstName, @lastName, @gender);", dbcon);
+            MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred; Allow User Variables=True;");
+            MySqlCommand insert = new MySqlCommand("CALL InsertStaff(@employeeID, @firstName, @lastName, @gender, @salary, @category);", dbcon);
             insert.Parameters.AddWithValue("@employeeID", id_textbox.Text);
             insert.Parameters.AddWithValue("@firstName", first_textbox.Text);
             insert.Parameters.AddWithValue("@lastName", last_textbox.Text);
             insert.Parameters.AddWithValue("@gender", gender_textbox.Text);
-
+            insert.Parameters.AddWithValue("@salary", salary_textbox.Text);
+            insert.Parameters.AddWithValue("@category", jsite_textbox.Text);
 
             //works_hotel
-            MySqlCommand insertWorkHotel = new MySqlCommand("INSERT INTO works_hotel (staID, hotID, staffPayroll) VALUES (@staID, @hotID, @staffPayroll);", dbcon);
+            MySqlCommand insertWorkHotel = new MySqlCommand("INSERT INTO works_hotel (staID, hotID) VALUES (@staID, @hotID);", dbcon);
             if (jsite_textbox.Text.ToLower() == "hotel")
             {
-                insert.Parameters.AddWithValue("@staID", id_textbox.Text);
-                insert.Parameters.AddWithValue("@hotID", jid_textbox.Text);
-                insert.Parameters.AddWithValue("@staffPayroll", salary_textbox.Text);
+                insertWorkHotel.Parameters.AddWithValue("@staID", id_textbox.Text);
+                insertWorkHotel.Parameters.AddWithValue("@hotID", jid_textbox.Text);
             }
 
             //works_restaurant
-            MySqlCommand insertWorkRestaurant = new MySqlCommand("INSERT INTO works_restaurant (staID, restID, staffPayroll) VALUES (@staID, @restID, @staffPayroll);", dbcon);
+            MySqlCommand insertWorkRestaurant = new MySqlCommand("INSERT INTO works_restaurant (staID, restID) VALUES (@staID, @restID);", dbcon);
             if (jsite_textbox.Text.ToLower() == "restaurant")
             {
-                insert.Parameters.AddWithValue("@staID", id_textbox.Text);
-                insert.Parameters.AddWithValue("@restID", jid_textbox.Text);
-                insert.Parameters.AddWithValue("@staffPayroll", salary_textbox.Text);
+                insertWorkRestaurant.Parameters.AddWithValue("@staID", id_textbox.Text);
+                insertWorkRestaurant.Parameters.AddWithValue("@restID", jid_textbox.Text);
             }
 
-            MySqlCommand insertWorkRide = new MySqlCommand("INSERT INTO works_ride (staID, rID, staffPayroll) VALUES (@staID, @rID, @staffPayroll);", dbcon);
+            MySqlCommand insertWorkRide = new MySqlCommand("INSERT INTO works_ride (staID, rID) VALUES (@staID, @rID);", dbcon);
             //works_ride
             if (jsite_textbox.Text.ToLower() == "ride")
             {
-                insert.Parameters.AddWithValue("@staID", id_textbox.Text);
-                insert.Parameters.AddWithValue("@rID", jid_textbox.Text);
-                insert.Parameters.AddWithValue("@staffPayroll", salary_textbox.Text);
+                insertWorkRide.Parameters.AddWithValue("@staID", id_textbox.Text);
+                insertWorkRide.Parameters.AddWithValue("@rID", jid_textbox.Text);
             }
 
             dbcon.Open();
