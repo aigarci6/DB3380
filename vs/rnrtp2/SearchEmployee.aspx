@@ -11,8 +11,9 @@
     <h1>Employee search </h1>
     <form id="form1" runat="server">
         <div>
-            <h2>Employee information</h2>
+            
             <fieldset>
+                <h2>Employee information</h2>
                 <asp:Label ID="Label1" runat="server" Text="ID: "></asp:Label>
                 <asp:TextBox ID="sid_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Label ID="Label2" runat="server" Text="First Name: "></asp:Label>

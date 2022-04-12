@@ -8,17 +8,18 @@
     <title></title>
 </head>
 <body id="SearchHotel">
-    <h1>update hotel info (will be a search page &amp; offer either update or delete)</h1>
+    <h1>Update hotel info (will be a search page &amp; offer either update or delete)</h1>
     <form id="form1" runat="server">
         <div>
-            <h2>hotel information</h2>
+            
             <fieldset>
+                <h2>Hotel information</h2>
                 <asp:Label ID="Label1" runat="server" Text="ID: "></asp:Label>
                 <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Label ID="Label2" runat="server" Text="Name: "></asp:Label>
                 <asp:TextBox ID="name_textbox" runat="server"></asp:TextBox><br /><br />
             
-                <h2>update information</h2>
+                <h2>Update information</h2>
                 <asp:Label ID="Label3" runat="server" Text="Location ID: "></asp:Label>
                 <asp:TextBox ID="location_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Label ID="Label5" runat="server" Text="Capacity: "></asp:Label>

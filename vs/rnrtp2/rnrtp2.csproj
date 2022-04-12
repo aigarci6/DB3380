@@ -332,9 +332,12 @@
     <Content Include="SearchEmployee.jpg" />
     <Content Include="SearchHotel.aspx" />
     <Content Include="SearchHotel.jpg" />
+    <Content Include="SearchLocation.jpg" />
     <Content Include="SearchLocations.aspx" />
     <Content Include="SearchRestaurant.aspx" />
+    <Content Include="SearchRestaurant.jpg" />
     <Content Include="SearchRide.aspx" />
+    <Content Include="SearchRides.png" />
     <Content Include="SearchVisitHotel.aspx" />
     <Content Include="SearchVisitor.aspx" />
     <Content Include="SearchVisitRestaurant.aspx" />
