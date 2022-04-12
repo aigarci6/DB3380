@@ -43,7 +43,7 @@
             <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="/AddRide.aspx">Add a new ride</asp:HyperLink><br /><br />
             <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="/AddVisitor.aspx">Add a new visitor</asp:HyperLink><br /><br />
             <asp:HyperLink ID="HyperLink10" runat="server" NavigateUrl="/AddVisitHotel.aspx">Add a new hotel visitor</asp:HyperLink><br /><br />
-            <asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="/AddVisitRestauraunt.aspx">Add a new restaurant visitor</asp:HyperLink><br /><br />
+            <asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="/AddVisitRestaurant.aspx">Add a new restaurant visitor</asp:HyperLink><br /><br />
 
             <h3>update (will be search -> update & delete operations)</h3>
             <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="/SearchHotel.aspx">Search hotel</asp:HyperLink><br /><br />
