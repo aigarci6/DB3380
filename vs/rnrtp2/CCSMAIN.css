@@ -134,3 +134,36 @@ fieldset {
     background:rgb(255 216 0);
     width:300px;
 }
+
+fieldset1 {
+    display: inline-block;
+    
+    
+    text-align: right;
+    vertical-align: top;
+    background-color:white;
+    font-size: 18px;
+    text-align: center;
+    border:double;
+    border-block-color:black;
+}
+
+#Login {
+    background-image: url("Login.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    text-align: center;
+    color: white;
+    padding-top:15%;
+    font-size: 23px;
+    color: white;
+}
+
+#Table{
+    
+    align-content:center;
+    font-size:30px;
+    padding:30px;
+    padding-bottom:25px;
+}
+

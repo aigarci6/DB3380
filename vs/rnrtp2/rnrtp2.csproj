@@ -311,6 +311,7 @@
     <Content Include="Index.aspx" />
     <Content Include="Location.jpg" />
     <Content Include="Login.aspx" />
+    <Content Include="Login.jpg" />
     <Content Include="Rides.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
