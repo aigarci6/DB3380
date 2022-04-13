@@ -16,6 +16,16 @@ namespace rnrtp2
             {
                 Response.Write("<script>alert('Inserted successfully!')</script>");
             }
+
+            DateTime now = DateTime.Now;
+
+            string hour = now.Hour.ToString();
+            string minute = now.Minute.ToString();
+            string second = now.Second.ToString();
+
+            date_textbox.Text = now.Date.ToString("yyyy-MM-dd");
+            time_textbox.Text = hour + ":" + minute + ":" + second;
+            
         }
 
         protected void Button1_Click(object sender, EventArgs e)

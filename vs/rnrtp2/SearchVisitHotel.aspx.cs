@@ -27,7 +27,7 @@ namespace rnrtp2
             if (spent_textbox.Text.Length > 0)
             {
                 updateSpending.Parameters.AddWithValue("@tickIDh", id_textbox.Text);
-                updateSpending.Parameters.AddWithValue("@tickIDh", hid_textbox.Text);
+                updateSpending.Parameters.AddWithValue("@hotID", hid_textbox.Text);
                 updateSpending.Parameters.AddWithValue("@amountSpent", spent_textbox.Text);
             }
 
@@ -36,7 +36,7 @@ namespace rnrtp2
             if (spent_textbox.Text.Length > 0)
             {
                 updateDays.Parameters.AddWithValue("@tickIDh", id_textbox.Text);
-                updateDays.Parameters.AddWithValue("@tickIDh", hid_textbox.Text);
+                updateDays.Parameters.AddWithValue("@hotID", hid_textbox.Text);
                 updateDays.Parameters.AddWithValue("@daysStayed", days_textbox.Text);
             }
 
@@ -45,7 +45,7 @@ namespace rnrtp2
             if (spent_textbox.Text.Length > 0)
             {
                 updateRoom.Parameters.AddWithValue("@tickIDh", id_textbox.Text);
-                updateRoom.Parameters.AddWithValue("@tickIDh", hid_textbox.Text);
+                updateRoom.Parameters.AddWithValue("@hotID", hid_textbox.Text);
                 updateRoom.Parameters.AddWithValue("@roomNumber", room_textbox.Text);
             }
 

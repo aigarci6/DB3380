@@ -343,10 +343,10 @@ namespace rnrtp2
 
                 //first name
                 MySqlCommand updateFirst = new MySqlCommand("UPDATE staff SET firstName = @first WHERE employeeID = @id AND firstName = @sfirst;", dbcon);
-                if (last_textbox.Text.Length > 0)
+                if (first_textbox.Text.Length > 0)
                 {
                     updateFirst.Parameters.AddWithValue("@id", sid_textbox.Text);
-                    updateFirst.Parameters.AddWithValue("@first", sfirst_textbox.Text);
+                    updateFirst.Parameters.AddWithValue("@sfirst", sfirst_textbox.Text);
                     updateFirst.Parameters.AddWithValue("@first", first_textbox.Text);
                 }
 
@@ -361,7 +361,7 @@ namespace rnrtp2
 
                 //gender
                 MySqlCommand updateGender = new MySqlCommand("UPDATE staff SET gender = @gender WHERE employeeID = @id AND firstName = @first;", dbcon);
-                if (gender_textbox.Text.Length > 0)
+                if (gender_textbox.Text.Length == 1)
                 {
                     updateGender.Parameters.AddWithValue("@id", sid_textbox.Text);
                     updateGender.Parameters.AddWithValue("@first", sfirst_textbox.Text);
@@ -369,7 +369,7 @@ namespace rnrtp2
                 }
 
                 //salary
-                MySqlCommand updateSalary = new MySqlCommand("UPDATE staff SET weeklySalary = @salary WHERE employeeID = @id AND firstName = @sfirst;", dbcon); ;
+                MySqlCommand updateSalary = new MySqlCommand("UPDATE staff SET weeklySalary = @salary WHERE employeeID = @id AND firstName = @first;", dbcon); ;
                 if (sjsite_textbox.Text.ToLower() == "hotel" && salary_textbox.Text.Length > 0)
                 {
                     updateSalary.Parameters.AddWithValue("@id", sid_textbox.Text);
@@ -413,7 +413,7 @@ namespace rnrtp2
                 {
                     updateLast.ExecuteNonQuery();
                 }
-                if (gender_textbox.Text.Length > 0)
+                if (gender_textbox.Text.Length == 1)
                 {
                     updateGender.ExecuteNonQuery();
                 }
