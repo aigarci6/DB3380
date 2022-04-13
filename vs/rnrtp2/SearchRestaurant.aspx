@@ -23,7 +23,8 @@
                 <option value="capacity_less">Capacity Less Than</option>
             </select>
             <asp:TextBox ID="field_textbox" runat="server"></asp:TextBox><br />
-            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search" />
+            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search" /><br />
+                <asp:CheckBox ID="archived" runat="server" Text ="include archived"/>
             <table width="50%" align="center" cellpadding="2" cellspacing="2" border="0" bgcolor="#000" class="table">
             <tr align="left" style="background-color: #004080; color: White;">
                 <td> restaurant id </td>

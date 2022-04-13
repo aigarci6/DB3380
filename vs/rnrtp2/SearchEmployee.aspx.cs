@@ -33,9 +33,19 @@ namespace rnrtp2
             //auto (all)
             if (search.Value == "none")
             {
-                MySqlCommand search = new MySqlCommand("SELECT employeeID, firstName, lastName, gender, weeklySalary, IFNULL(jobCategory, @autocategory), IFNULL(restID, @autoid), IFNULL(hotID, @autoid), IFNULL(rID, @autoid) FROM staff LEFT OUTER JOIN works_restaurant ON employeeID = works_restaurant.staID LEFT OUTER JOIN works_hotel ON employeeID = works_hotel.staID LEFT OUTER JOIN works_ride ON employeeID = works_ride.staID ORDER BY employeeID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT employeeID, firstName, lastName, gender, weeklySalary, IFNULL(jobCategory, @autocategory), IFNULL(restID, @autoid), IFNULL(hotID, @autoid), IFNULL(rID, @autoid) FROM staff LEFT OUTER JOIN works_restaurant ON employeeID = works_restaurant.staID LEFT OUTER JOIN works_hotel ON employeeID = works_hotel.staID LEFT OUTER JOIN works_ride ON employeeID = works_ride.staID WHERE staff.archived <= @archived ORDER BY employeeID ASC;", dbcon);
                 search.Parameters.AddWithValue("@autocategory", "N/A");
                 search.Parameters.AddWithValue("@autoid", 0);
+
+                if (archived.Checked)
+                {
+                    search.Parameters.AddWithValue("@archived", "1");
+                }
+
+                else
+                {
+                    search.Parameters.AddWithValue("@archived", "0");
+                }
 
                 MySqlDataReader reader = search.ExecuteReader();
                 while (reader.Read())
@@ -70,10 +80,20 @@ namespace rnrtp2
             //search by id
             if (search.Value == "id" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT employeeID, firstName, lastName, gender, weeklySalary, IFNULL(jobCategory, @autocategory), IFNULL(restID, @autoid), IFNULL(hotID, @autoid), IFNULL(rID, @autoid) FROM staff LEFT OUTER JOIN works_restaurant ON employeeID = works_restaurant.staID LEFT OUTER JOIN works_hotel ON employeeID = works_hotel.staID LEFT OUTER JOIN works_ride ON employeeID = works_ride.staID WHERE employeeID = @id ORDER BY firstName ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT employeeID, firstName, lastName, gender, weeklySalary, IFNULL(jobCategory, @autocategory), IFNULL(restID, @autoid), IFNULL(hotID, @autoid), IFNULL(rID, @autoid) FROM staff LEFT OUTER JOIN works_restaurant ON employeeID = works_restaurant.staID LEFT OUTER JOIN works_hotel ON employeeID = works_hotel.staID LEFT OUTER JOIN works_ride ON employeeID = works_ride.staID WHERE employeeID = @id AND staff.archived <= @archived ORDER BY firstName ASC;", dbcon);
                 search.Parameters.AddWithValue("@autocategory", "N/A");
                 search.Parameters.AddWithValue("@autoid", 0);
                 search.Parameters.AddWithValue("@id", field_textbox.Text);
+
+                if (archived.Checked)
+                {
+                    search.Parameters.AddWithValue("@archived", "1");
+                }
+
+                else
+                {
+                    search.Parameters.AddWithValue("@archived", "0");
+                }
 
                 MySqlDataReader reader = search.ExecuteReader();
                 while (reader.Read())
@@ -108,10 +128,20 @@ namespace rnrtp2
             //first name
             if (search.Value == "first" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT employeeID, firstName, lastName, gender, weeklySalary, IFNULL(jobCategory, @autocategory), IFNULL(restID, @autoid), IFNULL(hotID, @autoid), IFNULL(rID, @autoid) FROM staff LEFT OUTER JOIN works_restaurant ON employeeID = works_restaurant.staID LEFT OUTER JOIN works_hotel ON employeeID = works_hotel.staID LEFT OUTER JOIN works_ride ON employeeID = works_ride.staID WHERE firstName = @first ORDER BY employeeID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT employeeID, firstName, lastName, gender, weeklySalary, IFNULL(jobCategory, @autocategory), IFNULL(restID, @autoid), IFNULL(hotID, @autoid), IFNULL(rID, @autoid) FROM staff LEFT OUTER JOIN works_restaurant ON employeeID = works_restaurant.staID LEFT OUTER JOIN works_hotel ON employeeID = works_hotel.staID LEFT OUTER JOIN works_ride ON employeeID = works_ride.staID WHERE firstName = @first AND staff.archived <= @archived ORDER BY employeeID ASC;", dbcon);
                 search.Parameters.AddWithValue("@autocategory", "N/A");
                 search.Parameters.AddWithValue("@autoid", 0);
                 search.Parameters.AddWithValue("@first", field_textbox.Text);
+
+                if (archived.Checked)
+                {
+                    search.Parameters.AddWithValue("@archived", "1");
+                }
+
+                else
+                {
+                    search.Parameters.AddWithValue("@archived", "0");
+                }
 
                 MySqlDataReader reader = search.ExecuteReader();
                 while (reader.Read())
@@ -146,11 +176,21 @@ namespace rnrtp2
             //last name
             if (search.Value == "last" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT employeeID, firstName, lastName, gender, weeklySalary, IFNULL(jobCategory, @autocategory), IFNULL(restID, @autoid), IFNULL(hotID, @autoid), IFNULL(rID, @autoid) FROM staff LEFT OUTER JOIN works_restaurant ON employeeID = works_restaurant.staID LEFT OUTER JOIN works_hotel ON employeeID = works_hotel.staID LEFT OUTER JOIN works_ride ON employeeID = works_ride.staID WHERE lastName = @last ORDER BY employeeID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT employeeID, firstName, lastName, gender, weeklySalary, IFNULL(jobCategory, @autocategory), IFNULL(restID, @autoid), IFNULL(hotID, @autoid), IFNULL(rID, @autoid) FROM staff LEFT OUTER JOIN works_restaurant ON employeeID = works_restaurant.staID LEFT OUTER JOIN works_hotel ON employeeID = works_hotel.staID LEFT OUTER JOIN works_ride ON employeeID = works_ride.staID WHERE lastName = @last AND staff.archived <= @archived ORDER BY employeeID ASC;", dbcon);
                 search.Parameters.AddWithValue("@autocategory", "N/A");
                 search.Parameters.AddWithValue("@autoid", 0);
                 search.Parameters.AddWithValue("@last", field_textbox.Text);
-                
+
+                if (archived.Checked)
+                {
+                    search.Parameters.AddWithValue("@archived", "1");
+                }
+
+                else
+                {
+                    search.Parameters.AddWithValue("@archived", "0");
+                }
+
                 MySqlDataReader reader = search.ExecuteReader();
                 while (reader.Read())
                 {
@@ -186,11 +226,21 @@ namespace rnrtp2
             {
                 if (field_textbox.Text.ToLower() == "m" || field_textbox.Text.ToLower() == "f" || field_textbox.Text.ToLower() == "u")
                 {
-                    MySqlCommand search = new MySqlCommand("SELECT employeeID, firstName, lastName, gender, weeklySalary, IFNULL(jobCategory, @autocategory), IFNULL(restID, @autoid), IFNULL(hotID, @autoid), IFNULL(rID, @autoid) FROM staff LEFT OUTER JOIN works_restaurant ON employeeID = works_restaurant.staID LEFT OUTER JOIN works_hotel ON employeeID = works_hotel.staID LEFT OUTER JOIN works_ride ON employeeID = works_ride.staID WHERE gender = @gender ORDER BY employeeID ASC;", dbcon);
+                    MySqlCommand search = new MySqlCommand("SELECT employeeID, firstName, lastName, gender, weeklySalary, IFNULL(jobCategory, @autocategory), IFNULL(restID, @autoid), IFNULL(hotID, @autoid), IFNULL(rID, @autoid) FROM staff LEFT OUTER JOIN works_restaurant ON employeeID = works_restaurant.staID LEFT OUTER JOIN works_hotel ON employeeID = works_hotel.staID LEFT OUTER JOIN works_ride ON employeeID = works_ride.staID WHERE gender = @gender AND staff.archived <= @archived ORDER BY employeeID ASC;", dbcon);
                     search.Parameters.AddWithValue("@autocategory", "N/A");
                     search.Parameters.AddWithValue("@autoid", 0);
                     search.Parameters.AddWithValue("@gender", field_textbox.Text);
-                    
+
+                    if (archived.Checked)
+                    {
+                        search.Parameters.AddWithValue("@archived", "1");
+                    }
+
+                    else
+                    {
+                        search.Parameters.AddWithValue("@archived", "0");
+                    }
+
                     MySqlDataReader reader = search.ExecuteReader();
                     while (reader.Read())
                     {
@@ -231,11 +281,21 @@ namespace rnrtp2
             //salary more than
             if (search.Value == "sal_more" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT employeeID, firstName, lastName, gender, weeklySalary, IFNULL(jobCategory, @autocategory), IFNULL(restID, @autoid), IFNULL(hotID, @autoid), IFNULL(rID, @autoid) FROM staff LEFT OUTER JOIN works_restaurant ON employeeID = works_restaurant.staID LEFT OUTER JOIN works_hotel ON employeeID = works_hotel.staID LEFT OUTER JOIN works_ride ON employeeID = works_ride.staID WHERE weeklySalary > @salary ORDER BY weeklySalary ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT employeeID, firstName, lastName, gender, weeklySalary, IFNULL(jobCategory, @autocategory), IFNULL(restID, @autoid), IFNULL(hotID, @autoid), IFNULL(rID, @autoid) FROM staff LEFT OUTER JOIN works_restaurant ON employeeID = works_restaurant.staID LEFT OUTER JOIN works_hotel ON employeeID = works_hotel.staID LEFT OUTER JOIN works_ride ON employeeID = works_ride.staID WHERE weeklySalary > @salary AND staff.archived <= @archived ORDER BY weeklySalary ASC;", dbcon);
                 search.Parameters.AddWithValue("@autocategory", "N/A");
                 search.Parameters.AddWithValue("@autoid", 0);
                 search.Parameters.AddWithValue("@salary", field_textbox.Text);
-                
+
+                if (archived.Checked)
+                {
+                    search.Parameters.AddWithValue("@archived", "1");
+                }
+
+                else
+                {
+                    search.Parameters.AddWithValue("@archived", "0");
+                }
+
                 MySqlDataReader reader = search.ExecuteReader();
                 while (reader.Read())
                 {
@@ -269,11 +329,21 @@ namespace rnrtp2
             //salary less than
             if (search.Value == "sal_less" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT employeeID, firstName, lastName, gender, weeklySalary, IFNULL(jobCategory, @autocategory), IFNULL(restID, @autoid), IFNULL(hotID, @autoid), IFNULL(rID, @autoid) FROM staff LEFT OUTER JOIN works_restaurant ON employeeID = works_restaurant.staID LEFT OUTER JOIN works_hotel ON employeeID = works_hotel.staID LEFT OUTER JOIN works_ride ON employeeID = works_ride.staID WHERE weeklySalary < @salary ORDER BY weeklySalary ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT employeeID, firstName, lastName, gender, weeklySalary, IFNULL(jobCategory, @autocategory), IFNULL(restID, @autoid), IFNULL(hotID, @autoid), IFNULL(rID, @autoid) FROM staff LEFT OUTER JOIN works_restaurant ON employeeID = works_restaurant.staID LEFT OUTER JOIN works_hotel ON employeeID = works_hotel.staID LEFT OUTER JOIN works_ride ON employeeID = works_ride.staID WHERE weeklySalary < @salary AND staff.archived <= @archived ORDER BY weeklySalary ASC;", dbcon);
                 search.Parameters.AddWithValue("@autocategory", "N/A");
                 search.Parameters.AddWithValue("@autoid", 0);
                 search.Parameters.AddWithValue("@salary", field_textbox.Text);
-                
+
+                if (archived.Checked)
+                {
+                    search.Parameters.AddWithValue("@archived", "1");
+                }
+
+                else
+                {
+                    search.Parameters.AddWithValue("@archived", "0");
+                }
+
                 MySqlDataReader reader = search.ExecuteReader();
                 while (reader.Read())
                 {
@@ -309,11 +379,21 @@ namespace rnrtp2
             {
                 if (field_textbox.Text.ToLower() == "hotel" || field_textbox.Text.ToLower() == "restaurant" || field_textbox.Text.ToLower() == "ride")
                 {
-                    MySqlCommand search = new MySqlCommand("SELECT employeeID, firstName, lastName, gender, weeklySalary, IFNULL(jobCategory, @autocategory), IFNULL(restID, @autoid), IFNULL(hotID, @autoid), IFNULL(rID, @autoid) FROM staff LEFT OUTER JOIN works_restaurant ON employeeID = works_restaurant.staID LEFT OUTER JOIN works_hotel ON employeeID = works_hotel.staID LEFT OUTER JOIN works_ride ON employeeID = works_ride.staID WHERE jobCategory = @category ORDER BY employeeID ASC;", dbcon);
+                    MySqlCommand search = new MySqlCommand("SELECT employeeID, firstName, lastName, gender, weeklySalary, IFNULL(jobCategory, @autocategory), IFNULL(restID, @autoid), IFNULL(hotID, @autoid), IFNULL(rID, @autoid) FROM staff LEFT OUTER JOIN works_restaurant ON employeeID = works_restaurant.staID LEFT OUTER JOIN works_hotel ON employeeID = works_hotel.staID LEFT OUTER JOIN works_ride ON employeeID = works_ride.staID WHERE jobCategory = @category AND staff.archived <= @archived ORDER BY employeeID ASC;", dbcon);
                     search.Parameters.AddWithValue("@autocategory", "N/A");
                     search.Parameters.AddWithValue("@autoid", 0);
                     search.Parameters.AddWithValue("@category", field_textbox.Text.ToLower());
-                    
+
+                    if (archived.Checked)
+                    {
+                        search.Parameters.AddWithValue("@archived", "1");
+                    }
+
+                    else
+                    {
+                        search.Parameters.AddWithValue("@archived", "0");
+                    }
+
                     MySqlDataReader reader = search.ExecuteReader();
                     while (reader.Read())
                     {

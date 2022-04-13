@@ -131,8 +131,18 @@ namespace rnrtp2
             //auto (all)
             if (search.Value == "none")
             {
-                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID ORDER BY rideID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE rides.archived <= @archived ORDER BY rideID ASC;", dbcon);
                 search.Parameters.AddWithValue("@auto", "N/A");
+
+                if (archived.Checked)
+                {
+                    search.Parameters.AddWithValue("@archived", "1");
+                }
+
+                else
+                {
+                    search.Parameters.AddWithValue("@archived", "0");
+                }
 
                 MySqlDataReader sReader = search.ExecuteReader();
                 while (sReader.Read())
@@ -155,9 +165,19 @@ namespace rnrtp2
             //id
             if (search.Value == "id" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE rideID = @id ORDER BY rideID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE rideID = @id AND rides.archived <= @archived ORDER BY rideID ASC;", dbcon);
                 search.Parameters.AddWithValue("@auto", "N/A");
                 search.Parameters.AddWithValue("@id", field_textbox.Text);
+
+                if (archived.Checked)
+                {
+                    search.Parameters.AddWithValue("@archived", "1");
+                }
+
+                else
+                {
+                    search.Parameters.AddWithValue("@archived", "0");
+                }
 
                 MySqlDataReader sReader = search.ExecuteReader();
                 while (sReader.Read())
@@ -180,9 +200,19 @@ namespace rnrtp2
             //ride name
             if (search.Value == "name" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE name = @name ORDER BY rideID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE name = @name AND rides.archived <= @archived ORDER BY rideID ASC;", dbcon);
                 search.Parameters.AddWithValue("@auto", "N/A");
                 search.Parameters.AddWithValue("@name", field_textbox.Text);
+
+                if (archived.Checked)
+                {
+                    search.Parameters.AddWithValue("@archived", "1");
+                }
+
+                else
+                {
+                    search.Parameters.AddWithValue("@archived", "0");
+                }
 
                 MySqlDataReader sReader = search.ExecuteReader();
                 while (sReader.Read())
@@ -205,9 +235,19 @@ namespace rnrtp2
             //location id
             if (search.Value == "location" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE r_locID = @lid ORDER BY rideID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE r_locID = @lid AND rides.archived <= @archived ORDER BY rideID ASC;", dbcon);
                 search.Parameters.AddWithValue("@auto", "N/A");
                 search.Parameters.AddWithValue("@lid", field_textbox.Text);
+
+                if (archived.Checked)
+                {
+                    search.Parameters.AddWithValue("@archived", "1");
+                }
+
+                else
+                {
+                    search.Parameters.AddWithValue("@archived", "0");
+                }
 
                 MySqlDataReader sReader = search.ExecuteReader();
                 while (sReader.Read())
@@ -230,9 +270,19 @@ namespace rnrtp2
             //max weight greater than
             if (search.Value == "weight_greater" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE maxWeight > @weight ORDER BY rideID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE maxWeight > @weight AND rides.archived <= @archived ORDER BY rideID ASC;", dbcon);
                 search.Parameters.AddWithValue("@auto", "N/A");
                 search.Parameters.AddWithValue("@weight", field_textbox.Text);
+
+                if (archived.Checked)
+                {
+                    search.Parameters.AddWithValue("@archived", "1");
+                }
+
+                else
+                {
+                    search.Parameters.AddWithValue("@archived", "0");
+                }
 
                 MySqlDataReader sReader = search.ExecuteReader();
                 while (sReader.Read())
@@ -255,9 +305,19 @@ namespace rnrtp2
             //max weight less than
             if (search.Value == "weight_less" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE maxWeight < @weight ORDER BY rideID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE maxWeight < @weight AND rides.archived <= @archived ORDER BY rideID ASC;", dbcon);
                 search.Parameters.AddWithValue("@auto", "N/A");
                 search.Parameters.AddWithValue("@weight", field_textbox.Text);
+
+                if (archived.Checked)
+                {
+                    search.Parameters.AddWithValue("@archived", "1");
+                }
+
+                else
+                {
+                    search.Parameters.AddWithValue("@archived", "0");
+                }
 
                 MySqlDataReader sReader = search.ExecuteReader();
                 while (sReader.Read())
@@ -280,9 +340,19 @@ namespace rnrtp2
             //min height greater than
             if (search.Value == "height_greater" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE minHeight > @height ORDER BY rideID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE minHeight > @height AND rides.archived <= @archived ORDER BY rideID ASC;", dbcon);
                 search.Parameters.AddWithValue("@auto", "N/A");
                 search.Parameters.AddWithValue("@height", field_textbox.Text);
+
+                if (archived.Checked)
+                {
+                    search.Parameters.AddWithValue("@archived", "1");
+                }
+
+                else
+                {
+                    search.Parameters.AddWithValue("@archived", "0");
+                }
 
                 MySqlDataReader sReader = search.ExecuteReader();
                 while (sReader.Read())
@@ -305,9 +375,19 @@ namespace rnrtp2
             //min height less than
             if (search.Value == "height_less" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE minHeight < @height ORDER BY rideID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE minHeight < @height AND rides.archived <= @archived ORDER BY rideID ASC;", dbcon);
                 search.Parameters.AddWithValue("@auto", "N/A");
                 search.Parameters.AddWithValue("@height", field_textbox.Text);
+
+                if (archived.Checked)
+                {
+                    search.Parameters.AddWithValue("@archived", "1");
+                }
+
+                else
+                {
+                    search.Parameters.AddWithValue("@archived", "0");
+                }
 
                 MySqlDataReader sReader = search.ExecuteReader();
                 while (sReader.Read())
@@ -330,9 +410,19 @@ namespace rnrtp2
             //min age greater than
             if (search.Value == "age_greater" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE minAge > @age ORDER BY rideID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE minAge > @age AND rides.archived <= @archived ORDER BY rideID ASC;", dbcon);
                 search.Parameters.AddWithValue("@auto", "N/A");
                 search.Parameters.AddWithValue("@age", field_textbox.Text);
+
+                if (archived.Checked)
+                {
+                    search.Parameters.AddWithValue("@archived", "1");
+                }
+
+                else
+                {
+                    search.Parameters.AddWithValue("@archived", "0");
+                }
 
                 MySqlDataReader sReader = search.ExecuteReader();
                 while (sReader.Read())
@@ -355,9 +445,19 @@ namespace rnrtp2
             //min age less than
             if (search.Value == "age_less" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE minAge < @age ORDER BY rideID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE minAge < @age AND rides.archived <= @archived ORDER BY rideID ASC;", dbcon);
                 search.Parameters.AddWithValue("@auto", "N/A");
                 search.Parameters.AddWithValue("@age", field_textbox.Text);
+
+                if (archived.Checked)
+                {
+                    search.Parameters.AddWithValue("@archived", "1");
+                }
+
+                else
+                {
+                    search.Parameters.AddWithValue("@archived", "0");
+                }
 
                 MySqlDataReader sReader = search.ExecuteReader();
                 while (sReader.Read())
@@ -380,9 +480,19 @@ namespace rnrtp2
             //capacity greater than
             if (search.Value == "capacity_greater" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE capacity > @capacity ORDER BY rideID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE capacity > @capacity AND rides.archived <= @archived ORDER BY rideID ASC;", dbcon);
                 search.Parameters.AddWithValue("@auto", "N/A");
                 search.Parameters.AddWithValue("@capacity", field_textbox.Text);
+
+                if (archived.Checked)
+                {
+                    search.Parameters.AddWithValue("@archived", "1");
+                }
+
+                else
+                {
+                    search.Parameters.AddWithValue("@archived", "0");
+                }
 
                 MySqlDataReader sReader = search.ExecuteReader();
                 while (sReader.Read())
@@ -405,9 +515,19 @@ namespace rnrtp2
             //capacity less than
             if (search.Value == "capacity_less" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE capacity < @capacity ORDER BY rideID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE capacity < @capacity AND rides.archived <= @archived ORDER BY rideID ASC;", dbcon);
                 search.Parameters.AddWithValue("@auto", "N/A");
                 search.Parameters.AddWithValue("@capacity", field_textbox.Text);
+
+                if (archived.Checked)
+                {
+                    search.Parameters.AddWithValue("@archived", "1");
+                }
+
+                else
+                {
+                    search.Parameters.AddWithValue("@archived", "0");
+                }
 
                 MySqlDataReader sReader = search.ExecuteReader();
                 while (sReader.Read())
