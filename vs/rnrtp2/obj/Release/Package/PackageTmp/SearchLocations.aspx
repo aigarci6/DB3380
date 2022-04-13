@@ -4,20 +4,42 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link rel="stylesheet" href="CCSMAIN.css">
     <title></title>
 </head>
-<body>
+<body id="SearchLocations">
     <form id="form1" runat="server">
         <div>
-            <h1>location information</h1>
-            <asp:Label ID="Label1" runat="server" Text="Location ID: "></asp:Label>
-            <asp:TextBox ID="id_textbox" runat="server" required="required"></asp:TextBox><br /><br />
+            
+            <fieldset>
+                <!-- SEARCH -->
+                <h1>Search By:</h1>
+                <asp:Label ID="Label3" runat="server" Text="id: "></asp:Label>
+                <asp:TextBox ID="sid_textbox" runat="server"></asp:TextBox><br />
+                <asp:Label ID="Label4" runat="server" Text="name: "></asp:Label>
+                <asp:TextBox ID="sname_textbox" runat="server"></asp:TextBox><br />
+            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search" />
+            <table width="50%" align="center" cellpadding="2" cellspacing="2" border="0" bgcolor="#EAEAEA">
+            <tr align="left" style="background-color: #004080; color: White;">
+                <td> location id </td>
+                <td> location name </td>
+                </tr>
 
-            <h1>update information</h1>
-            <asp:Label ID="Label2" runat="server" Text="Location Name: "></asp:Label>
-            <asp:TextBox ID="name_textbox" runat="server" required="required"></asp:TextBox><br /><br />
+                <% Response.Write(getData()); %>
+            </table>
+            <br />
 
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Update" />
+            <!-- UPDATE -->
+                <h1>Location information</h1>
+                <asp:Label ID="Label1" runat="server" Text="Location ID: "></asp:Label>
+                <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox><br /><br />
+
+                <h1>Update information</h1>
+                <asp:Label ID="Label2" runat="server" Text="Location Name: "></asp:Label>
+                <asp:TextBox ID="name_textbox" runat="server"></asp:TextBox><br /><br />
+
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Update" />
+            </fieldset>
         </div>
     </form>
 </body>

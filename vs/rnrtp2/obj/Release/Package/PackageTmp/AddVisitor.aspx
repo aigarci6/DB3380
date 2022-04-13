@@ -4,23 +4,35 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link rel="stylesheet" href="CCSMAIN.css"/>
     <title></title>
 </head>
-<body>
-    <h1>add new visitor form</h1>
-    <form id="form1" runat="server">
+<body id="Visitor">
+    <h1><font color="black">Add new visitor form</font></h1>
+    <form id="form1" class="form" runat="server">
         <div>
-            <asp:Label ID="Label1" runat="server" Text="Visit Date: "></asp:Label>
-            <asp:TextBox ID="date_textbox" runat="server"></asp:TextBox> <br /><br />
-
-            <asp:Label ID="Label5" runat="server" Text="Ticket Type: "></asp:Label>
-            <asp:TextBox ID="type_textbox" runat="server"></asp:TextBox> <br /><br />
-
-            <asp:Label ID="Label6" runat="server" Text="Customer Email: "></asp:Label>
-            <asp:TextBox ID="email_textbox" runat="server"></asp:TextBox> <br /><br />
-
-            <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" />
+            <fieldset>
+                <label for="date">Date:</label>
+                <input type="date" name="date" id="date" runat="server" value="" style="width:200px;" required="required"/> <br />
+                <label id="box1" for="ticket" >Ticket Type:</label>
+                <select name="ticket" style="width:205px;" id="ticket" runat="server" required="required">
+                    <option value="general">General</option>
+                    <option value="seasonal">Seasonal</option>
+                </select> <br />
+                <label for="email" >Email:</label>
+                <input type="email" name="email" placeholder="Enter a valid Email" value="" runat="server" id="email" style="width:197px;" required="required"/> <br />
+                <asp:Button ID="Button2" runat="server" Text="Submit" OnClick="buttonClick"  /> 
+           </fieldset>
+            
         </div>
     </form>
+
+    <script>
+        /*const submit = document.querySelector('.form');
+        submit.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert("in js right now");*/
+    </script>
 </body>
 </html>
+

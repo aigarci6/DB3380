@@ -1,9 +1,13 @@
-﻿
+﻿.table {
+    font-size: 0.9em;
+    width: 100%;
+}
 #visitor {
     background-image: url("https://images.unsplash.com/photo-1561424412-6c2125ecb1cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
     background-size: cover;
     text-align: center;
-    padding-top: 10%;
+    padding-top: 5%;
+    font-size: 23px;
     color: white;
 }
 
@@ -11,13 +15,72 @@
     background-image: url("https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
     text-align: center;
     padding-top: 10%;
+    font-size: 23px;
     color: white;
 }
 
 #employee {
-    background-image: url("https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
+    background-image: url("Staff.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     text-align: center;
+    padding-top: 5%;
+    font-size: 23px;
+    color: white;
+}
+
+#AddLocation {
+    background-image: url("Location.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding-top: 5%;
+    font-size: 23px;
+    color: white;
+}
+
+#AddRide {
+    background-image: url("Rides.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    color: white;
+    padding-top: 5%;
+    font-size: 23px;
+    color:white;
+  
+}
+
+#AddVisitHotel {
+    background-image: url("Entrance.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    color: white;
     padding-top: 10%;
+    font-size: 23px;
+    color: white;
+}
+
+#AddVisitRestaurant {
+    background-image: url("VisitRest.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    color: white;
+    padding-top: 10%;
+    font-size: 23px;
+    color: white;
+}
+
+#Visitor {
+    background-image: url("Visitor.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    color: white;
+    padding-top: 10%;
+    font-size: 23px;
     color: white;
 }
 
@@ -27,35 +90,116 @@
     background-size: auto;
     text-align: center;
     padding-top: 10%;
+    font-size: 23px;
     color: white;
 }
 
+#SearchEmployee {
+    background-image: url("SearchEmployee.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding-top: 5%;
+    font-size: 23px;
+    color: white;
+}
+
+#SearchHotel {
+    background-image: url("SearchHotel.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding-top: 10%;
+    font-size: 23px;
+    color: white;
+}
+
+#SearchLocations {
+    background-image: url("SearchLocation.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding-top: 10%;
+    font-size: 23px;
+    color: white;
+}
+
+#searchRestaurant {
+    background-image: url("SearchRestaurant.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    text-align: center;
+    padding-top: 10%;
+    font-size: 23px;
+    color: white;
+}
+
+#SearchRide {
+    background-image: url("SearchRides.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding-top: 5%;
+    font-size: 23px;
+    color: white;
+}
+
+#SearchVisitHotel {
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding-top: 5%;
+    font-size: 23px;
+    color: white;
+}
+
+#SearchVisitor {
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding-top: 5%;
+    font-size: 23px;
+    color: white;
+}
+
+#SearchVisitRestaurant {
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding-top: 5%;
+    font-size: 23px;
+    color: white;
+}
 
 #mainNav {
-    background: rgb(0, 0, 0);
+    background: rgb(255 255 255 / 0.70);
     padding: 2px;
     color: rgb(255, 0, 0);
-    position: sticky;
-    position: -webkit-sticky;
     top: 0;
+    width:200px;
 }
 
     #mainNav ul {
         padding: 0;
         margin: 0;
         list-style: none;
+        
     }
 
     #mainNav li {
-        display: inline;
-        padding: 30px;
+        padding: 3px;
         text-decoration-style: none;
+        
     }
 
     #mainNav a {
         color: rgb(255, 255, 255);
         text-decoration: none;
-        font-size: 25px;
+        font-size: px;
+        color: red;
     }
 
     #mainNav li :hover {
@@ -67,6 +211,11 @@
     background-repeat: no-repeat;
     background-size: fill;
     display: inline;
+    background: rgb(255 255 255 / 0.70);
+    padding: 2px;
+    color: rgb(255, 0, 0);
+    top: 0;
+    width: 200px;
 }
 
 .row {
@@ -75,13 +224,66 @@
 }
 
 .container {
-    text-align: center;
+    text-align: left;
 }
 
+
+
 fieldset {
-    background-color: rgb(0,0,0,0.5);
-    width: 760px;
-    margin: auto;
-    padding: 50px;
+    display: inline-block;
+    border-block-color:white;
+    border-spacing:2px;
+    padding-right: 125px;
+    padding-top: 30px;
+    text-align: right;
+    width: 390px;
+    vertical-align: top;
+    background-color: rgb(0,0,0,0.8);
+    font-size: 20px;
+}
+
+#mainNav1 {
+    background:rgb(255 216 0);
+    width:300px;
+}
+
+fieldset1 {
+    display: inline-block;
+    
+    
+    text-align: right;
+    vertical-align: top;
+    background-color:white;
+    font-size: 18px;
     text-align: center;
+    border:double;
+    border-block-color:black;
+}
+
+#Login {
+    background-image: url("Login.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    text-align: center;
+    color: white;
+    padding-top:15%;
+    font-size: 23px;
+    color: white;
+}
+
+#Table{
+    
+    align-content:center;
+    font-size:30px;
+    padding:30px;
+    padding-bottom:25px;
+}
+
+#box1{
+    padding-top:50px;
+}
+
+fieldset3 {
+    align-content:center;
+    align-items:center;
 }
