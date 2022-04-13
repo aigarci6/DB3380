@@ -374,5 +374,30 @@ namespace rnrtp2
             return htmlStr;
         }
 
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            if (delete_id.Text.Length > 0 && delete_name.Text.Length > 0)
+            {
+                MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
+                MySqlCommand delete = new MySqlCommand("UPDATE hotel SET archived = 1 WHERE hotelID = @id AND name = @name", dbcon);
+                delete.Parameters.AddWithValue("@id", delete_id.Text);
+                delete.Parameters.AddWithValue("@name", delete_name.Text);
+
+                dbcon.Open();
+                delete.ExecuteNonQuery();
+                dbcon.Close();
+
+                if (IsPostBack)
+                {
+                    delete_id.Text = "";
+                    delete_name.Text = "";
+                }
+
+                if (IsPostBack == true)
+                {
+                    Button3.Text = "Deleted!";
+                }
+            }
+        }
     }
 }

@@ -560,5 +560,76 @@ namespace rnrtp2
                 }
             }
         }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            if (delete_id.Text.Length > 0 && delete_fname.Text.Length > 0 && delete_lname.Text.Length > 0)
+            {
+                MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
+                MySqlCommand delete = new MySqlCommand("UPDATE staff SET archived = 1 WHERE employeeID = @id AND firstName = @fname AND lastName = @lname", dbcon);
+                delete.Parameters.AddWithValue("@id", delete_id.Text);
+                delete.Parameters.AddWithValue("@fname", delete_fname.Text);
+                delete.Parameters.AddWithValue("@lname", delete_lname.Text);
+
+                dbcon.Open();
+                //find works at relationship
+                MySqlCommand findWork = new MySqlCommand("SELECT jobCategory FROM staff WHERE employeeID = @id", dbcon);
+                findWork.Parameters.AddWithValue("@id", delete_id.Text);
+
+                MySqlDataReader reader = findWork.ExecuteReader();
+                reader.Read();
+                string category = reader.GetString(0);
+                reader.Close();
+
+                MySqlCommand deleteWorkHotel = new MySqlCommand("UPDATE works_hotel SET archived = 1 WHERE staID = @id AND hotID = @jid;", dbcon);
+                if (category == "hotel")
+                {
+                    deleteWorkHotel.Parameters.AddWithValue("@id", delete_id.Text);
+                    deleteWorkHotel.Parameters.AddWithValue("@jid", delete_jid.Text);
+                }
+
+                MySqlCommand deleteWorkRest = new MySqlCommand("UPDATE works_restaurant SET archived = 1 WHERE staID = @id AND restID = @jid;", dbcon);
+                if (category == "restaurant")
+                {
+                    deleteWorkRest.Parameters.AddWithValue("@id", delete_id.Text);
+                    deleteWorkRest.Parameters.AddWithValue("@jid", delete_jid.Text);
+                }
+
+                MySqlCommand deleteWorkRide = new MySqlCommand("UPDATE works_ride SET archived = 1 WHERE staID = @id AND rID = @jid;", dbcon);
+                if (category == "ride")
+                {
+                    deleteWorkRide.Parameters.AddWithValue("@id", delete_id.Text);
+                    deleteWorkRide.Parameters.AddWithValue("@jid", delete_jid.Text);
+                }
+
+                delete.ExecuteNonQuery();
+                if (category == "hotel")
+                {
+                    deleteWorkHotel.ExecuteNonQuery();
+                }
+                if (category == "restaurant")
+                {
+                    deleteWorkRest.ExecuteNonQuery();
+                }
+                if (category == "ride")
+                {
+                    deleteWorkRide.ExecuteNonQuery();
+                }
+                dbcon.Close();
+
+                if (IsPostBack)
+                {
+                    delete_id.Text = "";
+                    delete_fname.Text = "";
+                    delete_lname.Text = "";
+                    delete_jid.Text = "";
+                }
+
+                if (IsPostBack == true)
+                {
+                    Button3.Text = "Deleted!";
+                }
+            }
+        }
     }
 }
