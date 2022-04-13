@@ -96,47 +96,50 @@ namespace rnrtp2
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
-
             if (id_textbox.Text.Length > 0)
             {
-                //username
-                MySqlCommand updateUser = new MySqlCommand("UPDATE credentials SET userName = @userName WHERE userID = @userID;", dbcon);
-                if (user_textbox.Text.Length > 0)
-                {
-                    updateUser.Parameters.AddWithValue("@userID", id_textbox.Text);
-                    updateUser.Parameters.AddWithValue("@userName", user_textbox.Text);
-                }
+                MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
 
-                //password
-                MySqlCommand updatePass = new MySqlCommand("UPDATE credentials SET password = @password WHERE userID = @userID;", dbcon);
-                if (pass_textbox.Text.Length > 0)
+                if (id_textbox.Text.Length > 0)
                 {
-                    updatePass.Parameters.AddWithValue("@userID", id_textbox.Text);
-                    updatePass.Parameters.AddWithValue("@password", pass_textbox.Text);
-                }
+                    //username
+                    MySqlCommand updateUser = new MySqlCommand("UPDATE credentials SET userName = @userName WHERE userID = @userID;", dbcon);
+                    if (user_textbox.Text.Length > 0)
+                    {
+                        updateUser.Parameters.AddWithValue("@userID", id_textbox.Text);
+                        updateUser.Parameters.AddWithValue("@userName", user_textbox.Text);
+                    }
 
-                dbcon.Open();
-                if (user_textbox.Text.Length > 0)
-                {
-                    updateUser.ExecuteNonQuery();
-                }
-                if (pass_textbox.Text.Length > 0)
-                {
-                    updatePass.ExecuteNonQuery();
-                }
-                dbcon.Close();
+                    //password
+                    MySqlCommand updatePass = new MySqlCommand("UPDATE credentials SET password = @password WHERE userID = @userID;", dbcon);
+                    if (pass_textbox.Text.Length > 0)
+                    {
+                        updatePass.Parameters.AddWithValue("@userID", id_textbox.Text);
+                        updatePass.Parameters.AddWithValue("@password", pass_textbox.Text);
+                    }
 
-                if (IsPostBack)
-                {
-                    id_textbox.Text = "";
-                    user_textbox.Text = "";
-                    pass_textbox.Text = "";
-                }
+                    dbcon.Open();
+                    if (user_textbox.Text.Length > 0)
+                    {
+                        updateUser.ExecuteNonQuery();
+                    }
+                    if (pass_textbox.Text.Length > 0)
+                    {
+                        updatePass.ExecuteNonQuery();
+                    }
+                    dbcon.Close();
 
-                if (IsPostBack == true)
-                {
-                    Response.Write("<script>alert('Credentials updated successfully!')</script>");
+                    if (IsPostBack)
+                    {
+                        id_textbox.Text = "";
+                        user_textbox.Text = "";
+                        pass_textbox.Text = "";
+                    }
+
+                    if (IsPostBack == true)
+                    {
+                        Response.Write("<script>alert('Credentials updated successfully!')</script>");
+                    }
                 }
             }
             
@@ -144,8 +147,6 @@ namespace rnrtp2
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            id_textbox.Text = sid_textbox.Text;
-            user_textbox.Text = suser_textbox.Text;
         }
     }
 }
