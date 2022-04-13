@@ -144,31 +144,62 @@
     color: white;
 }
 
+#SearchVisitHotel {
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding-top: 5%;
+    font-size: 23px;
+    color: white;
+}
+
+#SearchVisitor {
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding-top: 5%;
+    font-size: 23px;
+    color: white;
+}
+
+#SearchVisitRestaurant {
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding-top: 5%;
+    font-size: 23px;
+    color: white;
+}
+
 #mainNav {
-    background: rgb(0, 0, 0);
+    background: rgb(255 255 255 / 0.70);
     padding: 2px;
     color: rgb(255, 0, 0);
-    position: sticky;
-    position: -webkit-sticky;
     top: 0;
+    width:200px;
 }
 
     #mainNav ul {
         padding: 0;
         margin: 0;
         list-style: none;
+        
     }
 
     #mainNav li {
-        display: inline;
-        padding: 30px;
+        padding: 3px;
         text-decoration-style: none;
+        
     }
 
     #mainNav a {
         color: rgb(255, 255, 255);
         text-decoration: none;
-        font-size: 25px;
+        font-size: px;
+        color: red;
     }
 
     #mainNav li :hover {
@@ -180,6 +211,11 @@
     background-repeat: no-repeat;
     background-size: fill;
     display: inline;
+    background: rgb(255 255 255 / 0.70);
+    padding: 2px;
+    color: rgb(255, 0, 0);
+    top: 0;
+    width: 200px;
 }
 
 .row {
@@ -188,7 +224,7 @@
 }
 
 .container {
-    text-align: center;
+    text-align: left;
 }
 
 
