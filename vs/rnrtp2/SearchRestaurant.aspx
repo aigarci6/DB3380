@@ -21,6 +21,7 @@
                 <option value="location">Location ID</option>
                 <option value="capacity_greater">Capacity Greater Than</option>
                 <option value="capacity_less">Capacity Less Than</option>
+                <option value="all">*</option>
             </select>
             <asp:TextBox ID="field_textbox" runat="server"></asp:TextBox><br />
             <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search" /><br />
@@ -31,6 +32,7 @@
                 <td> name </td>
                 <td> capacity </td>
                 <td> expenditure </td>
+                <td> revenue </td>
                 <td> location id </td>
                 <td> location </td>
                 </tr>

@@ -27,6 +27,7 @@
                 <option value="age_less">Min Age Less Than</option>
                 <option value="capacity_greater">Capacity Greater Than</option>
                 <option value="capacity_less">Capacity Less Than</option>
+                <option value="all">*</option>
             </select>
             <asp:TextBox ID="field_textbox" runat="server"></asp:TextBox><br />
             <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search" /><br />

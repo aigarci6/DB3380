@@ -24,6 +24,7 @@
                 <option value="sal_more">Salary: More Than</option>
                 <option value="sal_less">Salary: Less Than</option>
                 <option value="category">Job Category</option>
+                <option value="all">*</option>
             </select>
             <asp:TextBox ID="field_textbox" runat="server"></asp:TextBox><br />
             <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search" /><br />

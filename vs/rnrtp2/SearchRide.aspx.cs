@@ -128,8 +128,13 @@ namespace rnrtp2
 
             dbcon.Open();
 
-            //auto (all)
             if (search.Value == "none")
+            {
+
+            }
+
+            //* (all)
+            if (search.Value == "all")
             {
                 MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE rides.archived <= @archived ORDER BY rideID ASC;", dbcon);
                 search.Parameters.AddWithValue("@auto", "N/A");

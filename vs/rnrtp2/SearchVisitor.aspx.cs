@@ -95,8 +95,14 @@ namespace rnrtp2
 
             dbcon.Open();
 
-            //auto (all)
+            // none
             if (search.Value == "none")
+            {
+
+            }
+
+            //* (all)
+            if (search.Value == "all")
             {
                 MySqlCommand search = new MySqlCommand("SELECT ticketID, visitDate, ticketType, ticketCost, email FROM visitor ORDER BY ticketID ASC;", dbcon);
 

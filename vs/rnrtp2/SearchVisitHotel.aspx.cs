@@ -99,8 +99,14 @@ namespace rnrtp2
 
             dbcon.Open();
 
-            //auto (all)
+            // none
             if (search.Value == "none")
+            {
+
+            }
+
+            //* (all)
+            if (search.Value == "all")
             {
                 MySqlCommand search = new MySqlCommand("SELECT tickID_h, email, hotID, name, amountSpent, daysStayed, roomNumber FROM visit_hotel LEFT OUTER JOIN visitor ON tickID_h = ticketID LEFT OUTER JOIN hotel ON hotID = hotelID ORDER BY tickID_h ASC;", dbcon);
 

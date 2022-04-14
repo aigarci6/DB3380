@@ -23,6 +23,7 @@
                 <option value="days_greater">Days Stayed Greater Than</option>
                 <option value="days_less">Days Stayed Less Than</option>
                 <option value="room">Room Number</option>
+                <option value="all">*</option>
             </select>
             <asp:TextBox ID="field_textbox" runat="server"></asp:TextBox><br />
             <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search" />

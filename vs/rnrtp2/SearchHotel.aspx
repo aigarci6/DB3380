@@ -24,6 +24,7 @@
                 <option value="capacity_less">Capacity Less Than</option>
                 <option value="rating_greater">Rating Greater Than</option>
                 <option value="rating_less">Rating Less Than</option>
+                <option value="all">*</option>
             </select>
             <asp:TextBox ID="field_textbox" runat="server"></asp:TextBox><br />
             <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search" /><br />

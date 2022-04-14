@@ -20,6 +20,7 @@
                 <option value="rid">Restaurant ID</option>
                 <option value="spent_greater">Amount Spent Greater Than</option>
                 <option value="spent_less">Amount Spent Less Than</option>
+                <option value="all">*</option>
             </select>
             <asp:TextBox ID="field_textbox" runat="server"></asp:TextBox><br />
             <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search" />

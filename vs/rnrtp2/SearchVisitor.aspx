@@ -20,6 +20,7 @@
                 <option value="type">Ticket Type</option> 
                 <option value="year">Visit Year</option>
                 <option value="month">Visit Month</option>
+                <option value="all">*</option>
             </select>
             <asp:TextBox ID="field_textbox" runat="server"></asp:TextBox><br />
             <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search" />
