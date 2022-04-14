@@ -4,6 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link rel="stylesheet" href="CCSMAIN.css"/>
     <title></title>
 
     <style>
@@ -35,7 +36,7 @@
         }
     </style>
 </head>
-<body>
+<body id="searchCred">
     <form id="form1" runat="server">
         <div>
             <!-- SEARCH -->
