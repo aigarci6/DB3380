@@ -312,6 +312,7 @@
     <Content Include="Location.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="Login.jpg" />
+    <Content Include="MainPg.html" />
     <Content Include="Rides.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -362,6 +363,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="ViewPage1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
