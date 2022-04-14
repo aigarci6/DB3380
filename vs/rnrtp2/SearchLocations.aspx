@@ -35,7 +35,7 @@
                 <h3>location information</h3>
                 <asp:Label ID="Label1" runat="server" Text="Location ID: "></asp:Label><br />
                 <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox><br />
-                <asp:Label ID="errormessage" runat="server" Text="ERROR: Missing field(s)!" ForeColor="Red"></asp:Label>
+                <asp:Label ID="errormessage" font-size="small" runat="server" Text="ERROR: Missing field(s)!" ForeColor="Red"></asp:Label>
 
                 <h3>update</h3>
                 <asp:Label ID="Label2" runat="server" Text="Location Name: "></asp:Label><br />
