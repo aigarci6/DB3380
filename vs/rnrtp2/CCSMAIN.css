@@ -170,7 +170,7 @@
 }
 
 #SearchVisitHotel {
-    background-image: url("");
+    background-image: url("SearchHotel.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -181,7 +181,7 @@
 }
 
 #SearchVisitor {
-    background-image: url("");
+    background-image: url("SearchVisitor.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -192,7 +192,7 @@
 }
 
 #SearchVisitRestaurant {
-    background-image: url("");
+    background-image: url("SearchVisitRestaurant.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;

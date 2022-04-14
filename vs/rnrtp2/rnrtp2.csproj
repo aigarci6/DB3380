@@ -341,7 +341,9 @@
     <Content Include="SearchRides.png" />
     <Content Include="SearchVisitHotel.aspx" />
     <Content Include="SearchVisitor.aspx" />
+    <Content Include="SearchVisitor.jpg" />
     <Content Include="SearchVisitRestaurant.aspx" />
+    <Content Include="SearchVisitRestaurant.jpg" />
     <Content Include="Staff.jpg" />
     <Content Include="Theme.jpg" />
     <Content Include="TicketReport.aspx" />

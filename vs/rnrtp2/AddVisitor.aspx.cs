@@ -15,7 +15,7 @@ namespace rnrtp2
         {
             if (IsPostBack == true)
             {
-                Response.Write("<script>alert('Inserted successfully!')</script>");
+                Response.Write("<script>alert('Visitor added successfully!')</script>");
             }
         }
 

@@ -14,7 +14,7 @@ namespace rnrtp2
         {
             if (IsPostBack == true)
             {
-                Response.Write("<script>alert('Visit added successfully!')</script>");
+                Response.Write("<script>alert('Hotel Visit added successfully!')</script>");
             }
         }
 

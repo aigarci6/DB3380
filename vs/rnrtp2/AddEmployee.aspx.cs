@@ -14,7 +14,7 @@ namespace rnrtp2
         {
             if (IsPostBack == true)
             {
-                Button1.Text = "Submitted!";
+                Response.Write("<script>alert('Employee added successfully!')</script>");
             }
         }
 
