@@ -213,13 +213,13 @@
     color: white;
 }
 
-
 #mainNav {
-    background-color: rgb(0,0,0);
+    background-color: #fff;
     padding: 2px;
-    color: rgb(255, 0, 0);
+    color: #f2f2f2;
     top: 0;
-    width: 200px;
+    width: 50%;
+    height: 100%
 }
 
     #mainNav ul {
@@ -398,8 +398,8 @@ fieldset4 {
 }
 
 .mainnav a.login:hover {
-    background-color: #555;
-    color: #fff;
+    background-color: lightblue;
+    color: #333;
     border-color: #fff;
 }
 

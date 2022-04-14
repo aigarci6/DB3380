@@ -50,12 +50,12 @@
                 <div class="maincol">
                     <div class="boxes">
                         <h1>PARK HOURS</h1>
-                        <h3>Monday-Friday: 10 am - 8pm</h3>
-                        <h3>Saturday-Sunday: 10 am - 10pm</h3>
+                        <h3>Monday-Friday: 10am - 8pm</h3>
+                        <h3>Saturday-Sunday: 10am - 10pm</h3>
                         <br />
                         <h1>RESTAURANT HOURS</h1>
-                        <h3>Monday-Friday: 9 am - 10pm</h3>
-                        <h3>Saturday-Sunday: 10 am - 12pm</h3>
+                        <h3>Monday-Friday: 9am - 10pm</h3>
+                        <h3>Saturday-Sunday:10 am - 12pm</h3>
                     </div>
                     </div>
 
@@ -67,7 +67,7 @@
                         - One-Day Admission
                         <br /><br />
                         <h3>Seasonal Admission: $300</h3>
-                        - 6-month Admission from date of purchase
+                        - 6-month Admission From Date of Purchase
                 </div>
             </div>
             </div>

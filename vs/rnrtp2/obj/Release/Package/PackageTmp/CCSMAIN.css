@@ -80,7 +80,7 @@
 }
 
 #AddClose {
-    background-image: url("");
+    background-image: url("AddClose.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -203,7 +203,7 @@
 }
 
 #searchCred {
-    background-image: url("");
+    background-image: url("SearchCredentials.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -213,13 +213,13 @@
     color: white;
 }
 
-
 #mainNav {
-    background-color: rgb(0,0,0);
+    background-color: #fff;
     padding: 2px;
-    color: rgb(255, 0, 0);
+    color: #f2f2f2;
     top: 0;
-    width: 200px;
+    width: 50%;
+    height: 100%
 }
 
     #mainNav ul {
@@ -363,4 +363,80 @@ fieldset4 {
 
 .badaccesstext {
     font-family: FreeMono, monospace;
+}
+
+.mainnav {
+    background: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    margin-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-family: FreeMono, monospace;
+}
+
+.mainnav2 {
+    display:table;
+    width:90%;
+    overflow: hidden;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-family: FreeMono, monospace;
+}
+
+.mainnav a.login {
+    float: right;
+    color: #333;
+    background-color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: 0.5s;
+    border-style: solid;
+    border-color: #fff;
+    font-weight: bold;
+}
+
+.mainnav a.login:hover {
+    background-color: lightblue;
+    color: #333;
+    border-color: #fff;
+}
+
+.mainnav a.title {
+    float: left;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.maincol {
+    display: table-cell;
+    background: rgba(0, 0, 0, .6);
+    width: 45%;
+}
+
+.maincol2 {
+    display: table-cell;
+    background: rgba(0, 0, 0, .6);
+    width: 100%;
+    padding-bottom: 5%;
+    padding-top: 2%;
+}
+
+.boxes {
+    margin: auto;
+    overflow: hidden;
+    font-family: FreeMono, monospace;
+    color: #f2f2f2;
+    padding: 3% 5% 5% 10%;
+}
+
+#homepage {
+    background-image: url("MainImage.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
