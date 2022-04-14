@@ -46,11 +46,11 @@ namespace rnrtp2
             //get ticket cost
             if (ticket.Value == "general")
             {
-                insert.Parameters.AddWithValue("@p_ticketCost", 150);
+                insert.Parameters.AddWithValue("@p_ticketCost", 50);
             }
             else if (ticket.Value == "seasonal")
             {
-                insert.Parameters.AddWithValue("@p_ticketCost", 350);
+                insert.Parameters.AddWithValue("@p_ticketCost", 200);
             }
 
             //parse date

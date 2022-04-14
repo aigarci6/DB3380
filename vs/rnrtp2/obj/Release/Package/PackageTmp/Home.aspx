@@ -66,7 +66,7 @@
                         <h3>General Admission: $50</h3>
                         - One-Day Admission
                         <br /><br />
-                        <h3>Seasonal Admission: $300</h3>
+                        <h3>Seasonal Admission: $200</h3>
                         - 6-month Admission From Date of Purchase
                 </div>
             </div>
