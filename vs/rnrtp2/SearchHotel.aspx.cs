@@ -12,6 +12,8 @@ namespace rnrtp2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            updateerrormessage.Visible = false;
+            deleteerrormessage.Visible = false;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -76,6 +78,11 @@ namespace rnrtp2
                 {
                     Button1.Text = "Updated!";
                 }
+            }
+
+            else
+            {
+                updateerrormessage.Visible = true;
             }
         }
 
@@ -411,6 +418,11 @@ namespace rnrtp2
                 {
                     Button3.Text = "Deleted!";
                 }
+            }
+
+            else
+            {
+                deleteerrormessage.Visible = true;
             }
         }
     }

@@ -47,7 +47,8 @@
                 <asp:Label ID="Label1" runat="server" Text="ID: "></asp:Label><br />
                 <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Label ID="Label2" runat="server" Text="Name: "></asp:Label><br />
-                <asp:TextBox ID="name_textbox" runat="server"></asp:TextBox><br /><br />
+                <asp:TextBox ID="name_textbox" runat="server"></asp:TextBox><br />
+                <asp:Label ID="updateerrormessage" runat="server" Text="ERROR: Missing field(s)!" ForeColor="Red"></asp:Label>
 
                 <h3>update</h3>
                 <asp:Label ID="Label3" runat="server" Text="Location ID: "></asp:Label><br />
@@ -63,7 +64,8 @@
                 <asp:TextBox ID="delete_id" runat="server"></asp:TextBox><br /><br />
                 <asp:Label ID="Label9" runat="server" Text="Restaurant Name: "></asp:Label><br />
                 <asp:TextBox ID="delete_name" runat="server"></asp:TextBox><br /><br />
-                <asp:Button ID="Button3" runat="server" Text="Delete Ride" OnClick="Button3_Click"/>
+                <asp:Button ID="Button3" runat="server" Text="Delete Ride" OnClick="Button3_Click"/><br />
+                <asp:Label ID="deleteerrormessage" runat="server" Text="ERROR: Missing field(s)!" ForeColor="Red"></asp:Label>
             </fieldset>
         </div>
     </form>

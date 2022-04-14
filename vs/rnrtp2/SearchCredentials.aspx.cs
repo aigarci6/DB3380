@@ -12,7 +12,7 @@ namespace rnrtp2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            errormessage.Visible = false;
         }
 
         public string getData()
@@ -141,6 +141,10 @@ namespace rnrtp2
                         Response.Write("<script>alert('Credentials updated successfully!')</script>");
                     }
                 }
+            }
+
+            else { 
+                errormessage.Visible = true; 
             }
             
         }

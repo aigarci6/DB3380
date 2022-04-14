@@ -33,6 +33,7 @@
             <h3>credential information</h3>
             <asp:Label ID="Label1" runat="server" Text="User ID: "></asp:Label><br />
             <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox><br /><br />
+            <asp:Label ID="errormessage" runat="server" Text="ERROR: Missing field(s)!" ForeColor="Red"></asp:Label>
 
             <h3>update</h3>
             <asp:Label ID="Label2" runat="server" Text="Username: "></asp:Label><br />

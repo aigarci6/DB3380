@@ -12,7 +12,7 @@ namespace rnrtp2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            errormessage.Visible = false;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -48,6 +48,11 @@ namespace rnrtp2
                 {
                     Response.Write("<script>alert('Visit updated successfully!')</script>");
                 }
+            }
+
+            else
+            {
+                errormessage.Visible = true;
             }
         }
             

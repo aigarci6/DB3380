@@ -43,7 +43,8 @@
                 <asp:Label ID="Label1" runat="server" Text="Ticket ID: "></asp:Label><br />
                 <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Label ID="Label2" runat="server" Text="Restaurant ID: "></asp:Label><br />
-                <asp:TextBox ID="rid_textbox" runat="server"></asp:TextBox><br /><br />
+                <asp:TextBox ID="rid_textbox" runat="server"></asp:TextBox><br />
+                <asp:Label ID="errormessage" runat="server" Text="ERROR: Missing field(s)!" ForeColor="Red"></asp:Label>
 
                 <h3>update</h3>
                 <asp:Label ID="Label3" runat="server" Text="Amount Spent: "></asp:Label><br />

@@ -12,7 +12,8 @@ namespace rnrtp2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            updateerrormessage.Visible = false;
+            deleteerrormessage.Visible = false;
         }
 
         public string getData()
@@ -276,11 +277,6 @@ namespace rnrtp2
                     }
 
                     reader.Close();
-                }
-
-                else
-                {
-                    field_textbox.Text = "INVALID: m/f/u ONLY";
                 }
             }
 
@@ -565,6 +561,11 @@ namespace rnrtp2
                     Button1.Text = "Updated!";
                 }
             }
+
+            else
+            {
+                updateerrormessage.Visible = true;
+            }
         }
 
         protected void Button3_Click(object sender, EventArgs e)
@@ -635,6 +636,11 @@ namespace rnrtp2
                 {
                     Button3.Text = "Deleted!";
                 }
+            }
+
+            else
+            {
+                deleteerrormessage.Visible = true;
             }
         }
     }

@@ -59,8 +59,8 @@
                     <option value="hotel">Hotel</option>
                     <option value="restaurant">Restaurant</option>
                     <option value="ride">Ride</option>
-                </select> <br /><br />
-
+                </select><br />
+                <asp:Label ID="updateerrormessage" runat="server" Text="ERROR: Missing field(s)!" ForeColor="Red"></asp:Label>
             <h3>update</h3>
                 <asp:Label ID="Label9" runat="server" Text="First Name: "></asp:Label><br />
                 <asp:TextBox ID="first_textbox" runat="server"></asp:TextBox><br /><br />
@@ -91,7 +91,8 @@
                 <asp:TextBox ID="delete_lname" runat="server"></asp:TextBox><br /><br />
                 <asp:Label ID="Label12" runat="server" Text="Job ID: "></asp:Label><br />
                 <asp:TextBox ID="delete_jid" runat="server"></asp:TextBox><br /><br />
-                <asp:Button ID="Button3" runat="server" Text="Delete Employee" OnClick="Button3_Click"/>
+                <asp:Button ID="Button3" runat="server" Text="Delete Employee" OnClick="Button3_Click"/><br />
+                <asp:Label ID="deleteerrormessage" runat="server" Text="ERROR: Missing field(s)!" ForeColor="Red"></asp:Label>
             </fieldset>
 
         </div>
