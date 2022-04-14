@@ -26,7 +26,8 @@
                 <option value="category">Job Category</option>
             </select>
             <asp:TextBox ID="field_textbox" runat="server"></asp:TextBox><br />
-            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search" />
+            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search" /><br />
+                <asp:CheckBox ID="archived" runat="server" Text ="include archived"/>
             <table width="50%" align="center" cellpadding="2" cellspacing="2" border="0" bgcolor="#EAEAEA">
             <tr align="left" style="background-color: #004080; color: White;">
                 <td> employee id </td>
@@ -43,7 +44,8 @@
             <br />
 
             <!-- UPDATE -->
-                <h2>Employee information</h2>
+                <h1>Update:</h1>
+                <h2>employee information</h2>
                 <asp:Label ID="Label1" runat="server" Text="ID: "></asp:Label>
                 <asp:TextBox ID="sid_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Label ID="Label2" runat="server" Text="First Name: "></asp:Label>
@@ -51,7 +53,7 @@
                 <asp:Label ID="Label10" runat="server" Text="Job Category: "></asp:Label>
                 <asp:TextBox ID="sjsite_textbox" runat="server"></asp:TextBox><br /><br />
 
-            <h2>Update information</h2>
+            <h2>update information</h2>
                 <asp:Label ID="Label9" runat="server" Text="First Name: "></asp:Label>
                 <asp:TextBox ID="first_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Label ID="Label3" runat="server" Text="Last Name: "></asp:Label>
@@ -62,8 +64,19 @@
                 <asp:TextBox ID="salary_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Label ID="Label8" runat="server" Text="Job ID: "></asp:Label>
                 <asp:TextBox ID="jid_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Button ID="Button1" runat="server" Text="Update" OnClick="Button1_Click" />
+                <asp:Button ID="Button1" runat="server" Text="Update" OnClick="Button1_Click" /><br />
 
+                <!-- DELETE -->
+            <h1>Delete:</h1>
+                <asp:Label ID="Label4" runat="server" Text="Employee ID: "></asp:Label>
+                <asp:TextBox ID="delete_id" runat="server"></asp:TextBox><br /><br />
+                <asp:Label ID="Label7" runat="server" Text="First Name: "></asp:Label>
+                <asp:TextBox ID="delete_fname" runat="server"></asp:TextBox><br /><br />
+                <asp:Label ID="Label11" runat="server" Text="Last Name: "></asp:Label>
+                <asp:TextBox ID="delete_lname" runat="server"></asp:TextBox><br /><br />
+                <asp:Label ID="Label12" runat="server" Text="Job ID: "></asp:Label>
+                <asp:TextBox ID="delete_jid" runat="server"></asp:TextBox><br /><br />
+                <asp:Button ID="Button3" runat="server" Text="Delete Ride" OnClick="Button3_Click"/>
             </fieldset>
 
         </div>
