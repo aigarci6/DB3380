@@ -42,6 +42,8 @@
                 <% Response.Write(currTotals()); %>
             </table>
                 </p>
+                <br /><br /><br />
+            <a href="Index.aspx" style="font-size: medium; font-family: FreeMono, monospace; color: black;">GO BACK TO HOME</a>
             </center>
 
         </div>

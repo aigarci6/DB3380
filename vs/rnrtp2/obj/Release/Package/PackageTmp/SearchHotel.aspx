@@ -72,6 +72,8 @@
                 <asp:TextBox ID="delete_name" runat="server"></asp:TextBox><br /><br />
                 <asp:Button ID="Button3" runat="server" Text="Delete Hotel" OnClick="Button3_Click"/><br />
                 <asp:Label ID="deleteerrormessage" font-size="small" runat="server" Text="ERROR: Missing field(s)!" ForeColor="Red"></asp:Label>
+                <br /><br /><br />
+            <a href="Index.aspx" style="font-size: medium; font-family: FreeMono, monospace; color: white;">GO BACK TO HOME</a>
             </fieldset>
         </div>
     </form>

@@ -21,6 +21,9 @@
             <asp:Label ID="Label5" runat="server" Text="Type: "></asp:Label>
             <asp:TextBox ID="type_textbox" runat="server" required="required"></asp:TextBox><br /><br />
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
+
+            <br /><br />
+            <center><a href="Index.aspx" style="font-size: medium; font-family: FreeMono, monospace; color: black;">GO BACK TO HOME</a></center>
         </div>
     </form>
 </body>

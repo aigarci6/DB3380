@@ -8,7 +8,7 @@
     <title></title>
 </head>
 <body id="AddRide">
-    <h1><font color="black">new ride form </font></h1>
+    <h1><font color="white">new ride form </font></h1>
     <form id="form1" runat="server">
         <div>
             <fieldset>
@@ -27,6 +27,8 @@
                 <asp:Label ID="Label7" runat="server" Text="Minimum Age: "></asp:Label>
                 <asp:TextBox ID="minage_textbox" runat="server" required="required"></asp:TextBox><br /><br />
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
+                <br /><br /><br />
+            <a href="Index.aspx" style="font-size: medium; font-family: FreeMono, monospace; color: white;">GO BACK TO HOME</a>
             </fieldset>
         </div>
     </form>

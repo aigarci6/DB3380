@@ -48,6 +48,9 @@
                 <asp:Label ID="Label7" runat="server" Text="Weekly salary: "></asp:Label><br />
                 <asp:TextBox ID="salary_textbox" runat="server" required="required"></asp:TextBox><br /><br />
                 <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" />
+
+                <br /><br /><br />
+            <a href="Index.aspx" style="font-size: medium; font-family: FreeMono, monospace; color: white;">GO BACK TO HOME</a>
             </fieldset>
         </div>
     </form>

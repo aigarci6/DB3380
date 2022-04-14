@@ -25,6 +25,8 @@
             <asp:Label ID="Label6" runat="server" Text="Weekly Expenditure: "></asp:Label><br />
             <asp:TextBox ID="exp_textbox" runat="server"></asp:TextBox><br /><br />
             <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" align="left" />
+            <br /><br /><br />
+            <a href="Index.aspx" style="font-size: medium; font-family: FreeMono, monospace; color: white;">GO BACK TO HOME</a>
         </fieldset>
         </form>
 </body>
