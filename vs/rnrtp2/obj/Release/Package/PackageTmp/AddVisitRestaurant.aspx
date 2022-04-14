@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
         <div>
             
-            <h1>Add visitor to restaurant</h1>
+            <h1>restaurant visitor form</h1>
             <fieldset>
                 <asp:Label ID="Label1" runat="server" Text="Ticket ID: "></asp:Label>
                 <asp:TextBox ID="id_textbox" runat="server" required="required"></asp:TextBox><br /><br />

@@ -298,6 +298,7 @@
     <Content Include="AddVisitHotel.aspx" />
     <Content Include="AddVisitor.aspx" />
     <Content Include="AddVisitRestaurant.aspx" />
+    <Content Include="BadAccess.html" />
     <Content Include="CCSMAIN.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />

@@ -29,14 +29,16 @@
             <br />
 
             <!-- UPDATE -->
-            <h1>credential information</h1>
-            <asp:Label ID="Label1" runat="server" Text="User ID: "></asp:Label>
+            <h1>Update:</h1>
+            <h3>credential information</h3>
+            <asp:Label ID="Label1" runat="server" Text="User ID: "></asp:Label><br />
             <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox><br /><br />
+            <asp:Label ID="errormessage" font-size="small" runat="server" Text="ERROR: Missing field(s)!" ForeColor="Red"></asp:Label>
 
-            <h1>update information</h1>
-            <asp:Label ID="Label2" runat="server" Text="Username: "></asp:Label>
+            <h3>update</h3>
+            <asp:Label ID="Label2" runat="server" Text="Username: "></asp:Label><br />
             <asp:TextBox ID="user_textbox" runat="server"></asp:TextBox><br /><br />
-            <asp:Label ID="Label3" runat="server" Text="Password: "></asp:Label>
+            <asp:Label ID="Label3" runat="server" Text="Password: "></asp:Label><br />
             <asp:TextBox ID="pass_textbox" runat="server"></asp:TextBox><br /><br />
 
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Update" />

@@ -13,6 +13,18 @@ namespace rnrtp2
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //auth
+            if (Session["username"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+
+            if ((string)Session["username"] != "admin" || (string)Session["username"] != "hotelstaff" || (string)Session["username"] != "ridestaff" || (string)Session["username"] != "reststaff")
+            {
+                Response.Redirect("BadAccess.html");
+            }
+
+
             if (IsPostBack == true)
             {
                 Response.Write("<script>alert('Visitor added successfully!')</script>");

@@ -13,7 +13,7 @@
             
             <fieldset1>
             <table id="Table" >
-                <h2><font color="black"> Member Login </font></h2>
+                <h2><font color="black"> Staff Login </font></h2>
                 <tr>
                     
                     <td><asp:TextBox ID="username_textbox" runat="server" placeholder="USERNAME" BackColor="#f5f5f5" Height="25"  style="Font-Size:15px;" ></asp:TextBox></td>
@@ -27,15 +27,13 @@
                    
                     
                     <td><asp:Button ID="Button1" runat="server" Text="Login" ForeColor="White" Font-Size:15 BackColor="#00bb00"  Height="30" OnClick="Button1_Click" Width="200"  /></td>
+                
                 </tr>
                 </fieldset2>
-                </fieldset1>
                 <tr>
-                    <td></td>
-                    <td><asp:Label ID="errormessage" runat="server" Text="Incorrect user credentials!" ForeColor="Red"></asp:Label></td>
+                    <td><asp:Label ID="errormessage" font-size="Small" runat="server" Text="ERROR: Invalid user credentials!" ForeColor="Red"></asp:Label></td>
                 </tr>
-                
-            </table>
+                </fieldset1>
             
             
         </div>

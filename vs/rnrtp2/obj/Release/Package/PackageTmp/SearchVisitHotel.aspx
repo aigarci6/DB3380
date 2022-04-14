@@ -8,6 +8,7 @@
     <title></title>
 </head>
 <body id="SearchVisitHotel">
+    <h1>manage hotel visits</h1>
     <form id="form1" runat="server">
         <div>
             <fieldset>
@@ -22,6 +23,7 @@
                 <option value="days_greater">Days Stayed Greater Than</option>
                 <option value="days_less">Days Stayed Less Than</option>
                 <option value="room">Room Number</option>
+                <option value="all">*</option>
             </select>
             <asp:TextBox ID="field_textbox" runat="server"></asp:TextBox><br />
             <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search" />
@@ -41,18 +43,20 @@
             <br />
 
             <!-- UPDATE -->
-                <h1>visitor information</h1>
-                <asp:Label ID="Label1" runat="server" Text="Ticket ID: "></asp:Label>
+                <h1>Update:</h1>
+                <h3>visitor information</h3>
+                <asp:Label ID="Label1" runat="server" Text="Ticket ID: "></asp:Label><br />
                 <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label2" runat="server" Text="Hotel ID: "></asp:Label>
-                <asp:TextBox ID="hid_textbox" runat="server"></asp:TextBox><br /><br />
+                <asp:Label ID="Label2" runat="server" Text="Hotel ID: "></asp:Label><br />
+                <asp:TextBox ID="hid_textbox" runat="server"></asp:TextBox><br />
+                <asp:Label ID="errormessage" font-size="small" runat="server" Text="ERROR: Missing field(s)!" ForeColor="Red"></asp:Label>
 
-                <h1>update information</h1>
-                <asp:Label ID="Label3" runat="server" Text="Amount Spent: "></asp:Label>
+                <h3>update</h3>
+                <asp:Label ID="Label3" runat="server" Text="Amount Spent: "></asp:Label><br />
                 <asp:TextBox ID="spent_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label4" runat="server" Text="Days Stayed: "></asp:Label>
+                <asp:Label ID="Label4" runat="server" Text="Days Stayed: "></asp:Label><br />
                 <asp:TextBox ID="days_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label5" runat="server" Text="Room Number: "></asp:Label>
+                <asp:Label ID="Label5" runat="server" Text="Room Number: "></asp:Label><br />
                 <asp:TextBox ID="room_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Update" />
             </fieldset>

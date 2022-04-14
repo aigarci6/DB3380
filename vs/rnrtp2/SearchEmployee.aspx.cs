@@ -12,6 +12,19 @@ namespace rnrtp2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //auth
+            if (Session["username"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+
+            if ((string)Session["username"] != "admin")
+            {
+                Response.Redirect("BadAccess.html");
+            }
+
+
+
             updateerrormessage.Visible = false;
             deleteerrormessage.Visible = false;
         }

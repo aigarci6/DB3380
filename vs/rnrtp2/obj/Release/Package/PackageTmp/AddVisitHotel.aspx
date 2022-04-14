@@ -10,7 +10,7 @@
 <body id="AddVisitHotel">
     <form id="form1" runat="server">
         <div>
-            <h1><font color="black">Add visitor to hotel</font></h1>
+            <h1><font color="black">hotel visitor form</font></h1>
             <fieldset>
         
                 <asp:Label ID="Label1" runat="server" Text="Ticket ID: "></asp:Label>
@@ -22,7 +22,7 @@
                 <asp:Label ID="Label3" runat="server" Text="Number of Days Visiting: "></asp:Label>
                 <asp:TextBox ID="days_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Label ID="Label4" runat="server" Text="Room Number: "></asp:Label>
-                <asp:TextBox ID="room_textbox" runat="server"></asp:TextBox><br /><br />
+                <asp:TextBox ID="room_textbox" runat="server" required="required"></asp:TextBox><br /><br />
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
 
             </fieldset>

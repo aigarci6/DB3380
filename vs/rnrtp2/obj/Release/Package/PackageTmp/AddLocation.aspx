@@ -10,12 +10,12 @@
 <body id="AddLocation">
     <form id="form1" runat="server">
         <div>
-            <h1><font color="black">Add new location</font></h1>
+            <h1><font color="black">new location form</font></h1>
             <fieldset>
-                <asp:Label ID="Label1" runat="server" Text="ID: "></asp:Label>
-                <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label2" runat="server" Text="Location Name: "></asp:Label>
-                <asp:TextBox ID="name_textbox" runat="server"></asp:TextBox><br /><br />
+                <asp:Label ID="Label1" runat="server" Text="ID: "></asp:Label><br />
+                <asp:TextBox ID="id_textbox" runat="server" required="required"></asp:TextBox><br /><br />
+                <asp:Label ID="Label2" runat="server" Text="Location Name: " ></asp:Label><br />
+                <asp:TextBox ID="name_textbox" runat="server" required="required"></asp:TextBox><br /><br />
             
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
             </fieldset>

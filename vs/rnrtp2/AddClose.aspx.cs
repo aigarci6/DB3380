@@ -12,12 +12,25 @@ namespace rnrtp2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack == true)
+
+            //auth
+            if (Session["username"] == null)
             {
-                Response.Write("<script>alert('Inserted successfully!')</script>");
+                Response.Redirect("Login.aspx");
             }
 
-            
+            if ((string)Session["username"] != "admin" || (string)Session["username"] != "ridestaff")
+            {
+                Response.Redirect("BadAccess.html");
+            }
+
+
+
+            if (IsPostBack == true)
+            {
+                Response.Write("<script>alert('Ride closed successfully!')</script>");
+            }
+
             DateTime now = DateTime.Now;
 
             string hour = now.Hour.ToString();
