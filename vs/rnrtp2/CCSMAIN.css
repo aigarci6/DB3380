@@ -364,3 +364,79 @@ fieldset4 {
 .badaccesstext {
     font-family: FreeMono, monospace;
 }
+
+.mainnav {
+    background: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    margin-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-family: FreeMono, monospace;
+}
+
+.mainnav2 {
+    display:table;
+    width:90%;
+    overflow: hidden;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-family: FreeMono, monospace;
+}
+
+.mainnav a.login {
+    float: right;
+    color: #333;
+    background-color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: 0.5s;
+    border-style: solid;
+    border-color: #fff;
+    font-weight: bold;
+}
+
+.mainnav a.login:hover {
+    background-color: #555;
+    color: #fff;
+    border-color: #fff;
+}
+
+.mainnav a.title {
+    float: left;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.maincol {
+    display: table-cell;
+    background: rgba(0, 0, 0, .6);
+    width: 45%;
+}
+
+.maincol2 {
+    display: table-cell;
+    background: rgba(0, 0, 0, .6);
+    width: 100%;
+    padding-bottom: 5%;
+    padding-top: 2%;
+}
+
+.boxes {
+    margin: auto;
+    overflow: hidden;
+    font-family: FreeMono, monospace;
+    color: #f2f2f2;
+    padding: 3% 5% 5% 10%;
+}
+
+#homepage {
+    background-image: url("MainImage.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
