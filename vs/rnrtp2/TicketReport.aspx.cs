@@ -70,13 +70,13 @@ namespace rnrtp2
             DateTime thisDay = DateTime.Today;
             string fin;
             
-            if (date_textbox.Text.Length > 0 && date2_textbox.Text.Length == 0) {
-                fin = "Daily Ticket Totals Report For " + date_textbox.Text;
+            if (date1.Value.Length > 0 && date2.Value.Length == 0) {
+                fin = "Daily Ticket Totals Report For " + date1.Value;
             }
 
-            else if (date_textbox.Text.Length > 0 && date2_textbox.Text.Length > 0)
+            else if (date1.Value.Length > 0 && date2.Value.Length > 0)
             {
-                fin = "Daily Ticket Totals Report For " + date_textbox.Text + " - " + date2_textbox.Text;
+                fin = "Daily Ticket Totals Report For " + date1.Value + " - " + date2.Value;
             }
 
             else
@@ -99,34 +99,34 @@ namespace rnrtp2
             //find date
             DateTime thisDay = DateTime.Today;
             string date;
-            string date2;
+            string date3;
             
-            if (date_textbox.Text.Length > 0 && date2_textbox.Text.Length == 0)
+            if (date1.Value.Length > 0 && date2.Value.Length == 0)
             {
-                date = date_textbox.Text;
-                date2 = date;
+                date = date1.Value;
+                date3 = date;
             }
 
-            else if (date_textbox.Text.Length > 0 && date2_textbox.Text.Length > 0)
+            else if (date1.Value.Length > 0 && date2.Value.Length > 0)
             {
-                date = date_textbox.Text;
-                date2 = date2_textbox.Text;
+                date = date1.Value;
+                date3 = date2.Value;
             }
 
             else
             {
                 date = thisDay.ToString("yyyy") + "-" + thisDay.ToString("dd") + "-" + thisDay.ToString("MM");
-                date2 = date;
+                date3 = date;
             }
 
             MySqlCommand genTickets = new MySqlCommand("SELECT ticketID, ticketType, ticketCost, email, visitDate FROM visitor WHERE ticketType = @ticketType AND visitDate BETWEEN @date AND @date2 ORDER BY visitDate ASC;", dbcon);
             genTickets.Parameters.AddWithValue("@ticketType", "general");
             genTickets.Parameters.AddWithValue("@date", date);
-            genTickets.Parameters.AddWithValue("@date2", date2);
+            genTickets.Parameters.AddWithValue("@date2", date3);
             MySqlCommand seasTickets = new MySqlCommand("SELECT ticketID, ticketType, ticketCost, email, visitDate FROM visitor WHERE ticketType = @ticketType AND visitDate BETWEEN @date AND @date2 ORDER BY visitDate ASC;", dbcon);
             seasTickets.Parameters.AddWithValue("@ticketType", "seasonal");
             seasTickets.Parameters.AddWithValue("@date", date);
-            seasTickets.Parameters.AddWithValue("@date2", date2);
+            seasTickets.Parameters.AddWithValue("@date2", date3);
 
             string htmlStr = "";
 

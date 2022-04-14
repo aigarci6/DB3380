@@ -322,7 +322,6 @@
     <Content Include="Location.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="Login.jpg" />
-    <Content Include="MainPg.html" />
     <Content Include="MainImage.jpg" />
     <Content Include="Rides.jpg" />
     <Content Include="Scripts\bootstrap.js" />

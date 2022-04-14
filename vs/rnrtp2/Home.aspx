@@ -6,6 +6,35 @@
 <head runat="server">
     <link rel="stylesheet" href="CCSMAIN.css"/>
     <title></title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        tr {
+            background-color: lightgray;
+            text-align: left;
+            color: #333;
+            font-size:small;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        td {
+            padding: 5px;
+        }
+
+        tr:first-child {
+            background-color: lightblue;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+        tr:nth-child(even) {
+            background-color: #efefef;
+        }
+    </style>
 </head>
 <body id ="homepage">
     <form id="form1" runat="server">
@@ -48,7 +77,7 @@
                 <div class="maincol2">
                     <center><h1 style="color:#f2f2f2;">Ride Closures</h1></center>
                         <table width="80%" align="center" cellpadding="2" cellspacing="2" border="0" bgcolor="#EAEAEA">
-                        <tr align="left" style="background-color: #004080; color: White;">
+                        <tr>
                             <td> DATE </td>
                             <td> RIDE NAME </td>
                             </tr>

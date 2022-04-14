@@ -6,6 +6,35 @@
 <head runat="server">
     <link rel="stylesheet" href="CCSMAIN.css">
     <title></title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        tr {
+            background-color: lightgray;
+            text-align: left;
+            color: #333;
+            font-size:small;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        td {
+            padding: 5px;
+        }
+
+        tr:first-child {
+            background-color: lightblue;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+        tr:nth-child(even) {
+            background-color: #efefef;
+        }
+    </style>
 </head>
 <body id="SearchRide">
     <h1>manage rides</h1>
@@ -32,8 +61,8 @@
             <asp:TextBox ID="field_textbox" runat="server"></asp:TextBox><br />
             <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search" /><br />
                 <asp:CheckBox ID="archived" runat="server" Text ="include archived"/>
-            <table width="50%" align="center" cellpadding="2" cellspacing="2" border="0" bgcolor="#000" class="table">
-            <tr align="left" style="background-color: #004080; color: White;">
+            <table width="100%" align="center" cellpadding="2" cellspacing="2" border="0" bgcolor="#000" class="table">
+            <tr>
                 <td> ride id </td>
                 <td> name </td>
                 <td> capacity </td>
