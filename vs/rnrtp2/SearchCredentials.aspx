@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link rel="stylesheet" href="CCSMAIN.css"/>
-    <title></title>
+    <title>manage credentials</title>
 
     <style>
         table {
@@ -39,10 +39,12 @@
 <body id="searchCred">
     <form id="form1" runat="server">
         <div>
-            <!-- SEARCH -->
+            <h1 style="color:black;">manage credentials</h1>
+            <fieldset>
+                <!-- SEARCH -->
             <h1>Search By:</h1>
             <asp:Label ID="Label5" runat="server" Text="User ID: "></asp:Label>
-            <asp:TextBox ID="sid_textbox" runat="server"></asp:TextBox>
+            <asp:TextBox ID="sid_textbox" runat="server"></asp:TextBox><br />
             <asp:Label ID="Label4" runat="server" Text="Username: "></asp:Label>
             <asp:TextBox ID="suser_textbox" runat="server"></asp:TextBox>
             <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search" />
@@ -74,6 +76,7 @@
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Update" />
             <br /><br /><br />
             <a href="Index.aspx" style="font-size: medium; font-family: FreeMono, monospace; color: white;">GO BACK TO HOME</a>
+            </fieldset>
         </div>
     </form>
 </body>

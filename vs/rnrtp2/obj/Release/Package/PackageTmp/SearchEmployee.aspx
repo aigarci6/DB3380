@@ -4,8 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link rel="stylesheet" href="CCSMAIN.css">
-    <title></title>
+    <link rel="stylesheet" href="CCSMAIN.css"/>
+    <title>manage employees</title>
 
     <style>
         table {

@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="rnrtp2.NewIndex" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HotelIndex.aspx.cs" Inherits="rnrtp2.HotelIndex" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>admin portal</title>
+    <title>hotel staff portal</title>
 
     <style>
         #newindex {
@@ -84,23 +84,11 @@
     </div>
     <div class="navigationbar">
 
-        <h1>reports.</h1>
+        <h1>hotels.</h1>
         <div class="list">
-            <a href="TicketReport.aspx">daily ticket report</a>
-        </div>
-
-        <h1>employee.</h1>
-        <div class="list">
-            <a href="AddCredentials.aspx">create new credentials</a><br />
-            <a href="SearchCredentials.aspx">manage credentials</a><br />
-            <a href="AddEmployee.aspx">add a new employee</a><br />
-            <a href="SearchEmployee.aspx">manage employees</a><br />
-        </div>
-
-        <h1>park.</h1>
-        <div class="list">
-            <a href="AddLocation.aspx">add a new location</a><br />
-            <a href="SearchLocations.aspx">manage locations</a><br />
+            <a href="SearchHotel.aspx">manage existing hotels</a><br />
+            <a href="AddVisitHotel.aspx">visitor hotel check in</a><br />
+            <a href="SearchVisitRestaurant.aspx">manage hotel visits</a>
         </div>
 
         <h1>visitor.</h1>
@@ -109,27 +97,14 @@
             <a href="SearchVisitor.aspx">manage visitor profiles</a>
         </div>
 
-        <h1>rides.</h1>
+        <h1>park.</h1>
         <div class="list">
-            <a href="AddRide.aspx">add a new ride</a><br />
-            <a href="SearchRide.aspx">manage rides</a><br />
-            <a href="AddClose.aspx">close a ride</a>
+            <a href="SearchLocations.aspx">manage locations</a><br />
         </div>
 
-        <h1>restaurants.</h1>
+        <h1>reports.</h1>
         <div class="list">
-            <a href="AddRestaurant.aspx">add a new restaurant</a><br />
-            <a href="SearchRestaurant.aspx">manage restaurants</a><br />
-            <a href="AddVisitRestaurant.aspx">visitor restaurant check in</a><br />
-            <a href="SearchVisitRestaurant.aspx">manage restaurant visits</a>
-        </div>
-
-        <h1>hotels.</h1>
-        <div class="list">
-            <a href="AddHotel.aspx">add a new hotel</a><br />
-            <a href="SearchHotel.aspx">manage existing hotels</a><br />
-            <a href="AddVisitHotel.aspx">visitor hotel check in</a><br />
-            <a href="SearchVisitRestaurant.aspx">manage hotel visits</a>
+            <a href="TicketReport.aspx">daily ticket report</a>
         </div>
         <br /><br />
         <div class="logout">

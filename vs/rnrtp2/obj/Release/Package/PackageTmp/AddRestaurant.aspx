@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CCSMAIN.css"/>
     
-    <title>New Restaurant</title>
+    <title>add a new restaurant</title>
 </head>
 <body id="restaurant">
     <div class="widget">

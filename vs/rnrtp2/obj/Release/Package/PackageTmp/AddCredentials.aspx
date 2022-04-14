@@ -4,13 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>create credentials</title>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <h1>new login form</h1>
-            <asp:Label ID="Label1" runat="server" Text="User ID: "></asp:Label>
+            <h1>create new credentials</h1>
+            <asp:Label ID="Label1" runat="server" Text="Employee ID: "></asp:Label>
             <asp:TextBox ID="id_textbox" runat="server" required="required"></asp:TextBox><br /><br />
             <asp:Label ID="Label2" runat="server" Text="Username: "></asp:Label>
             <asp:TextBox ID="user_textbox" runat="server" required="required"></asp:TextBox><br /><br />
@@ -19,7 +19,7 @@
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
 
             <br /><br />
-            <center><a href="Index.aspx" style="font-size: medium; font-family: FreeMono, monospace; color: black;">GO BACK TO HOME</a></center>
+            <a href="Index.aspx" style="font-size: medium; font-family: FreeMono, monospace; color: white;">GO BACK TO HOME</a>
         </div>
     </form>
 </body>

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link rel="stylesheet" href="CCSMAIN.css"/>
-    <title></title>
+    <title>add new hotel</title>
 </head>
 <body id="hotel">
     <h1 class="row">new hotel form</h1>

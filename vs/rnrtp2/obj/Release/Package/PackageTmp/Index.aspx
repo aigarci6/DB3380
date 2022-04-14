@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>admin portal</title>
 
     <style>
         #newindex {
@@ -56,6 +56,24 @@
 
         a:hover {
             color:lightblue;
+        }
+
+        .logout {
+            background-color:#f2f2f2;
+            height:25px;
+            width:150px;
+            text-align:center;
+            padding:2%;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight:bold;
+            border-style:solid;
+            border-color:#333;
+            padding-top:3%;
+            transition: 0.6s;
+        }
+
+        .logout:hover {
+            background-color:lightblue;
         }
 
     </style>
@@ -113,7 +131,10 @@
             <a href="AddVisitHotel.aspx">visitor hotel check in</a><br />
             <a href="SearchVisitRestaurant.aspx">manage hotel visits</a>
         </div>
-
+        <br /><br />
+        <div class="logout">
+            <a href="Login.aspx" style="color:#333;">LOGOUT</a>
+        </div>
         <br /><br /><br />
     </div>
         

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link rel="stylesheet" href="CCSMAIN.css"/>
-    <title></title>
+    <title>add a new employee</title>
 </head>
 <body id="employee">
     <h1><font color="black">new employee form</font></h1>

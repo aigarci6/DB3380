@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link rel="stylesheet" href="CCSMAIN.css"/>
-    <title></title>
+    <title>add a new ride</title>
 </head>
 <body id="AddRide">
     <h1><font color="white">new ride form </font></h1>

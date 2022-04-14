@@ -208,6 +208,13 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="HotelIndex.aspx.cs">
+      <DependentUpon>HotelIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HotelIndex.aspx.designer.cs">
+      <DependentUpon>HotelIndex.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -223,6 +230,20 @@
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestIndex.aspx.cs">
+      <DependentUpon>RestIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RestIndex.aspx.designer.cs">
+      <DependentUpon>RestIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RideIndex.aspx.cs">
+      <DependentUpon>RideIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RideIndex.aspx.designer.cs">
+      <DependentUpon>RideIndex.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SearchCredentials.aspx.cs">
       <DependentUpon>SearchCredentials.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -318,12 +339,15 @@
     <Content Include="Content\Site.css" />
     <Content Include="Home.aspx" />
     <Content Include="hotel.jpg" />
+    <Content Include="HotelIndex.aspx" />
     <Content Include="Location.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="Login.jpg" />
     <Content Include="MainImage.jpg" />
     <Content Include="Index.aspx" />
     <Content Include="newindex.jpg" />
+    <Content Include="RestIndex.aspx" />
+    <Content Include="RideIndex.aspx" />
     <Content Include="Rides.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

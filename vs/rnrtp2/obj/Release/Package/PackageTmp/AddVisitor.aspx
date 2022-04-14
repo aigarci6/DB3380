@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link rel="stylesheet" href="CCSMAIN.css"/>
-    <title></title>
+    <title>add a new visitor</title>
 </head>
 <body id="Visitor">
     <h1><font color="white">new visitor form</font></h1>

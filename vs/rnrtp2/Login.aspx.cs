@@ -27,7 +27,25 @@ namespace rnrtp2
             if (count == 1)
             {
                 Session["username"] = username_textbox.Text.Trim();
-                Response.Redirect("Index.aspx");
+                if ((string)Session["username"] == "admin")
+                {
+                    Response.Redirect("Index.aspx");
+                }
+
+                if ((string)Session["username"] == "hotelstaff")
+                {
+                    Response.Redirect("HotelIndex.aspx");
+                }
+
+                if ((string)Session["username"] == "reststaff")
+                {
+                    Response.Redirect("RestIndex.aspx");
+                }
+
+                if ((string)Session["username"] == "ridestaff")
+                {
+                    Response.Redirect("RideIndex.aspx");
+                }
             }
             
             else
