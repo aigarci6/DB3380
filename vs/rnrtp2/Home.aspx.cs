@@ -22,7 +22,8 @@ namespace rnrtp2
             //find date
             DateTime thisDay = DateTime.Today;
             string date = thisDay.ToString("yyyy-MM-dd");
-            string cdate;
+            DateTime cdate;
+            string c2date;
             string cname;
 
             MySqlCommand closures = new MySqlCommand("SELECT date, name FROM closes LEFT OUTER JOIN rides ON closes.rideID = rides.rideID WHERE date >= @date", dbcon);
@@ -35,10 +36,11 @@ namespace rnrtp2
             MySqlDataReader reader = closures.ExecuteReader();
             while (reader.Read())
             {
-                cdate = reader.GetString(0);
+                cdate = reader.GetDateTime(0);
+                c2date = cdate.ToString("dd-MM-yyyy");
                 cname = reader.GetString(1);
 
-                htmlStr += "<tr><td>" + cdate + "</td><td>" + cname + "</td></tr>";
+                htmlStr += "<tr><td>" + c2date + "</td><td>" + cname + "</td></tr>";
             }
             reader.Close();
 
