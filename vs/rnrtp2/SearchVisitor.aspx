@@ -53,6 +53,8 @@
                 <asp:TextBox ID="email_textbox" runat="server"></asp:TextBox><br /><br />
 
                 <asp:Button ID="Button1" runat="server" Text="Update" OnClick="Button1_Click" />
+                <br /><br /><br />
+            <a href="Index.aspx" style="font-size: medium; font-family: FreeMono, monospace; color: white;">GO BACK TO HOME</a>
             </fieldset>
         </div>
     </form>

@@ -11,7 +11,7 @@ namespace rnrtp2
     public partial class AddEmployee : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {/*
             //auth
             if (Session["username"] == null)
             {
@@ -22,7 +22,7 @@ namespace rnrtp2
             {
                 Response.Redirect("BadAccess.html");
             }
-
+            */
 
             if (IsPostBack == true)
             {

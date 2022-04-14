@@ -59,6 +59,8 @@
                 <asp:Label ID="Label5" runat="server" Text="Room Number: "></asp:Label><br />
                 <asp:TextBox ID="room_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Update" />
+                <br /><br /><br />
+            <a href="Index.aspx" style="font-size: medium; font-family: FreeMono, monospace; color: white;">GO BACK TO HOME</a>
             </fieldset>
 
         </div>

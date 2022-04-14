@@ -10,7 +10,7 @@
 <body id="searchRestaurant">
     <form id="form1" runat="server">
         <div>
-            <h1><font color="black">manage restaurants</font></h1>
+            <h1><font color="white">manage restaurants</font></h1>
             <fieldset>
                 <!-- SEARCH -->
             <h1>Search By:</h1>
@@ -66,6 +66,8 @@
                 <asp:TextBox ID="delete_name" runat="server"></asp:TextBox><br /><br />
                 <asp:Button ID="Button3" runat="server" Text="Delete Ride" OnClick="Button3_Click"/><br />
                 <asp:Label ID="deleteerrormessage" font-size="small" runat="server" Text="ERROR: Missing field(s)!" ForeColor="Red"></asp:Label>
+                <br /><br /><br />
+            <a href="Index.aspx" style="font-size: medium; font-family: FreeMono, monospace; color: white;">GO BACK TO HOME</a>
             </fieldset>
         </div>
     </form>

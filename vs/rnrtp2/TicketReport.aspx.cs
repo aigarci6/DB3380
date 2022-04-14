@@ -13,7 +13,7 @@ namespace rnrtp2
     public partial class TicketReport : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {/*
             //auth
             if (Session["username"] == null)
             {
@@ -24,6 +24,7 @@ namespace rnrtp2
             {
                 Response.Redirect("BadAccess.html");
             }
+            */
         }
 
 

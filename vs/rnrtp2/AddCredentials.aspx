@@ -16,8 +16,10 @@
             <asp:TextBox ID="user_textbox" runat="server" required="required"></asp:TextBox><br /><br />
             <asp:Label ID="Label3" runat="server" Text="Password: "></asp:Label>
             <asp:TextBox ID="pass_textbox" runat="server" required="required"></asp:TextBox><br /><br />
-
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
+
+            <br /><br />
+            <center><a href="Index.aspx" style="font-size: medium; font-family: FreeMono, monospace; color: black;">GO BACK TO HOME</a></center>
         </div>
     </form>
 </body>

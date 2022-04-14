@@ -13,14 +13,16 @@
             
             <h1>restaurant visitor form</h1>
             <fieldset>
-                <asp:Label ID="Label1" runat="server" Text="Ticket ID: "></asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="Ticket ID: "></asp:Label><br />
                 <asp:TextBox ID="id_textbox" runat="server" required="required"></asp:TextBox><br /><br />
-                <asp:Label ID="Label2" runat="server" Text="Restaurant ID: "></asp:Label>
+                <asp:Label ID="Label2" runat="server" Text="Restaurant ID: "></asp:Label><br />
                 <asp:TextBox ID="rid_textbox" runat="server" required="required"></asp:TextBox><br /><br />
-                <asp:Label ID="Label3" runat="server" Text="Amount Spent: "></asp:Label>
+                <asp:Label ID="Label3" runat="server" Text="Amount Spent: "></asp:Label><br />
                 <asp:TextBox ID="spent_textbox" runat="server"></asp:TextBox><br /><br />
 
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
+                <br /><br /><br />
+            <a href="Index.aspx" style="font-size: medium; font-family: FreeMono, monospace; color: white;">GO BACK TO HOME</a>
             </fieldset>
         </div>
     </form>
