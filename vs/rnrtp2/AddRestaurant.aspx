@@ -13,7 +13,7 @@
 </head>
 <body id="restaurant">
     <div class="widget">
-        <h1 class="row">Add Restaurant</h1>
+        <h1 class="row">new restaurant form</h1>
         <form id="form1" runat="server">
             <fieldset>
                 <asp:Label ID="Label1" runat="server" Text="ID: "></asp:Label><br />

@@ -8,6 +8,7 @@
     <title></title>
 </head>
 <body id ="SearchVisitor">
+    <h1>manage visitors</h1>
     <form id="form1" runat="server">
         <div>
             <fieldset>
@@ -36,16 +37,17 @@
             <br />
 
             <!-- UPDATE -->
+                <h1>Update:</h1>
                 <h2>visitor information</h2>
-                <asp:Label ID="Label1" runat="server" Text="Ticket ID: "></asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="Ticket ID: "></asp:Label><br />
                 <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label2" runat="server" Text="Visit Date: "></asp:Label>
+                <asp:Label ID="Label2" runat="server" Text="Visit Date: "></asp:Label><br />
                 <asp:TextBox ID="date_textbox" runat="server"></asp:TextBox><br /><br />
 
-                <h2>update information</h2>
-                <asp:Label ID="Label3" runat="server" Text="Ticket Type: "></asp:Label>
+                <h2>update</h2>
+                <asp:Label ID="Label3" runat="server" Text="Ticket Type: "></asp:Label><br />
                 <asp:TextBox ID="type_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label4" runat="server" Text="Email: "></asp:Label>
+                <asp:Label ID="Label4" runat="server" Text="Email: "></asp:Label><br />
                 <asp:TextBox ID="email_textbox" runat="server"></asp:TextBox><br /><br />
 
                 <asp:Button ID="Button1" runat="server" Text="Update" OnClick="Button1_Click" />

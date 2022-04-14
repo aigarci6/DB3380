@@ -441,7 +441,7 @@ namespace rnrtp2
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (sid_textbox.Text.Length > 0 && sfirst_textbox.Text.Length > 0 && sjsite_textbox.Text.Length > 0)
+            if (sid_textbox.Text.Length > 0 && sfirst_textbox.Text.Length > 0 && sjsite.Value.Length > 0)
             {
                 MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
 
@@ -465,16 +465,16 @@ namespace rnrtp2
 
                 //gender
                 MySqlCommand updateGender = new MySqlCommand("UPDATE staff SET gender = @gender WHERE employeeID = @id AND firstName = @first;", dbcon);
-                if (gender_textbox.Text.Length == 1)
+                if (gender.Value.Length == 1)
                 {
                     updateGender.Parameters.AddWithValue("@id", sid_textbox.Text);
                     updateGender.Parameters.AddWithValue("@first", sfirst_textbox.Text);
-                    updateGender.Parameters.AddWithValue("@gender", gender_textbox.Text);
+                    updateGender.Parameters.AddWithValue("@gender", gender.Value);
                 }
 
                 //salary
                 MySqlCommand updateSalary = new MySqlCommand("UPDATE staff SET weeklySalary = @salary WHERE employeeID = @id AND firstName = @first;", dbcon); ;
-                if (sjsite_textbox.Text.ToLower() == "hotel" && salary_textbox.Text.Length > 0)
+                if (salary_textbox.Text.Length > 0)
                 {
                     updateSalary.Parameters.AddWithValue("@id", sid_textbox.Text);
                     updateSalary.Parameters.AddWithValue("@first", sfirst_textbox.Text);
@@ -485,7 +485,7 @@ namespace rnrtp2
                 //jid
                 //hotel
                 MySqlCommand updateHID = new MySqlCommand("UPDATE works_hotel SET hotID = @jid WHERE staID = @id;", dbcon);
-                if (sjsite_textbox.Text.ToLower() == "hotel" && jid_textbox.Text.Length > 0)
+                if (sjsite.Value.ToLower() == "hotel" && jid_textbox.Text.Length > 0)
                 {
                     updateHID.Parameters.AddWithValue("@id", sid_textbox.Text);
                     updateHID.Parameters.AddWithValue("@jid", jid_textbox.Text);
@@ -493,7 +493,7 @@ namespace rnrtp2
 
                 //restaurant
                 MySqlCommand updateRestID = new MySqlCommand("UPDATE works_restaurant SET restID = @jid WHERE staID = @id;", dbcon);
-                if (sjsite_textbox.Text.ToLower() == "restaurant" && jid_textbox.Text.Length > 0)
+                if (sjsite.Value.ToLower() == "restaurant" && jid_textbox.Text.Length > 0)
                 {
                     updateRestID.Parameters.AddWithValue("@id", sid_textbox.Text);
                     updateRestID.Parameters.AddWithValue("@jid", jid_textbox.Text);
@@ -501,7 +501,7 @@ namespace rnrtp2
 
                 //ride
                 MySqlCommand updateRID = new MySqlCommand("UPDATE works_ride SET rID = @jid WHERE staID = @id;", dbcon);
-                if (sjsite_textbox.Text.ToLower() == "ride" && jid_textbox.Text.Length > 0)
+                if (sjsite.Value.ToLower() == "ride" && jid_textbox.Text.Length > 0)
                 {
                     updateRID.Parameters.AddWithValue("@id", sid_textbox.Text);
                     updateRID.Parameters.AddWithValue("@jid", jid_textbox.Text);
@@ -517,7 +517,7 @@ namespace rnrtp2
                 {
                     updateLast.ExecuteNonQuery();
                 }
-                if (gender_textbox.Text.Length == 1)
+                if (gender.Value.Length == 1)
                 {
                     updateGender.ExecuteNonQuery();
                 }
@@ -527,15 +527,15 @@ namespace rnrtp2
                 }
 
                 //job id
-                if (sjsite_textbox.Text.ToLower() == "hotel" && jid_textbox.Text.Length > 0)
+                if (sjsite.Value.ToLower() == "hotel" && jid_textbox.Text.Length > 0)
                 {
                     updateHID.ExecuteNonQuery();
                 }
-                if (sjsite_textbox.Text.ToLower() == "restaurant" && jid_textbox.Text.Length > 0)
+                if (sjsite.Value.ToLower() == "restaurant" && jid_textbox.Text.Length > 0)
                 {
                     updateRestID.ExecuteNonQuery();
                 }
-                if (sjsite_textbox.Text.ToLower() == "ride" && jid_textbox.Text.Length > 0)
+                if (sjsite.Value.ToLower() == "ride" && jid_textbox.Text.Length > 0)
                 {
                     updateRID.ExecuteNonQuery();
                 }
@@ -546,10 +546,10 @@ namespace rnrtp2
                 {
                     sid_textbox.Text = "";
                     sfirst_textbox.Text = "";
-                    sjsite_textbox.Text = "";
+                    sjsite.Value = "";
                     first_textbox.Text = "";
                     last_textbox.Text = "";
-                    gender_textbox.Text = "";
+                    gender.Value = "";
                     salary_textbox.Text = "";
                     jid_textbox.Text = "";
                 }

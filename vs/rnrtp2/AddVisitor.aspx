@@ -8,7 +8,7 @@
     <title></title>
 </head>
 <body id="Visitor">
-    <h1><font color="black">Add new visitor form</font></h1>
+    <h1><font color="black">new visitor form</font></h1>
     <form id="form1" class="form" runat="server">
         <div>
             <fieldset>
@@ -20,19 +20,13 @@
                     <option value="seasonal">Seasonal</option>
                 </select> <br />
                 <label for="email" >Email:</label>
-                <input type="email" name="email" placeholder="Enter a valid Email" value="" runat="server" id="email" style="width:197px;" required="required"/> <br />
+                <input type="email" name="email" value="" runat="server" id="email" style="width:197px;" required="required"/> <br />
                 <asp:Button ID="Button2" runat="server" Text="Submit" OnClick="buttonClick"  /> 
            </fieldset>
             
         </div>
     </form>
 
-    <script>
-        /*const submit = document.querySelector('.form');
-        submit.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert("in js right now");*/
-    </script>
 </body>
 </html>
 

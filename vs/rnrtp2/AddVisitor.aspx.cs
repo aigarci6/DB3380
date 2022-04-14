@@ -17,6 +17,10 @@ namespace rnrtp2
             {
                 Response.Write("<script>alert('Visitor added successfully!')</script>");
             }
+
+            DateTime now = DateTime.Now;
+
+            date.Value = now.Date.ToString("yyyy-MM-dd");
         }
 
         protected void buttonClick(object sender, EventArgs e)

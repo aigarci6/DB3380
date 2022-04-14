@@ -8,6 +8,7 @@
     <title></title>
 </head>
 <body id="SearchVisitHotel">
+    <h1>manage hotel visits</h1>
     <form id="form1" runat="server">
         <div>
             <fieldset>
@@ -41,18 +42,19 @@
             <br />
 
             <!-- UPDATE -->
-                <h1>visitor information</h1>
-                <asp:Label ID="Label1" runat="server" Text="Ticket ID: "></asp:Label>
+                <h1>Update:</h1>
+                <h3>visitor information</h3>
+                <asp:Label ID="Label1" runat="server" Text="Ticket ID: "></asp:Label><br />
                 <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label2" runat="server" Text="Hotel ID: "></asp:Label>
+                <asp:Label ID="Label2" runat="server" Text="Hotel ID: "></asp:Label><br />
                 <asp:TextBox ID="hid_textbox" runat="server"></asp:TextBox><br /><br />
 
-                <h1>update information</h1>
-                <asp:Label ID="Label3" runat="server" Text="Amount Spent: "></asp:Label>
+                <h3>update</h3>
+                <asp:Label ID="Label3" runat="server" Text="Amount Spent: "></asp:Label><br />
                 <asp:TextBox ID="spent_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label4" runat="server" Text="Days Stayed: "></asp:Label>
+                <asp:Label ID="Label4" runat="server" Text="Days Stayed: "></asp:Label><br />
                 <asp:TextBox ID="days_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label5" runat="server" Text="Room Number: "></asp:Label>
+                <asp:Label ID="Label5" runat="server" Text="Room Number: "></asp:Label><br />
                 <asp:TextBox ID="room_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Update" />
             </fieldset>

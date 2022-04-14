@@ -95,6 +95,7 @@ namespace rnrtp2
             int rating;
             int lid;
             string lname;
+            double revenue;
             string htmlStr = "";
 
             dbcon.Open();
@@ -102,7 +103,7 @@ namespace rnrtp2
             //auto (all)
             if (search.Value == "none")
             {
-                MySqlCommand search = new MySqlCommand("SELECT hotelID, name, capacity, h_expenditure, rating, h_locID, IFNULL(locationName, @auto) AS locationName FROM hotel LEFT OUTER JOIN location ON h_locID = locationID WHERE hotel.archived <= @archived ORDER BY hotelID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT hotelID, name, capacity, h_expenditure, rating, h_locID, IFNULL(locationName, @auto) AS locationName, h_revenue FROM hotel LEFT OUTER JOIN location ON h_locID = locationID WHERE hotel.archived <= @archived ORDER BY hotelID ASC;", dbcon);
                 search.Parameters.AddWithValue("@auto", "N/A");
 
                 if (archived.Checked)
@@ -125,9 +126,10 @@ namespace rnrtp2
                     rating = sReader.GetInt32(4);
                     lid = sReader.GetInt32(5);
                     lname = sReader.GetString(6);
+                    revenue = sReader.GetDouble(7);
 
 
-                    htmlStr += "<tr><td>" + hid + "</td><td>" + hname + "</td><td>" + capacity + "</td><td>" + exp + "</td><td>" + rating + "</td><td>" + lid + "</td><td>" + lname + "</td></tr>";
+                    htmlStr += "<tr><td>" + hid + "</td><td>" + hname + "</td><td>" + capacity + "</td><td>" + exp + "</td><td>" + revenue + "</td><td>" + rating + "</td><td>" + lid + "</td><td>" + lname + "</td></tr>";
                 }
                 sReader.Close();
             }
@@ -135,7 +137,7 @@ namespace rnrtp2
             //id
             if (search.Value == "id" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT hotelID, name, capacity, h_expenditure, rating, h_locID, IFNULL(locationName, @auto) AS locationName FROM hotel LEFT OUTER JOIN location ON h_locID = locationID WHERE hotelID = @id AND hotel.archived <= @archived ORDER BY name ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT hotelID, name, capacity, h_expenditure, rating, h_locID, IFNULL(locationName, @auto) AS locationName, h_revenue FROM hotel LEFT OUTER JOIN location ON h_locID = locationID WHERE hotelID = @id AND hotel.archived <= @archived ORDER BY name ASC;", dbcon);
                 search.Parameters.AddWithValue("@auto", "N/A");
                 search.Parameters.AddWithValue("@id", field_textbox.Text);
 
@@ -159,9 +161,10 @@ namespace rnrtp2
                     rating = sReader.GetInt32(4);
                     lid = sReader.GetInt32(5);
                     lname = sReader.GetString(6);
+                    revenue = sReader.GetDouble(7);
 
 
-                    htmlStr += "<tr><td>" + hid + "</td><td>" + hname + "</td><td>" + capacity + "</td><td>" + exp + "</td><td>" + rating + "</td><td>" + lid + "</td><td>" + lname + "</td></tr>";
+                    htmlStr += "<tr><td>" + hid + "</td><td>" + hname + "</td><td>" + capacity + "</td><td>" + exp + "</td><td>" + revenue + "</td><td>" + rating + "</td><td>" + lid + "</td><td>" + lname + "</td></tr>";
                 }
                 sReader.Close();
             }
@@ -169,7 +172,7 @@ namespace rnrtp2
             //hotel name
             if (search.Value == "name" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT hotelID, name, capacity, h_expenditure, rating, h_locID, IFNULL(locationName, @auto) AS locationName FROM hotel LEFT OUTER JOIN location ON h_locID = locationID WHERE name = @name AND hotel.archived <= @archived ORDER BY hotelID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT hotelID, name, capacity, h_expenditure, rating, h_locID, IFNULL(locationName, @auto) AS locationName, h_revenue FROM hotel LEFT OUTER JOIN location ON h_locID = locationID WHERE name = @name AND hotel.archived <= @archived ORDER BY hotelID ASC;", dbcon);
                 search.Parameters.AddWithValue("@auto", "N/A");
                 search.Parameters.AddWithValue("@name", field_textbox.Text);
 
@@ -193,9 +196,10 @@ namespace rnrtp2
                     rating = sReader.GetInt32(4);
                     lid = sReader.GetInt32(5);
                     lname = sReader.GetString(6);
+                    revenue = sReader.GetDouble(7);
 
 
-                    htmlStr += "<tr><td>" + hid + "</td><td>" + hname + "</td><td>" + capacity + "</td><td>" + exp + "</td><td>" + rating + "</td><td>" + lid + "</td><td>" + lname + "</td></tr>";
+                    htmlStr += "<tr><td>" + hid + "</td><td>" + hname + "</td><td>" + capacity + "</td><td>" + exp + "</td><td>" + revenue + "</td><td>" + rating + "</td><td>" + lid + "</td><td>" + lname + "</td></tr>";
                 }
                 sReader.Close();
             }
@@ -203,7 +207,7 @@ namespace rnrtp2
             //location id
             if (search.Value == "location" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT hotelID, name, capacity, h_expenditure, rating, h_locID, IFNULL(locationName, @auto) AS locationName FROM hotel LEFT OUTER JOIN location ON h_locID = locationID WHERE h_locID = @id AND hotel.archived <= @archived ORDER BY hotelID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT hotelID, name, capacity, h_expenditure, rating, h_locID, IFNULL(locationName, @auto) AS locationName, h_revenue FROM hotel LEFT OUTER JOIN location ON h_locID = locationID WHERE h_locID = @id AND hotel.archived <= @archived ORDER BY hotelID ASC;", dbcon);
                 search.Parameters.AddWithValue("@auto", "N/A");
                 search.Parameters.AddWithValue("@id", field_textbox.Text);
 
@@ -227,9 +231,10 @@ namespace rnrtp2
                     rating = sReader.GetInt32(4);
                     lid = sReader.GetInt32(5);
                     lname = sReader.GetString(6);
+                    revenue = sReader.GetDouble(7);
 
 
-                    htmlStr += "<tr><td>" + hid + "</td><td>" + hname + "</td><td>" + capacity + "</td><td>" + exp + "</td><td>" + rating + "</td><td>" + lid + "</td><td>" + lname + "</td></tr>";
+                    htmlStr += "<tr><td>" + hid + "</td><td>" + hname + "</td><td>" + capacity + "</td><td>" + exp + "</td><td>" + revenue + "</td><td>" + rating + "</td><td>" + lid + "</td><td>" + lname + "</td></tr>";
                 }
                 sReader.Close();
             }
@@ -237,7 +242,7 @@ namespace rnrtp2
             //capacity greater than
             if (search.Value == "capacity_greater" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT hotelID, name, capacity, h_expenditure, rating, h_locID, IFNULL(locationName, @auto) AS locationName FROM hotel LEFT OUTER JOIN location ON h_locID = locationID WHERE capacity > @capacity AND hotel.archived <= @archived ORDER BY hotelID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT hotelID, name, capacity, h_expenditure, rating, h_locID, IFNULL(locationName, @auto) AS locationName, h_revenue FROM hotel LEFT OUTER JOIN location ON h_locID = locationID WHERE capacity > @capacity AND hotel.archived <= @archived ORDER BY hotelID ASC;", dbcon);
                 search.Parameters.AddWithValue("@auto", "N/A");
                 search.Parameters.AddWithValue("@capacity", field_textbox.Text);
 
@@ -261,9 +266,10 @@ namespace rnrtp2
                     rating = sReader.GetInt32(4);
                     lid = sReader.GetInt32(5);
                     lname = sReader.GetString(6);
+                    revenue = sReader.GetDouble(7);
 
 
-                    htmlStr += "<tr><td>" + hid + "</td><td>" + hname + "</td><td>" + capacity + "</td><td>" + exp + "</td><td>" + rating + "</td><td>" + lid + "</td><td>" + lname + "</td></tr>";
+                    htmlStr += "<tr><td>" + hid + "</td><td>" + hname + "</td><td>" + capacity + "</td><td>" + exp + "</td><td>" + revenue + "</td><td>" + rating + "</td><td>" + lid + "</td><td>" + lname + "</td></tr>";
                 }
                 sReader.Close();
             }
@@ -271,7 +277,7 @@ namespace rnrtp2
             //capacity less than
             if (search.Value == "capacity_less" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT hotelID, name, capacity, h_expenditure, rating, h_locID, IFNULL(locationName, @auto) AS locationName FROM hotel LEFT OUTER JOIN location ON h_locID = locationID WHERE capacity < @capacity AND hotel.archived <= @archived ORDER BY hotelID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT hotelID, name, capacity, h_expenditure, rating, h_locID, IFNULL(locationName, @auto) AS locationName, h_revenue FROM hotel LEFT OUTER JOIN location ON h_locID = locationID WHERE capacity < @capacity AND hotel.archived <= @archived ORDER BY hotelID ASC;", dbcon);
                 search.Parameters.AddWithValue("@auto", "N/A");
                 search.Parameters.AddWithValue("@capacity", field_textbox.Text);
 
@@ -295,9 +301,10 @@ namespace rnrtp2
                     rating = sReader.GetInt32(4);
                     lid = sReader.GetInt32(5);
                     lname = sReader.GetString(6);
+                    revenue = sReader.GetDouble(7);
 
 
-                    htmlStr += "<tr><td>" + hid + "</td><td>" + hname + "</td><td>" + capacity + "</td><td>" + exp + "</td><td>" + rating + "</td><td>" + lid + "</td><td>" + lname + "</td></tr>";
+                    htmlStr += "<tr><td>" + hid + "</td><td>" + hname + "</td><td>" + capacity + "</td><td>" + exp + "</td><td>" + revenue + "</td><td>" + rating + "</td><td>" + lid + "</td><td>" + lname + "</td></tr>";
                 }
                 sReader.Close();
             }
@@ -305,7 +312,7 @@ namespace rnrtp2
             //rating greater than
             if (search.Value == "rating_greater" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT hotelID, name, capacity, h_expenditure, rating, h_locID, IFNULL(locationName, @auto) AS locationName FROM hotel LEFT OUTER JOIN location ON h_locID = locationID WHERE rating > @rating AND hotel.archived <= @archived ORDER BY hotelID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT hotelID, name, capacity, h_expenditure, rating, h_locID, IFNULL(locationName, @auto) AS locationName, h_revenue FROM hotel LEFT OUTER JOIN location ON h_locID = locationID WHERE rating > @rating AND hotel.archived <= @archived ORDER BY hotelID ASC;", dbcon);
                 search.Parameters.AddWithValue("@auto", "N/A");
                 search.Parameters.AddWithValue("@rating", field_textbox.Text);
 
@@ -329,9 +336,10 @@ namespace rnrtp2
                     rating = sReader.GetInt32(4);
                     lid = sReader.GetInt32(5);
                     lname = sReader.GetString(6);
+                    revenue = sReader.GetDouble(7);
 
 
-                    htmlStr += "<tr><td>" + hid + "</td><td>" + hname + "</td><td>" + capacity + "</td><td>" + exp + "</td><td>" + rating + "</td><td>" + lid + "</td><td>" + lname + "</td></tr>";
+                    htmlStr += "<tr><td>" + hid + "</td><td>" + hname + "</td><td>" + capacity + "</td><td>" + exp + "</td><td>" + revenue + "</td><td>" + rating + "</td><td>" + lid + "</td><td>" + lname + "</td></tr>";
                 }
                 sReader.Close();
             }
@@ -339,7 +347,7 @@ namespace rnrtp2
             //rating less than
             if (search.Value == "rating_less" && field_textbox.Text.Length > 0)
             {
-                MySqlCommand search = new MySqlCommand("SELECT hotelID, name, capacity, h_expenditure, rating, h_locID, IFNULL(locationName, @auto) AS locationName FROM hotel LEFT OUTER JOIN location ON h_locID = locationID WHERE rating < @rating AND hotel.archived <= @archived ORDER BY hotelID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT hotelID, name, capacity, h_expenditure, rating, h_locID, IFNULL(locationName, @auto) AS locationName, h_revenue FROM hotel LEFT OUTER JOIN location ON h_locID = locationID WHERE rating < @rating AND hotel.archived <= @archived ORDER BY hotelID ASC;", dbcon);
                 search.Parameters.AddWithValue("@auto", "N/A");
                 search.Parameters.AddWithValue("@rating", field_textbox.Text);
 
@@ -363,9 +371,9 @@ namespace rnrtp2
                     rating = sReader.GetInt32(4);
                     lid = sReader.GetInt32(5);
                     lname = sReader.GetString(6);
+                    revenue = sReader.GetDouble(7);
 
-
-                    htmlStr += "<tr><td>" + hid + "</td><td>" + hname + "</td><td>" + capacity + "</td><td>" + exp + "</td><td>" + rating + "</td><td>" + lid + "</td><td>" + lname + "</td></tr>";
+                    htmlStr += "<tr><td>" + hid + "</td><td>" + hname + "</td><td>" + capacity + "</td><td>" + exp + "</td><td>" + revenue + "</td><td>" + rating + "</td><td>" + lid + "</td><td>" + lname + "</td></tr>";
                 }
                 sReader.Close();
             }

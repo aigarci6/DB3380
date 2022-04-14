@@ -25,13 +25,13 @@ namespace rnrtp2
             insert.Parameters.AddWithValue("@employeeID", id_textbox.Text);
             insert.Parameters.AddWithValue("@firstName", first_textbox.Text);
             insert.Parameters.AddWithValue("@lastName", last_textbox.Text);
-            insert.Parameters.AddWithValue("@gender", gender_textbox.Text);
+            insert.Parameters.AddWithValue("@gender", gender.Value);
             insert.Parameters.AddWithValue("@salary", salary_textbox.Text);
-            insert.Parameters.AddWithValue("@category", jsite_textbox.Text);
+            insert.Parameters.AddWithValue("@category", jsite.Value);
 
             //works_hotel
             MySqlCommand insertWorkHotel = new MySqlCommand("INSERT INTO works_hotel (staID, hotID) VALUES (@staID, @hotID);", dbcon);
-            if (jsite_textbox.Text.ToLower() == "hotel")
+            if (jsite.Value.ToLower() == "hotel")
             {
                 insertWorkHotel.Parameters.AddWithValue("@staID", id_textbox.Text);
                 insertWorkHotel.Parameters.AddWithValue("@hotID", jid_textbox.Text);
@@ -39,7 +39,7 @@ namespace rnrtp2
 
             //works_restaurant
             MySqlCommand insertWorkRestaurant = new MySqlCommand("INSERT INTO works_restaurant (staID, restID) VALUES (@staID, @restID);", dbcon);
-            if (jsite_textbox.Text.ToLower() == "restaurant")
+            if (jsite.Value.ToLower() == "restaurant")
             {
                 insertWorkRestaurant.Parameters.AddWithValue("@staID", id_textbox.Text);
                 insertWorkRestaurant.Parameters.AddWithValue("@restID", jid_textbox.Text);
@@ -47,7 +47,7 @@ namespace rnrtp2
 
             MySqlCommand insertWorkRide = new MySqlCommand("INSERT INTO works_ride (staID, rID) VALUES (@staID, @rID);", dbcon);
             //works_ride
-            if (jsite_textbox.Text.ToLower() == "ride")
+            if (jsite.Value.ToLower() == "ride")
             {
                 insertWorkRide.Parameters.AddWithValue("@staID", id_textbox.Text);
                 insertWorkRide.Parameters.AddWithValue("@rID", jid_textbox.Text);
@@ -55,15 +55,15 @@ namespace rnrtp2
 
             dbcon.Open();
             insert.ExecuteNonQuery();
-            if (jsite_textbox.Text.ToLower() == "hotel")
+            if (jsite.Value.ToLower() == "hotel")
             {
                 insertWorkHotel.ExecuteNonQuery();
             }
-            if (jsite_textbox.Text.ToLower() == "restaurant")
+            if (jsite.Value.ToLower() == "restaurant")
             {
                 insertWorkRestaurant.ExecuteNonQuery();
             }
-            if (jsite_textbox.Text.ToLower() == "ride")
+            if (jsite.Value.ToLower() == "ride")
             {
                 insertWorkRide.ExecuteNonQuery();
             }
@@ -74,8 +74,8 @@ namespace rnrtp2
                 id_textbox.Text = "";
                 first_textbox.Text = "";
                 last_textbox.Text = "";
-                gender_textbox.Text = "";
-                jsite_textbox.Text = "";
+                gender.Value = "";
+                jsite.Value = "";
                 jid_textbox.Text = "";
                 salary_textbox.Text = "";
             }

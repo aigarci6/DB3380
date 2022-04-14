@@ -8,7 +8,7 @@
     <title></title>
 </head>
 <body id="SearchRide">
-    <h1>update rides</h1>
+    <h1>manage rides</h1>
     <form id="form1" runat="server">
         <div>
             <fieldset>
@@ -49,31 +49,31 @@
 
             <!-- UPDATE -->
             <h1>Update:</h1>
-            <h2>ride information</h2>
-                <asp:Label ID="Label1" runat="server" Text="ID: "></asp:Label>
+            <h3>ride information</h3>
+                <asp:Label ID="Label1" runat="server" Text="ID: "></asp:Label><br />
                 <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label2" runat="server" Text="Name: "></asp:Label>
+                <asp:Label ID="Label2" runat="server" Text="Name: "></asp:Label><br />
                 <asp:TextBox ID="name_textbox" runat="server"></asp:TextBox><br /><br />
 
-                <h2>update information</h2>
-                <asp:Label ID="Label3" runat="server" Text="Location ID: "></asp:Label>
+                <h3>update</h3>
+                <asp:Label ID="Label3" runat="server" Text="Location ID: "></asp:Label><br />
                 <asp:TextBox ID="location_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label4" runat="server" Text="Capacity: "></asp:Label>
+                <asp:Label ID="Label4" runat="server" Text="Capacity: "></asp:Label><br />
                 <asp:TextBox ID="capacity_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label5" runat="server" Text="Maximum Weight: "></asp:Label>
+                <asp:Label ID="Label5" runat="server" Text="Maximum Weight: "></asp:Label><br />
                 <asp:TextBox ID="maxweight_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label6" runat="server" Text="Minimum Height: "></asp:Label>
+                <asp:Label ID="Label6" runat="server" Text="Minimum Height: "></asp:Label><br />
                 <asp:TextBox ID="minheight_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label7" runat="server" Text="Minimum Age: "></asp:Label>
+                <asp:Label ID="Label7" runat="server" Text="Minimum Age: "></asp:Label><br />
                 <asp:TextBox ID="minage_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Button ID="Button1" runat="server" Text="Update" OnClick="Button1_Click" />
             <br />
 
             <!-- DELETE -->
             <h1>Delete:</h1>
-                <asp:Label ID="Label8" runat="server" Text="Ride ID: "></asp:Label>
+                <asp:Label ID="Label8" runat="server" Text="Ride ID: "></asp:Label><br />
                 <asp:TextBox ID="delete_id" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label9" runat="server" Text="Ride Name: "></asp:Label>
+                <asp:Label ID="Label9" runat="server" Text="Ride Name: "></asp:Label><br />
                 <asp:TextBox ID="delete_name" runat="server"></asp:TextBox><br /><br />
                 <asp:Button ID="Button3" runat="server" Text="Delete Ride" OnClick="Button3_Click"/>
             </fieldset>

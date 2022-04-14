@@ -17,13 +17,14 @@ namespace rnrtp2
                 Response.Write("<script>alert('Inserted successfully!')</script>");
             }
 
+            
             DateTime now = DateTime.Now;
 
             string hour = now.Hour.ToString();
             string minute = now.Minute.ToString();
             string second = now.Second.ToString();
 
-            date_textbox.Text = now.Date.ToString("yyyy-MM-dd");
+            date.Value = now.Date.ToString("yyyy-MM-dd");
             time_textbox.Text = hour + ":" + minute + ":" + second;
             
         }
@@ -34,9 +35,18 @@ namespace rnrtp2
             MySqlCommand insert = new MySqlCommand("CALL InsertClose(@rideID, @employeeID, @date, @time, @type);", dbcon);
             insert.Parameters.AddWithValue("@rideID", rid_textbox.Text);
             insert.Parameters.AddWithValue("@employeeID", eid_textbox.Text);
-            insert.Parameters.AddWithValue("@date", date_textbox.Text);
+            insert.Parameters.AddWithValue("@date", date.Value);
             insert.Parameters.AddWithValue("@time", time_textbox.Text);
-            insert.Parameters.AddWithValue("@type", type_textbox.Text);
+
+            if (type_textbox.Text.Length > 0)
+            {
+                insert.Parameters.AddWithValue("@type", type_textbox.Text);
+            }
+
+            else
+            {
+                insert.Parameters.AddWithValue("@type", "n/a");
+            }
 
             dbcon.Open();
             insert.ExecuteNonQuery();
@@ -46,7 +56,7 @@ namespace rnrtp2
             {
                 rid_textbox.Text = "";
                 eid_textbox.Text = "";
-                date_textbox.Text = "";
+                date.Value = "";
                 time_textbox.Text = "";
                 type_textbox.Text = "";
             }

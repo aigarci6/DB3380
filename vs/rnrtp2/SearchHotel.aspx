@@ -8,7 +8,7 @@
     <title></title>
 </head>
 <body id="SearchHotel">
-    <h1>Update hotel info (will be a search page &amp; offer either update or delete)</h1>
+    <h1>manage hotels</h1>
     <form id="form1" runat="server">
         <div>
             
@@ -34,6 +34,7 @@
                 <td> name </td>
                 <td> capacity </td>
                 <td> expenditure </td>
+                <td> revenue </td>
                 <td> rating </td>
                 <td> location id </td>
                 <td> location </td>
@@ -45,13 +46,13 @@
 
             <!-- UPDATE -->
                 <h1>Update:</h1>
-                <h2>hotel information</h2>
+                <h3>hotel information</h3>
                 <asp:Label ID="Label1" runat="server" Text="ID: "></asp:Label>
                 <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Label ID="Label2" runat="server" Text="Name: "></asp:Label>
                 <asp:TextBox ID="name_textbox" runat="server"></asp:TextBox><br /><br />
             
-                <h2>Update information</h2>
+                <h3>update</h3>
                 <asp:Label ID="Label3" runat="server" Text="Location ID: "></asp:Label>
                 <asp:TextBox ID="location_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Label ID="Label5" runat="server" Text="Capacity: "></asp:Label>
@@ -67,7 +68,7 @@
                 <asp:TextBox ID="delete_id" runat="server"></asp:TextBox><br /><br />
                 <asp:Label ID="Label9" runat="server" Text="Hotel Name: "></asp:Label>
                 <asp:TextBox ID="delete_name" runat="server"></asp:TextBox><br /><br />
-                <asp:Button ID="Button3" runat="server" Text="Delete Ride" OnClick="Button3_Click"/>
+                <asp:Button ID="Button3" runat="server" Text="Delete Hotel" OnClick="Button3_Click"/>
             </fieldset>
         </div>
     </form>

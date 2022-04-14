@@ -114,6 +114,15 @@ namespace rnrtp2
         protected global::System.Web.UI.WebControls.TextBox sjsite_textbox;
 
         /// <summary>
+        /// sjsite control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect sjsite;
+
+        /// <summary>
         /// Label9 control.
         /// </summary>
         /// <remarks>
@@ -166,6 +175,15 @@ namespace rnrtp2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox gender_textbox;
+
+        /// <summary>
+        /// gender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect gender;
 
         /// <summary>
         /// Label6 control.
