@@ -5,6 +5,7 @@
 #visitor {
     background-image: url("https://images.unsplash.com/photo-1561424412-6c2125ecb1cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
     background-size: cover;
+    background-attachment: fixed;
     text-align: center;
     padding-top: 5%;
     font-size: 23px;
@@ -13,6 +14,7 @@
 
 #restaurant {
     background-image: url("https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
+    background-attachment: fixed;
     text-align: center;
     padding-top: 10%;
     font-size: 23px;
@@ -23,6 +25,7 @@
     background-image: url("Staff.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     text-align: center;
     padding-top: 5%;
     font-size: 23px;
@@ -33,6 +36,7 @@
     background-image: url("Location.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     text-align: center;
     padding-top: 5%;
     font-size: 23px;
@@ -43,18 +47,19 @@
     background-image: url("Rides.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     text-align: center;
     color: white;
     padding-top: 5%;
     font-size: 23px;
-    color:white;
-  
+    color: white;
 }
 
 #AddVisitHotel {
     background-image: url("Entrance.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     text-align: center;
     color: white;
     padding-top: 10%;
@@ -66,6 +71,7 @@
     background-image: url("VisitRest.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     text-align: center;
     color: white;
     padding-top: 10%;
@@ -77,6 +83,7 @@
     background-image: url("Visitor.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     text-align: center;
     color: white;
     padding-top: 10%;
@@ -88,6 +95,7 @@
     background-image: url("hotel.jpg");
     background-repeat: no-repeat;
     background-size: auto;
+    background-attachment: fixed;
     text-align: center;
     padding-top: 10%;
     font-size: 23px;
@@ -98,6 +106,7 @@
     background-image: url("SearchEmployee.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     text-align: center;
     padding-top: 5%;
     font-size: 23px;
@@ -108,6 +117,7 @@
     background-image: url("SearchHotel.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     text-align: center;
     padding-top: 10%;
     font-size: 23px;
@@ -118,6 +128,7 @@
     background-image: url("SearchLocation.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     text-align: center;
     padding-top: 10%;
     font-size: 23px;
@@ -128,6 +139,7 @@
     background-image: url("SearchRestaurant.jpg");
     background-repeat: no-repeat;
     background-size: auto;
+    background-attachment: fixed;
     text-align: center;
     padding-top: 10%;
     font-size: 23px;
@@ -138,6 +150,7 @@
     background-image: url("SearchRides.png");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     text-align: center;
     padding-top: 5%;
     font-size: 23px;
@@ -148,6 +161,7 @@
     background-image: url("");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     text-align: center;
     padding-top: 5%;
     font-size: 23px;
@@ -158,6 +172,7 @@
     background-image: url("");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     text-align: center;
     padding-top: 5%;
     font-size: 23px;
@@ -168,6 +183,7 @@
     background-image: url("");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     text-align: center;
     padding-top: 5%;
     font-size: 23px;
@@ -210,6 +226,7 @@
     background-image: url("Theme.jpg");
     background-repeat: no-repeat;
     background-size: fill;
+    background-attachment: fixed;
     display: inline;
     background: rgb(255 255 255 / 0.70);
     padding: 2px;
@@ -264,9 +281,10 @@ fieldset1 {
     background-image: url("Login.jpg");
     background-repeat: no-repeat;
     background-size: auto;
+    background-attachment: fixed;
     text-align: center;
     color: white;
-    padding-top:15%;
+    padding-top: 15%;
     font-size: 23px;
     color: white;
 }

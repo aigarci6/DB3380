@@ -14,7 +14,7 @@ namespace rnrtp2
         {
             if (IsPostBack == true)
             {
-                Response.Write("<script>alert('New login added successfully!')</script>");
+                Response.Write("<script>alert('Location added successfully!')</script>");
             }
         }
 
