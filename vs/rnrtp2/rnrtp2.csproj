@@ -314,6 +314,13 @@
     <Compile Include="TicketReport.aspx.designer.cs">
       <DependentUpon>TicketReport.aspx</DependentUpon>
     </Compile>
+    <Compile Include="VisitorCountReport.aspx.cs">
+      <DependentUpon>VisitorCountReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VisitorCountReport.aspx.designer.cs">
+      <DependentUpon>VisitorCountReport.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddClose.aspx" />
@@ -384,6 +391,7 @@
     <Content Include="Theme.jpg" />
     <Content Include="TicketReport.aspx" />
     <Content Include="Visitor.jpg" />
+    <Content Include="VisitorCountReport.aspx" />
     <Content Include="VisitRest.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
