@@ -85,7 +85,7 @@
                 <td> Restaurant </td>
                 </tr>
 
-                <% Response.Write(getRestaurant()); %>
+                <% Response.Write(getTotalVisitor()); %>
             </table>
 
             <br /><br />
