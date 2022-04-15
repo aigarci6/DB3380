@@ -11,7 +11,7 @@ namespace rnrtp2
 {
 
 
-    public partial class revReport
+    public partial class revenueReport
     {
 
         /// <summary>

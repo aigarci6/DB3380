@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="revReport.aspx.cs" Inherits="rnrtp2.revReport" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="revenueReport.aspx.cs" Inherits="rnrtp2.revenueReport" %>
 
 <!DOCTYPE html>
 
