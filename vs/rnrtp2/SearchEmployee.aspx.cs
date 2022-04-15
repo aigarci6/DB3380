@@ -571,7 +571,7 @@ namespace rnrtp2
 
                 if (IsPostBack == true)
                 {
-                    Button1.Text = "Updated!";
+                    Response.Write("<script>alert('Employee updated successfully!')</script>");
                 }
             }
 
@@ -647,7 +647,7 @@ namespace rnrtp2
 
                 if (IsPostBack == true)
                 {
-                    Button3.Text = "Deleted!";
+                    Response.Write("<script>alert('Employee deleted successfully!')</script>");
                 }
             }
 
