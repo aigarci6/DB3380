@@ -12,7 +12,8 @@
         <div>
             <h1><font color="white">hotel visitor form</font></h1>
             <fieldset>
-        
+                <asp:Label ID="Label5" runat="server" Text="Date: "></asp:Label><br />
+                <input type="date" name="date" id="date" runat="server" value="" style="width:200px;" required="required"/> <br /><br />
                 <asp:Label ID="Label1" runat="server" Text="Ticket ID: "></asp:Label><br />
                 <asp:TextBox ID="id_textbox" runat="server" required="required"></asp:TextBox><br /><br />
                 <asp:Label ID="Label2" runat="server" Text="Hotel ID: "></asp:Label><br />
