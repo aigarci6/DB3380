@@ -66,6 +66,28 @@
                 <% Response.Write(getHotel()); %>
             </table>
 
+                <h2>Number of Visitors per Restaurantl</h2>
+            <table width="50%" align="center" cellpadding="2" cellspacing="2" border="0" bgcolor="#EAEAEA">
+            <tr>
+                <td> Visit Date </td>
+                <td> Restaurant Name </td>
+                <td> Restaurant Id </td>
+                <td> Number of Visitors </td>
+                </tr>
+
+                <% Response.Write(getRestaurant()); %>
+            </table>
+
+                <h2>Total Number Of Visitor</h2>
+            <table width="50%" align="center" cellpadding="2" cellspacing="2" border="0" bgcolor="#EAEAEA">
+            <tr>
+                <td> Hotel </td>
+                <td> Restaurant </td>
+                </tr>
+
+                <% Response.Write(getRestaurant()); %>
+            </table>
+
             <br /><br />
                 <br /><br /><br />
             <a href="Index.aspx" style="font-size: medium; font-family: FreeMono, monospace; color: black;">GO BACK TO HOME</a>
