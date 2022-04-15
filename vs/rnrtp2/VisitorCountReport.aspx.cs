@@ -41,13 +41,14 @@ namespace rnrtp2
                 date = thisDay.ToString("yyyy") + "-" + thisDay.ToString("dd") + "-" + thisDay.ToString("MM");
                 date3 = date;
             }
-            MySqlCommand Hotel = new MySqlCommand("SELECT  visitdate, name, hotelID, COUNT(*)visitID FROM hotel, visit_hotel WHERE hotelID = hotID AND hotel.archived = 0 AND visitDate BETWEEN @date AND @date2 ORDER BY visitDate ASC;", dbcon);
+
+            MySqlCommand Hotel = new MySqlCommand("SELECT dateVisited, name, hotelID, COUNT(*)visitID FROM hotel, visit_hotel WHERE hotelID = hotID AND hotel.archived = 0 AND dateVisited BETWEEN @date AND @date2 ORDER BY dateVisited ASC;", dbcon);
             Hotel.Parameters.AddWithValue("@date", date);
             Hotel.Parameters.AddWithValue("@date2", date3);
 
-
             string htmlStr = "";
-            string date4;
+            DateTime date4;
+            string date5;
             string name;
             int numofvisitors;
             int id;
@@ -58,18 +59,24 @@ namespace rnrtp2
             MySqlDataReader genReader = Hotel.ExecuteReader();
             while (genReader.Read())
             {
-                date4 = genReader.GetString(0);
+                date4 = genReader.GetDateTime(0);
+                date5 = date4.ToString("yyyy-MM-dd");
                 name = genReader.GetString(1);
                 id = genReader.GetInt32(2);
                 numofvisitors = genReader.GetInt32(3);
 
-                htmlStr += "<tr><td>" + date4 + "</td><td>" + name + "</td><td> " + id + "</td><td> " + numofvisitors + "</td></tr>";
+                htmlStr += "<tr><td>" + date5 + "</td><td>" + name + "</td><td> " + id + "</td><td> " + numofvisitors + "</td></tr>";
             }
             
             genReader.Close();
 
             dbcon.Close();
             return htmlStr;
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
