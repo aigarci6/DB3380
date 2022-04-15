@@ -88,7 +88,7 @@ namespace rnrtp2
 
                 if (IsPostBack == true)
                 {
-                    Button1.Text = "Updated!";
+                    Response.Write("<script>alert('Hotel updated successfully!')</script>");
                 }
             }
 
@@ -428,7 +428,7 @@ namespace rnrtp2
 
                 if (IsPostBack == true)
                 {
-                    Button3.Text = "Deleted!";
+                    Response.Write("<script>alert('Hotel deleted successfully!')</script>");
                 }
             }
 

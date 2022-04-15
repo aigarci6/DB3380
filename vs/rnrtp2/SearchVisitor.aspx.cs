@@ -83,7 +83,7 @@ namespace rnrtp2
 
                 if (IsPostBack == true)
                 {
-                    Button1.Text = "Updated!";
+                    Response.Write("<script>alert('Visitor updated successfully!')</script>");
                 }
             }
 

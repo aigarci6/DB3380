@@ -115,7 +115,7 @@ namespace rnrtp2
 
                 if (IsPostBack == true)
                 {
-                    Button1.Text = "Updated!";
+                    Response.Write("<script>alert('Ride updated successfully!')</script>");
                 }
             }
 
@@ -595,7 +595,7 @@ namespace rnrtp2
 
                 if (IsPostBack == true)
                 {
-                    Button3.Text = "Deleted!";
+                    Response.Write("<script>alert('Ride deleted successfully!')</script>");
                 }
             }
 
