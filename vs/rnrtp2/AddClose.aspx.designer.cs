@@ -96,6 +96,15 @@ namespace rnrtp2
         protected global::System.Web.UI.WebControls.TextBox time_textbox;
 
         /// <summary>
+        /// type control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect type;
+
+        /// <summary>
         /// Label5 control.
         /// </summary>
         /// <remarks>
@@ -105,13 +114,13 @@ namespace rnrtp2
         protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// type_textbox control.
+        /// cost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox type_textbox;
+        protected global::System.Web.UI.WebControls.TextBox cost;
 
         /// <summary>
         /// Button1 control.

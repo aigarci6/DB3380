@@ -20,8 +20,15 @@
                 <input type="date" name="date" id="date" runat="server" value="" style="width:200px;" required="required"/> <br /><br />
                 <asp:Label ID="Label4" runat="server" Text="Time: "></asp:Label><br />
                 <asp:TextBox ID="time_textbox" runat="server" required="required"></asp:TextBox><br /><br />
-                <asp:Label ID="Label5" runat="server" Text="Type: "></asp:Label><br />
-                <asp:TextBox ID="type_textbox" runat="server" required="required"></asp:TextBox><br /><br />
+                <label for="type">Reason:</label><br />
+                <select id="type" name="type" required="required" runat="server">
+                    <option value="maintenance">Maintenance</option>
+                    <option value="weather">Weather</option>
+                </select><br />
+                <br />
+                <asp:Label ID="Label5" runat="server" Text="Cost: "></asp:Label><br />
+                <asp:TextBox ID="cost" runat="server" name="cost" type="number" required="required" value="0" min="0"></asp:TextBox><br /><br />
+               
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
 
                 <br /><br />
