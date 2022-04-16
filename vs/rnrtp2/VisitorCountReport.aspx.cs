@@ -42,13 +42,17 @@ namespace rnrtp2
                 date3 = date;
             }
 
-            MySqlCommand Hotel = new MySqlCommand("SELECT dateVisited, name, hotelID, COUNT(*)visitID FROM hotel, visit_hotel WHERE hotelID = hotID AND hotel.archived = 0 AND dateVisited BETWEEN @date AND @date2 ORDER BY dateVisited ASC;", dbcon);
+            MySqlCommand Hotel = new MySqlCommand("SELECT IFNULL(dateVisited,@nulldate), IFNULL(name, @nullname), IFNULL(hotelID, @nullhotelID), COUNT(*)visitID FROM hotel, visit_hotel WHERE hotelID = hotID AND hotel.archived = 0 AND dateVisited BETWEEN @date AND @date2 ORDER BY dateVisited ASC;", dbcon);
             Hotel.Parameters.AddWithValue("@date", date);
             Hotel.Parameters.AddWithValue("@date2", date3);
+            Hotel.Parameters.AddWithValue("@nulldate", "0000-00-00");
+            Hotel.Parameters.AddWithValue("@nullname", "Krunal");
+            Hotel.Parameters.AddWithValue("@nullhotelID", 123);
+
+
 
             string htmlStr = "";
-            DateTime date4;
-            string date5;
+            string date4;
             string name;
             int numofvisitors;
             int id;
@@ -59,13 +63,12 @@ namespace rnrtp2
             MySqlDataReader genReader = Hotel.ExecuteReader();
             while (genReader.Read())
             {
-                date4 = genReader.GetDateTime(0);
-                date5 = date4.ToString("yyyy-MM-dd");
+                date4 = genReader.GetString(0);
                 name = genReader.GetString(1);
                 id = genReader.GetInt32(2);
                 numofvisitors = genReader.GetInt32(3);
 
-                htmlStr += "<tr><td>" + date5 + "</td><td>" + name + "</td><td> " + id + "</td><td> " + numofvisitors + "</td></tr>";
+                htmlStr += "<tr><td>" + date4 + "</td><td>" + name + "</td><td> " + id + "</td><td> " + numofvisitors + "</td></tr>";
             }
             
             genReader.Close();
