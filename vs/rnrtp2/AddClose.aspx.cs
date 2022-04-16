@@ -45,24 +45,26 @@ namespace rnrtp2
         protected void Button1_Click(object sender, EventArgs e)
         {
             MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
-            MySqlCommand insert = new MySqlCommand("CALL InsertClose(@rideID, @employeeID, @date, @time, @type);", dbcon);
-            insert.Parameters.AddWithValue("@rideID", rid_textbox.Text);
-            insert.Parameters.AddWithValue("@employeeID", eid_textbox.Text);
-            insert.Parameters.AddWithValue("@date", date.Value);
-            insert.Parameters.AddWithValue("@time", time_textbox.Text);
+            MySqlCommand insert = new MySqlCommand("INSERT INTO closes (rideID, employeeID, date, time, type, cost, month, year) VALUES (@rideid, @empID, @dte, @tme, @tpe, @cst, @munth, @yeer);", dbcon);
 
-            if (type_textbox.Text.Length > 0)
-            {
-                insert.Parameters.AddWithValue("@type", type_textbox.Text);
-            }
+            //parse date
+            string str = date.Value;
+            string[] dates = str.Split('-');
 
-            else
-            {
-                insert.Parameters.AddWithValue("@type", "n/a");
-            }
+            insert.Parameters.AddWithValue("@rideid", rid_textbox.Text);
+            insert.Parameters.AddWithValue("@empID", eid_textbox.Text);
+            insert.Parameters.AddWithValue("@dte", date.Value);
+            insert.Parameters.AddWithValue("@tme", time_textbox.Text);
+            insert.Parameters.AddWithValue("@tpe", type.Value);
+            insert.Parameters.AddWithValue("@cst", cost.Text);
+            insert.Parameters.AddWithValue("@yeer", dates[0]);
+            insert.Parameters.AddWithValue("@munth", dates[1]);
+
+
 
             dbcon.Open();
-            insert.ExecuteNonQuery();
+            insert.ExecuteReader();
+            //insert.ExecuteNonQuery();
             dbcon.Close();
 
             if (IsPostBack)
@@ -71,7 +73,8 @@ namespace rnrtp2
                 eid_textbox.Text = "";
                 date.Value = "";
                 time_textbox.Text = "";
-                type_textbox.Text = "";
+                type.Value = "";
+                cost.Text = "0";
             }
         }
     }
