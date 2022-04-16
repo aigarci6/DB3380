@@ -18,7 +18,7 @@ namespace rnrtp2
         public string getHotel()
         {
 
-            MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
             //find date
             DateTime thisDay = DateTime.Today;
             string date;
@@ -80,7 +80,7 @@ namespace rnrtp2
         public string getRestaurant()
         {
 
-            MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Convert Zero Datetime=True; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
             //find date
             DateTime thisDay = DateTime.Today;
             string date;
@@ -140,7 +140,7 @@ namespace rnrtp2
         public string getTotalVisitor()
         {
 
-            MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
 
             MySqlCommand TotalVisitor = new MySqlCommand("SELECT COUNT(*)hotelID FROM visit_hotel;", dbcon);
             MySqlCommand TotalVisitor1 = new MySqlCommand("SELECT COUNT(*)restaurantID FROM visit_restaurant;", dbcon);

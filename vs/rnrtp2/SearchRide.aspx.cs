@@ -32,7 +32,7 @@ namespace rnrtp2
         {
             if (id_textbox.Text.Length > 0 && name_textbox.Text.Length > 0)
             {
-                MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
+                MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
 
                 //location
                 MySqlCommand updateLocation = new MySqlCommand("UPDATE rides SET r_locID = @location WHERE rideID = @id AND name = @name;", dbcon);
@@ -132,7 +132,7 @@ namespace rnrtp2
 
         public string getData()
         {
-            MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
 
             int rid;
             string rname;
@@ -578,7 +578,7 @@ namespace rnrtp2
         {
             if (delete_id.Text.Length > 0 && delete_name.Text.Length > 0)
             {
-                MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
+                MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
                 MySqlCommand delete = new MySqlCommand("UPDATE rides SET archived = 1 WHERE rideID = @id AND name = @name", dbcon);
                 delete.Parameters.AddWithValue("@id", delete_id.Text);
                 delete.Parameters.AddWithValue("@name", delete_name.Text);
