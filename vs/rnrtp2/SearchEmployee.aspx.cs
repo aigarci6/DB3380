@@ -524,10 +524,6 @@ namespace rnrtp2
 
 
                 dbcon.Open();
-                if (first_textbox.Text.Length > 0)
-                {
-                    updateFirst.ExecuteNonQuery();
-                }
                 if (last_textbox.Text.Length > 0)
                 {
                     updateLast.ExecuteNonQuery();
@@ -539,6 +535,10 @@ namespace rnrtp2
                 if (salary_textbox.Text.Length > 0)
                 {
                     updateSalary.ExecuteNonQuery();
+                }
+                if (first_textbox.Text.Length > 0)
+                {
+                    updateFirst.ExecuteNonQuery();
                 }
 
                 //job id
