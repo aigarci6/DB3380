@@ -80,7 +80,7 @@ namespace rnrtp2
         public string getRestaurant()
         {
 
-            MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
+            MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Convert Zero Datetime=True; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
             //find date
             DateTime thisDay = DateTime.Today;
             string date;
@@ -104,13 +104,15 @@ namespace rnrtp2
                 date3 = date;
             }
 
-            MySqlCommand Restaurant = new MySqlCommand("SELECT dateVisited, name, restaurantID, COUNT(*)restaurantID FROM restaurant, visit_restaurant WHERE restaurantID = restaurantID AND hotel.archived = 0 AND dateVisited BETWEEN @date AND @date2 ORDER BY dateVisited ASC;", dbcon);
+            MySqlCommand Restaurant = new MySqlCommand("SELECT IFNULL(dateVisited, @nulldate), IFNULL(name, @nullname), IFNULL(restaurantID, @nullrestID), COUNT(*)restaurantID FROM restaurant, visit_restaurant WHERE restaurantID = restaurantID AND restaurant.archived = 0 AND dateVisited BETWEEN @date AND @date2 ORDER BY dateVisited ASC;", dbcon);
             Restaurant.Parameters.AddWithValue("@date", date);
             Restaurant.Parameters.AddWithValue("@date2", date3);
+            Restaurant.Parameters.AddWithValue("@nulldate", "0000-00-00");
+            Restaurant.Parameters.AddWithValue("@nullname", "Krunal");
+            Restaurant.Parameters.AddWithValue("@nullrestID", 123);
 
             string htmlStr = "";
-            DateTime date4;
-            string date5;
+            string date4;
             string name;
             int numofvisitors;
             int id;
@@ -121,13 +123,12 @@ namespace rnrtp2
             MySqlDataReader genReader = Restaurant.ExecuteReader();
             while (genReader.Read())
             {
-                date4 = genReader.GetDateTime(0);
-                date5 = date4.ToString("yyyy-MM-dd");
+                date4 = genReader.GetString(0);
                 name = genReader.GetString(1);
                 id = genReader.GetInt32(2);
                 numofvisitors = genReader.GetInt32(3);
 
-                htmlStr += "<tr><td>" + date5 + "</td><td>" + name + "</td><td> " + id + "</td><td> " + numofvisitors + "</td></tr>";
+                htmlStr += "<tr><td>" + date4 + "</td><td>" + name + "</td><td> " + id + "</td><td> " + numofvisitors + "</td></tr>";
             }
 
             genReader.Close();
@@ -142,7 +143,7 @@ namespace rnrtp2
             MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
 
             MySqlCommand TotalVisitor = new MySqlCommand("SELECT COUNT(*)hotelID FROM visit_hotel;", dbcon);
-            MySqlCommand TotalVisitor1 = new MySqlCommand("SELECT COUNT(*)restaurantID FROM visit_restaurant;;", dbcon);
+            MySqlCommand TotalVisitor1 = new MySqlCommand("SELECT COUNT(*)restaurantID FROM visit_restaurant;", dbcon);
 
             string htmlStr = "";
             int id;

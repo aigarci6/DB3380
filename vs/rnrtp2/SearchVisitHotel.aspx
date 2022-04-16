@@ -81,8 +81,6 @@
                 <asp:Label ID="errormessage" font-size="small" runat="server" Text="ERROR: Missing field(s)!" ForeColor="Red"></asp:Label>
 
                 <h3>update</h3>
-                <asp:Label ID="Label3" runat="server" Text="Amount Spent: "></asp:Label><br />
-                <asp:TextBox ID="spent_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Label ID="Label4" runat="server" Text="Days Stayed: "></asp:Label><br />
                 <asp:TextBox ID="days_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Label ID="Label5" runat="server" Text="Room Number: "></asp:Label><br />

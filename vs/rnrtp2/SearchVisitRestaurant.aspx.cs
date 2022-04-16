@@ -23,49 +23,8 @@ namespace rnrtp2
                 Response.Redirect("BadAccess.html");
             }
             */
-            errormessage.Visible = false;
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            if (id_textbox.Text.Length > 0 && rid_textbox.Text.Length > 0)
-            {
-                MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
-
-                //amount spent
-                MySqlCommand updateSpending = new MySqlCommand("UPDATE visit_restaurant SET amountSpent = @amountSpent WHERE tickID_r = @tickIDr AND restID = @restID;", dbcon);
-                if (spent_textbox.Text.Length > 0)
-                {
-                    updateSpending.Parameters.AddWithValue("@tickIDr", id_textbox.Text);
-                    updateSpending.Parameters.AddWithValue("@restID", rid_textbox.Text);
-                    updateSpending.Parameters.AddWithValue("@amountSpent", spent_textbox.Text);
-                }
-
-                dbcon.Open();
-                if (spent_textbox.Text.Length > 0)
-                {
-                    updateSpending.ExecuteNonQuery();
-                }
-                dbcon.Close();
-
-                if (IsPostBack)
-                {
-                    id_textbox.Text = "";
-                    rid_textbox.Text = "";
-                    spent_textbox.Text = "";
-                }
-
-                if (IsPostBack == true)
-                {
-                    Response.Write("<script>alert('Visit updated successfully!')</script>");
-                }
-            }
-
-            else
-            {
-                errormessage.Visible = true;
-            }
-        }
             
 
         protected void Button2_Click(object sender, EventArgs e)
