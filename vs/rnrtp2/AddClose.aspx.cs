@@ -77,5 +77,28 @@ namespace rnrtp2
                 cost.Text = "0";
             }
         }
+
+        protected void HomeLink(object sender, EventArgs e)
+        {
+            if ((string)Session["username"] == "admin")
+            {
+                Response.Redirect("Index.aspx");
+            }
+
+            if ((string)Session["username"] == "hotelstaff")
+            {
+                Response.Redirect("HotelIndex.aspx");
+            }
+
+            if ((string)Session["username"] == "reststaff")
+            {
+                Response.Redirect("RestIndex.aspx");
+            }
+
+            if ((string)Session["username"] == "ridestaff")
+            {
+                Response.Redirect("RideIndex.aspx");
+            }
+        }
     }
 }

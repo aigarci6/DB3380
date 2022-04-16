@@ -12,30 +12,26 @@
     <form id="form1" runat="server">
         <div>
             <fieldset>
-                <asp:Label ID="Label1" runat="server" Text="First name: "></asp:Label><br />
+                <asp:Label ID="Label1" runat="server" Text="First name: "></asp:Label>
                 <asp:TextBox ID="first_textbox" runat="server" required="required"></asp:TextBox><br /><br />
-                <asp:Label ID="Label2" runat="server" Text="Last name: "></asp:Label><br />
+                <asp:Label ID="Label2" runat="server" Text="Last name: "></asp:Label>
                 <asp:TextBox ID="last_textbox" runat="server" required="required"></asp:TextBox><br /><br />
 
-                <asp:Label ID="Label3" runat="server" Text="Gender: "></asp:Label><br />
-                <select name="gender" style="width:205px;" id="gender" runat="server" required="required">
+                <asp:Label ID="Label3" runat="server" Text="Gender: "></asp:Label>
+                <select name="gender" style="width:130px;" id="gender" runat="server" required="required">
                     <option value="u">Other</option>
                     <option value="m">Male</option>
                     <option value="f">Female</option>
                     
                 </select> <br /><br />
-                <!-- <asp:TextBox ID="gender_textbox" placeholder ="m/f/u" runat="server"></asp:TextBox><br /><br /> -->
 
 
 
-                <asp:Label ID="Label4" runat="server" Text="ID: "></asp:Label><br />
+                <asp:Label ID="Label4" runat="server" Text="ID: "></asp:Label>
                 <asp:TextBox ID="id_textbox" runat="server" required="required"></asp:TextBox><br /><br />
                 
-                <!--
-                <asp:TextBox ID="jsite_textbox" runat="server"></asp:TextBox><br /><br />
-                -->
-                <asp:Label ID="Label5" runat="server" Text="Job Category: "></asp:Label><br />
-                <select name="jsite" style="width:205px;" id="jsite" runat="server" required="required">
+                <asp:Label ID="Label5" runat="server" Text="Job Category: "></asp:Label>
+                <select name="jsite" style="width:130px;" id="jsite" runat="server" required="required">
                     <option value="HR">HR</option>
                     <option value="hotel">Hotel</option>
                     <option value="restaurant">Restaurant</option>
@@ -43,14 +39,14 @@
                 </select> <br /><br />
 
 
-                <asp:Label ID="Label8" runat="server" Text="Job ID: "></asp:Label><br />
+                <asp:Label ID="Label8" runat="server" Text="Job ID: "></asp:Label>
                 <asp:TextBox ID="jid_textbox" runat="server" required="required"></asp:TextBox><br /><br />
-                <asp:Label ID="Label7" runat="server" Text="Weekly salary: "></asp:Label><br />
+                <asp:Label ID="Label7" runat="server" Text="Weekly salary: "></asp:Label>
                 <asp:TextBox ID="salary_textbox" runat="server" required="required"></asp:TextBox><br /><br />
                 <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" />
 
                 <br /><br /><br />
-            <a href="Index.aspx" style="font-size: medium; font-family: FreeMono, monospace; color: white;">GO BACK TO HOME</a>
+            <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: white;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
             </fieldset>
         </div>
     </form>

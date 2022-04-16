@@ -16,7 +16,7 @@
     background-image: url("https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
     background-attachment: fixed;
     text-align: center;
-    padding-top: 10%;
+    padding-top: 5%;
     font-size: 23px;
     color: white;
 }
@@ -62,7 +62,7 @@
     background-attachment: fixed;
     text-align: center;
     color: white;
-    padding-top: 10%;
+    padding-top: 5%;
     font-size: 23px;
     color: white;
 }
@@ -74,7 +74,7 @@
     background-attachment: fixed;
     text-align: center;
     color: white;
-    padding-top: 10%;
+    padding-top: 5%;
     font-size: 23px;
     color: white;
 }
@@ -86,7 +86,7 @@
     background-attachment: fixed;
     text-align: center;
     color: white;
-    padding-top: 10%;
+    padding-top: 5%;
     font-size: 23px;
     color: white;
 }
@@ -98,7 +98,7 @@
     background-attachment: fixed;
     text-align: center;
     color: white;
-    padding-top: 10%;
+    padding-top: 5%;
     font-size: 23px;
     color: white;
 }
@@ -109,7 +109,7 @@
     background-size: auto;
     background-attachment: fixed;
     text-align: center;
-    padding-top: 10%;
+    padding-top: 5%;
     font-size: 23px;
     color: white;
 }
@@ -131,7 +131,7 @@
     background-size: cover;
     background-attachment: fixed;
     text-align: center;
-    padding-top: 10%;
+    padding-top: 5%;
     font-size: 23px;
     color: white;
 }
@@ -142,7 +142,7 @@
     background-size: cover;
     background-attachment: fixed;
     text-align: center;
-    padding-top: 10%;
+    padding-top: 5%;
     font-size: 23px;
     color: white;
 }
@@ -153,7 +153,7 @@
     background-size: auto;
     background-attachment: fixed;
     text-align: center;
-    padding-top: 10%;
+    padding-top: 5%;
     font-size: 23px;
     color: white;
 }
@@ -271,7 +271,8 @@ fieldset {
     border-block-color:white;
     border-spacing:2px;
     padding-right: 125px;
-    padding-top: 30px;
+    padding-top: 4%;
+    padding-bottom:4%;
     text-align: right;
     width: 390px;
     vertical-align: top;

@@ -43,7 +43,7 @@
             <fieldset>
                 <!-- SEARCH -->
             <h1>Search By:</h1>
-            <select name="search" style="width:120px;" id="search" runat="server">
+            <select name="search" style="width:130px;" id="search" runat="server">
                 <option value="none"> </option>
                 <option value="vid">Ticket ID</option> 
                 <option value="rid">Restaurant ID</option>
@@ -65,7 +65,7 @@
                 <% Response.Write(getData()); %>
             </table>
                 <br /><br /><br />
-            <a href="Index.aspx" style="font-size: medium; font-family: FreeMono, monospace; color: white;">GO BACK TO HOME</a>
+            <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: white;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
             </fieldset>
         </div>
     </form>

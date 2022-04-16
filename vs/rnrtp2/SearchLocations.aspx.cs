@@ -77,11 +77,17 @@ namespace rnrtp2
 
             dbcon.Open();
             
-            //auto
-            if (sid_textbox.Text.Length == 0 && sname_textbox.Text.Length == 0)
+            //auto none
+            if (search.Value =="none")
+            {
+
+            }
+
+            // all
+            if (search.Value == "all")
             {
                 MySqlCommand search = new MySqlCommand("SELECT * FROM location", dbcon);
-                
+
                 MySqlDataReader sReader = search.ExecuteReader();
                 while (sReader.Read())
                 {
@@ -93,10 +99,10 @@ namespace rnrtp2
             }
 
             //id
-            if (sid_textbox.Text.Length > 0 && sname_textbox.Text.Length == 0)
+            if (search.Value == "id")
             {
                 MySqlCommand search = new MySqlCommand("SELECT * FROM location WHERE locationID = @id", dbcon);
-                search.Parameters.AddWithValue("@id", sid_textbox.Text);
+                search.Parameters.AddWithValue("@id", field_textbox.Text);
 
                 MySqlDataReader sReader = search.ExecuteReader();
                 while (sReader.Read())
@@ -109,27 +115,10 @@ namespace rnrtp2
             }
 
             //name
-            if (sid_textbox.Text.Length == 0 && sname_textbox.Text.Length > 0)
+            if (search.Value == "name")
             {
                 MySqlCommand search = new MySqlCommand("SELECT * FROM location WHERE locationName = @name", dbcon);
-                search.Parameters.AddWithValue("@name", sname_textbox.Text);
-
-                MySqlDataReader sReader = search.ExecuteReader();
-                while (sReader.Read())
-                {
-                    id = sReader.GetInt32(0);
-                    name = sReader.GetString(1);
-                    htmlStr += "<tr><td>" + id + "</td><td>" + name + "</td></tr>";
-                }
-                sReader.Close();
-            }
-
-            //both
-            if (sid_textbox.Text.Length > 0 && sname_textbox.Text.Length > 0)
-            {
-                MySqlCommand search = new MySqlCommand("SELECT * FROM location WHERE locationID = @id AND locationName = @name", dbcon);
-                search.Parameters.AddWithValue("@id", sid_textbox.Text);
-                search.Parameters.AddWithValue("@name", sname_textbox.Text);
+                search.Parameters.AddWithValue("@name", field_textbox.Text);
 
                 MySqlDataReader sReader = search.ExecuteReader();
                 while (sReader.Read())
@@ -148,6 +137,29 @@ namespace rnrtp2
         protected void Button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void HomeLink(object sender, EventArgs e)
+        {
+            if ((string)Session["username"] == "admin")
+            {
+                Response.Redirect("Index.aspx");
+            }
+
+            if ((string)Session["username"] == "hotelstaff")
+            {
+                Response.Redirect("HotelIndex.aspx");
+            }
+
+            if ((string)Session["username"] == "reststaff")
+            {
+                Response.Redirect("RestIndex.aspx");
+            }
+
+            if ((string)Session["username"] == "ridestaff")
+            {
+                Response.Redirect("RideIndex.aspx");
+            }
         }
     }
 }

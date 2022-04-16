@@ -44,7 +44,7 @@
             <fieldset>
                 <!-- SEARCH -->
             <h1>Search By:</h1>
-            <select name="search" style="width:120px;" id="search" runat="server">
+            <select name="search" style="width:130px;" id="search" runat="server">
                 <option value="none"> </option>
                 <option value="id">ID</option>
                 <option value="name">Name</option>
@@ -92,7 +92,7 @@
                 <asp:TextBox ID="rating_textbox" runat="server"></asp:TextBox><br /><br />
 
                 <asp:Button ID="Button1" runat="server" Text="Update" OnClick="Button1_Click" /><br /><br />
-
+                
                 <!-- DELETE -->
             <h1>Delete:</h1>
                 <asp:Label ID="Label8" runat="server" Text="Hotel ID: "></asp:Label>
@@ -102,7 +102,7 @@
                 <asp:Button ID="Button3" runat="server" Text="Delete Hotel" OnClick="Button3_Click"/><br />
                 <asp:Label ID="deleteerrormessage" font-size="small" runat="server" Text="ERROR: Missing field(s)!" ForeColor="Red"></asp:Label>
                 <br /><br /><br />
-            <a href="Index.aspx" style="font-size: medium; font-family: FreeMono, monospace; color: white;">GO BACK TO HOME</a>
+            <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: white;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
             </fieldset>
         </div>
     </form>

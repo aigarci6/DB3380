@@ -12,18 +12,18 @@
     <form id="form1" class="form" runat="server">
         <div>
             <fieldset>
-                <label for="date">Date:</label><br />
-                <input type="date" name="date" id="date" runat="server" value="" style="width:200px;" required="required"/> <br /><br />
-                <label id="box1" for="ticket" >Ticket Type:</label><br />
-                <select name="ticket" style="width:205px;" id="ticket" runat="server" required="required">
+                <label for="date">Date:</label>
+                <input type="date" name="date" id="date" runat="server" value="" style="width:130px;" required="required"/> <br /><br />
+                <label id="box1" for="ticket" >Ticket Type:</label>
+                <select name="ticket" style="width:130px;" id="ticket" runat="server" required="required">
                     <option value="general">General</option>
                     <option value="seasonal">Seasonal</option>
                 </select> <br /><br />
-                <label for="email" >Email:</label><br />
-                <input type="email" name="email" value="" runat="server" id="email" style="width:197px;" required="required"/> <br /><br />
+                <label for="email" >Email:</label>
+                <input type="email" name="email" value="" runat="server" id="email" style="width:130px;" required="required"/> <br /><br />
                 <asp:Button ID="Button2" runat="server" Text="Submit" OnClick="buttonClick"  /> 
                 <br /><br /><br />
-            <a href="Index.aspx" style="font-size: medium; font-family: FreeMono, monospace; color: white;">GO BACK TO HOME</a>
+           <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: white;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
            </fieldset>
             
         </div>

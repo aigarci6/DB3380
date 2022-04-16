@@ -43,7 +43,7 @@
             <fieldset>
                 <!-- SEARCH -->
             <h1>Search By:</h1>
-            <select name="search" style="width:120px;" id="search" runat="server">
+            <select name="search" style="width:130px;" id="search" runat="server">
                 <option value="none"> </option>
                 <option value="vid">Ticket ID</option> 
                 <option value="type">Ticket Type</option> 
@@ -69,21 +69,21 @@
             <!-- UPDATE -->
                 <h1>Update:</h1>
                 <h2>visitor information</h2>
-                <asp:Label ID="Label1" runat="server" Text="Ticket ID: "></asp:Label><br />
+                <asp:Label ID="Label1" runat="server" Text="Ticket ID: "></asp:Label>
                 <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label2" runat="server" Text="Visit Date: "></asp:Label><br />
+                <asp:Label ID="Label2" runat="server" Text="Visit Date: "></asp:Label>
                 <asp:TextBox ID="date_textbox" runat="server"></asp:TextBox><br />
                 <asp:Label ID="errormessage" font-size="small" runat="server" Text="ERROR: Missing field(s)!" ForeColor="Red"></asp:Label>
 
                 <h2>update</h2>
-                <asp:Label ID="Label3" runat="server" Text="Ticket Type: "></asp:Label><br />
+                <asp:Label ID="Label3" runat="server" Text="Ticket Type: "></asp:Label>
                 <asp:TextBox ID="type_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label4" runat="server" Text="Email: "></asp:Label><br />
+                <asp:Label ID="Label4" runat="server" Text="Email: "></asp:Label>
                 <asp:TextBox ID="email_textbox" runat="server"></asp:TextBox><br /><br />
 
                 <asp:Button ID="Button1" runat="server" Text="Update" OnClick="Button1_Click" />
                 <br /><br /><br />
-            <a href="Index.aspx" style="font-size: medium; font-family: FreeMono, monospace; color: white;">GO BACK TO HOME</a>
+            <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: white;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
             </fieldset>
         </div>
     </form>
