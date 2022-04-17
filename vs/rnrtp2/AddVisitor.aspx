@@ -12,8 +12,8 @@
     <form id="form1" class="form" runat="server">
         <div>
             <fieldset>
-                <label for="date">Date:</label><br />
-                <input type="date" name="date" id="date" runat="server" value="" style="width:200px;" required="required"/> <br /><br />
+                <label for="date">Date:</label><br />              
+                <input type="date" name="date" id="date" runat="server" required="required"/> <br /><br />
                 <label id="box1" for="ticket" >Ticket Type:</label><br />
                 <select name="ticket" style="width:205px;" id="ticket" runat="server" required="required">
                     <option value="general">General</option>
