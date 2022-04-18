@@ -46,24 +46,32 @@ namespace rnrtp2
                 MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
 
                 //days stayed
-                MySqlCommand updateDays = new MySqlCommand("UPDATE visit_hotel SET daysStayed = @daysStayed WHERE tickID_h = @tickIDh AND hotID = @hotID;", dbcon);
+                MySqlCommand updateDays = new MySqlCommand("UPDATE visit_hotel SET daysStayed = @daysStayed WHERE visitID=@updateID;", dbcon);
+                MySqlCommand updateID = new MySqlCommand("SELECT visitID FROM visit_hotel WHERE tickID_h=@tickID AND hotID=@hID", dbcon);
+
+                updateID.Parameters.AddWithValue("@tickID", id_textbox.Text);
+                updateID.Parameters.AddWithValue("@hID", hid_textbox.Text);
+
+                dbcon.Open();
+                MySqlDataReader idReader = updateID.ExecuteReader();
+                idReader.Read();
+                int id = idReader.GetInt32(0);
+                idReader.Close();
+
                 if (days_textbox.Text.Length > 0)
                 {
-                    updateDays.Parameters.AddWithValue("@tickIDh", id_textbox.Text);
-                    updateDays.Parameters.AddWithValue("@hotID", hid_textbox.Text);
+                    updateDays.Parameters.AddWithValue("@updateID", id);
                     updateDays.Parameters.AddWithValue("@daysStayed", days_textbox.Text);
                 }
 
                 //room number
-                MySqlCommand updateRoom = new MySqlCommand("UPDATE visit_hotel SET roomNumber = @roomNumber WHERE tickID_h = @tickIDh AND hotID = @hotID;", dbcon);
+                MySqlCommand updateRoom = new MySqlCommand("UPDATE visit_hotel SET roomNumber = @roomNumber WHERE visitID=@updateID;", dbcon);
                 if (room_textbox.Text.Length > 0)
                 {
-                    updateRoom.Parameters.AddWithValue("@tickIDh", id_textbox.Text);
-                    updateRoom.Parameters.AddWithValue("@hotID", hid_textbox.Text);
+                    updateRoom.Parameters.AddWithValue("@updateID", id);
                     updateRoom.Parameters.AddWithValue("@roomNumber", room_textbox.Text);
                 }
-
-                dbcon.Open();
+               
                 if (days_textbox.Text.Length > 0)
                 {
                     updateDays.ExecuteNonQuery();

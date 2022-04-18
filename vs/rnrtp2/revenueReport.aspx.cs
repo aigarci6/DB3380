@@ -102,13 +102,13 @@ namespace rnrtp2
             MySqlDataReader hotelReaderCost = hotelCost.ExecuteReader();
             hotelReaderCost.Read();
             int hotelSumCost = hotelReaderCost.GetInt32(0);
-            hotelSumCost = hotelSumCost * 4; //times 4 cuz 4 weeks in a month
+            
             hotelReaderCost.Close();
 
             MySqlDataReader restReaderCost = restCost.ExecuteReader();
             restReaderCost.Read();
             int restSumCost = restReaderCost.GetInt32(0);
-            restSumCost = restSumCost * 4; //times 4 cuz 4 weeks in a month
+            
             restReaderCost.Close();
             dbcon.Close();
             int housekeeping = hotelSumCost + restSumCost; //total housekeeping including restaurants and hotels; ride costs covered in maintenance
