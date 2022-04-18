@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -34,7 +34,7 @@ namespace rnrtp2
             string html = "";
 
             //estableshing connection and creating Queries
-            MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
             MySqlCommand ticketRev = new MySqlCommand("SELECT IFNULL(SUM(ticketCost), 0) FROM visitor WHERE month = @munth AND year = @yeer;", dbcon);
             MySqlCommand hotelRev = new MySqlCommand("SELECT IFNULL(SUM(amountSpent), 0) FROM visit_hotel, visitor WHERE visit_hotel.tickID_h = visitor.ticketID and visitor.month = @munth AND visitor.year = @yeer;", dbcon);
             MySqlCommand restRev = new MySqlCommand("SELECT IFNULL(SUM(amountSpent), 0) FROM visit_restaurant, visitor WHERE visit_restaurant.tickID_r = visitor.ticketID and visitor.month = @munth AND visitor.year = @yeer;", dbcon);
@@ -135,24 +135,7 @@ namespace rnrtp2
                 "</tr>" +
                 "</table>" +
                 "</p>";
-            /*<p>
-            <h2>XX/YYYY Expenditures</h2>
-            <table width="50%" align="center" cellpadding="2" cellspacing="2" border="0" bgcolor="#EAEAEA">
-            <tr align="center" style="background-color: #004080; color: White;">
-                <td> Maintanance Costs </td>
-                <td> Salary </td>
-                <td> Housekeeping </td>
-                </tr>
-            </table>
-                </p>
-                <p>
-            <h2>XX/YYYY Balance</h2>
-            <table width="50%" align="center" cellpadding="2" cellspacing="2" border="0" bgcolor="#EAEAEA">
-            <tr align="center" style="background-color: #004080; color: White;">
-                <td> Total </td>
-                </tr>
-            </table>
-                </p>*/
+            
 
 
 
