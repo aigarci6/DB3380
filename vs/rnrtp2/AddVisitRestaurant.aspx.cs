@@ -18,7 +18,7 @@ namespace rnrtp2
                 Response.Redirect("Login.aspx");
             }
 
-            if ((string)Session["username"] != "admin" || (string)Session["username"] != "reststaff")
+            if ((string)Session["username"] != "HR" || (string)Session["username"] != "restaurant")
             {
                 Response.Redirect("BadAccess.html");
             }
@@ -62,22 +62,22 @@ namespace rnrtp2
 
         protected void HomeLink(object sender, EventArgs e)
         {
-            if ((string)Session["username"] == "admin")
+            if ((string)Session["username"] == "HR")
             {
                 Response.Redirect("Index.aspx");
             }
 
-            if ((string)Session["username"] == "hotelstaff")
+            if ((string)Session["username"] == "hotel")
             {
                 Response.Redirect("HotelIndex.aspx");
             }
 
-            if ((string)Session["username"] == "reststaff")
+            if ((string)Session["username"] == "restaurant")
             {
                 Response.Redirect("RestIndex.aspx");
             }
 
-            if ((string)Session["username"] == "ridestaff")
+            if ((string)Session["username"] == "ride")
             {
                 Response.Redirect("RideIndex.aspx");
             }

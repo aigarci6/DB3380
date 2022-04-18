@@ -7,6 +7,11 @@ using System.Web.UI.WebControls;
 using MySql.Data.MySqlClient;
 using System.Data;
 using System.Configuration;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.IO;
+using System.Text;
+using System.Web.SessionState;
 
 namespace rnrtp2
 {
@@ -20,7 +25,7 @@ namespace rnrtp2
                 Response.Redirect("Login.aspx");
             }
 
-            if ((string)Session["username"] != "admin" || (string)Session["username"] != "hotelstaff" || (string)Session["username"] != "ridestaff" || (string)Session["username"] != "reststaff")
+            if ((string)Session["username"] != "HR" || (string)Session["username"] != "hotel" || (string)Session["username"] != "ride" || (string)Session["username"] != "restaurant")
             {
                 Response.Redirect("BadAccess.html");
             }
@@ -191,22 +196,22 @@ namespace rnrtp2
 
         protected void HomeLink(object sender, EventArgs e)
         {
-            if ((string)Session["username"] == "admin")
+            if ((string)Session["username"] == "HR")
             {
                 Response.Redirect("Index.aspx");
             }
 
-            if ((string)Session["username"] == "hotelstaff")
+            if ((string)Session["username"] == "hotel")
             {
                 Response.Redirect("HotelIndex.aspx");
             }
 
-            if ((string)Session["username"] == "reststaff")
+            if ((string)Session["username"] == "restaurant")
             {
                 Response.Redirect("RestIndex.aspx");
             }
 
-            if ((string)Session["username"] == "ridestaff")
+            if ((string)Session["username"] == "ride")
             {
                 Response.Redirect("RideIndex.aspx");
             }

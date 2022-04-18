@@ -11,8 +11,18 @@ namespace rnrtp2
     public partial class VisitorCountReport : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {/*
+            //auth
+            if (Session["username"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
 
+            if ((string)Session["username"] != "HR" || (string)Session["username"] != "hotel" || (string)Session["username"] != "ride" || (string)Session["username"] != "restaurant")
+            {
+                Response.Redirect("BadAccess.html");
+            }
+            */
         }
 
         public string getHotel()
@@ -184,22 +194,22 @@ namespace rnrtp2
 
         protected void HomeLink(object sender, EventArgs e)
         {
-            if ((string)Session["username"] == "admin")
+            if ((string)Session["username"] == "HR")
             {
                 Response.Redirect("Index.aspx");
             }
 
-            if ((string)Session["username"] == "hotelstaff")
+            if ((string)Session["username"] == "hotel")
             {
                 Response.Redirect("HotelIndex.aspx");
             }
 
-            if ((string)Session["username"] == "reststaff")
+            if ((string)Session["username"] == "restaurant")
             {
                 Response.Redirect("RestIndex.aspx");
             }
 
-            if ((string)Session["username"] == "ridestaff")
+            if ((string)Session["username"] == "ride")
             {
                 Response.Redirect("RideIndex.aspx");
             }

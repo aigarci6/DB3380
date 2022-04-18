@@ -33,7 +33,7 @@
 
         .list {
             color: #f2f2f2;
-            width:300px;
+            width:400px;
             padding-left:5%;
             font-family:font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             text-transform:uppercase;
@@ -86,7 +86,8 @@
 
         <h1>reports.</h1>
         <div class="list">
-            <a href="TicketReport.aspx">daily ticket report</a>
+            <a href="TicketReport.aspx">daily ticket report</a><br />
+            <a href="VisitorCountReport.aspx">hotel and restaurant visitor report</a>
         </div>
 
         <h1>employee.</h1>
