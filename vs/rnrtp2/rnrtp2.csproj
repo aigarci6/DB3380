@@ -201,6 +201,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BadAccessP.aspx.cs">
+      <DependentUpon>BadAccessP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BadAccessP.aspx.designer.cs">
+      <DependentUpon>BadAccessP.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -344,6 +351,7 @@
     <Content Include="AddVisitor.aspx" />
     <Content Include="AddVisitRestaurant.aspx" />
     <Content Include="BadAccess.html" />
+    <Content Include="BadAccessP.aspx" />
     <Content Include="CCSMAIN.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />

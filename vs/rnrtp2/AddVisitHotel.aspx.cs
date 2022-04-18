@@ -32,7 +32,7 @@ namespace rnrtp2
 
             if (jcategory != "HR" && jcategory != "hotel")
             {
-                Response.Redirect("BadAccess.html");
+                Response.Redirect("BadAccessP.aspx");
             }
             
 
@@ -85,22 +85,34 @@ namespace rnrtp2
         }
         protected void HomeLink(object sender, EventArgs e)
         {
-            if ((string)Session["username"] == "HR")
+            string jcategory = "";
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
+            dbcon.Open();
+            MySqlCommand search = new MySqlCommand("SELECT jobCategory FROM credentials WHERE userName = @username", dbcon);
+            search.Parameters.AddWithValue("@username", (string)Session["username"]);
+            MySqlDataReader sReader = search.ExecuteReader();
+            while (sReader.Read())
+            {
+                jcategory = sReader.GetString(0);
+            }
+            sReader.Close();
+
+            if (jcategory == "HR")
             {
                 Response.Redirect("Index.aspx");
             }
 
-            if ((string)Session["username"] == "hotel")
+            if (jcategory == "hotel")
             {
                 Response.Redirect("HotelIndex.aspx");
             }
 
-            if ((string)Session["username"] == "restaurant")
+            if (jcategory == "restaurant")
             {
                 Response.Redirect("RestIndex.aspx");
             }
 
-            if ((string)Session["username"] == "ride")
+            if (jcategory == "ride")
             {
                 Response.Redirect("RideIndex.aspx");
             }

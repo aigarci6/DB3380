@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Visitor Report</title>
 
     <style>
         tr {
@@ -66,7 +66,7 @@
                 <% Response.Write(getHotel()); %>
             </table>
 
-                <h2>Number of Visitors per Restaurantl</h2>
+                <h2>Number of Visitors per Restaurant</h2>
             <table width="50%" align="center" cellpadding="2" cellspacing="2" border="0" bgcolor="#EAEAEA">
             <tr>
                 <td> Visit Date </td>
@@ -78,7 +78,7 @@
                 <% Response.Write(getRestaurant()); %>
             </table>
 
-                <h2>Total Number Of Visitor</h2>
+                <h2>Total Number Of Visitors</h2>
             <table width="50%" align="center" cellpadding="2" cellspacing="2" border="0" bgcolor="#EAEAEA">
             <tr>
                 <td> Hotel </td>
