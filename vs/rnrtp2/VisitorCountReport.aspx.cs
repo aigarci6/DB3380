@@ -152,8 +152,8 @@ namespace rnrtp2
 
             MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
 
-            MySqlCommand TotalVisitor = new MySqlCommand("SELECT COUNT(*)hotelID FROM visit_hotel;", dbcon);
-            MySqlCommand TotalVisitor1 = new MySqlCommand("SELECT COUNT(*)restaurantID FROM visit_restaurant;", dbcon);
+            MySqlCommand TotalVisitor = new MySqlCommand("SELECT COUNT(*)hotID FROM visit_hotel;", dbcon);
+            MySqlCommand TotalVisitor1 = new MySqlCommand("SELECT COUNT(*)restID FROM visit_restaurant;", dbcon);
 
             string htmlStr = "";
             int id;
@@ -167,7 +167,7 @@ namespace rnrtp2
             {
                 id = genReader.GetInt32(0);
 
-                htmlStr += "<tr><td>" + id + "</td></tr>";
+                htmlStr += "<tr><td>" + id + "</td>";
             }
 
             genReader.Close();
@@ -178,7 +178,7 @@ namespace rnrtp2
             {
                 id2 = genReader1.GetInt32(0);
 
-                htmlStr += "<tr><td>" + id2 + "</td></tr>";
+                htmlStr += "<tr>" + id2 + "</td></tr>";
             }
 
             genReader1.Close();
