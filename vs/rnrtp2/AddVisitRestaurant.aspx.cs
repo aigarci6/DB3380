@@ -11,18 +11,30 @@ namespace rnrtp2
     public partial class AddVisitRestaurant : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {/*
+        {
             //auth
             if (Session["username"] == null)
             {
                 Response.Redirect("Login.aspx");
             }
 
-            if ((string)Session["username"] != "HR" || (string)Session["username"] != "restaurant")
+            string jcategory = "";
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
+            dbcon.Open();
+            MySqlCommand search = new MySqlCommand("SELECT jobCategory FROM credentials WHERE userName = @username", dbcon);
+            search.Parameters.AddWithValue("@username", (string)Session["username"]);
+            MySqlDataReader sReader = search.ExecuteReader();
+            while (sReader.Read())
+            {
+                jcategory = sReader.GetString(0);
+            }
+            sReader.Close();
+
+            if (jcategory != "HR" && jcategory != "restaurant")
             {
                 Response.Redirect("BadAccess.html");
             }
-            */
+            
 
 
             if (IsPostBack == true)

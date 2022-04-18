@@ -11,18 +11,30 @@ namespace rnrtp2
     public partial class SearchEmployee : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {/*
+        {
             //auth
             if (Session["username"] == null)
             {
                 Response.Redirect("Login.aspx");
             }
 
-            if ((string)Session["username"] != "HR")
+            string jcategory = "";
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
+            dbcon.Open();
+            MySqlCommand search = new MySqlCommand("SELECT jobCategory FROM credentials WHERE userName = @username", dbcon);
+            search.Parameters.AddWithValue("@username", (string)Session["username"]);
+            MySqlDataReader sReader = search.ExecuteReader();
+            while (sReader.Read())
+            {
+                jcategory = sReader.GetString(0);
+            }
+            sReader.Close();
+
+            if (jcategory != "HR")
             {
                 Response.Redirect("BadAccess.html");
             }
-            */
+            
 
 
             updateerrormessage.Visible = false;
@@ -40,6 +52,7 @@ namespace rnrtp2
             int salary;
             string category;
             int jobid = 0;
+            string email;
             string htmlStr = "";
 
             dbcon.Open();
@@ -53,7 +66,7 @@ namespace rnrtp2
             //* (all)
             if (search.Value == "all")
             {
-                MySqlCommand search = new MySqlCommand("SELECT employeeID, firstName, lastName, gender, weeklySalary, IFNULL(jobCategory, @autocategory), IFNULL(restID, @autoid), IFNULL(hotID, @autoid), IFNULL(rID, @autoid) FROM staff LEFT OUTER JOIN works_restaurant ON employeeID = works_restaurant.staID LEFT OUTER JOIN works_hotel ON employeeID = works_hotel.staID LEFT OUTER JOIN works_ride ON employeeID = works_ride.staID WHERE staff.archived <= @archived ORDER BY employeeID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT employeeID, firstName, lastName, gender, weeklySalary, IFNULL(jobCategory, @autocategory), email, IFNULL(restID, @autoid), IFNULL(hotID, @autoid), IFNULL(rID, @autoid) FROM staff LEFT OUTER JOIN works_restaurant ON employeeID = works_restaurant.staID LEFT OUTER JOIN works_hotel ON employeeID = works_hotel.staID LEFT OUTER JOIN works_ride ON employeeID = works_ride.staID WHERE staff.archived <= @archived ORDER BY employeeID ASC;", dbcon);
                 search.Parameters.AddWithValue("@autocategory", "N/A");
                 search.Parameters.AddWithValue("@autoid", 0);
 
@@ -76,23 +89,24 @@ namespace rnrtp2
                     gender = reader.GetChar(3);
                     salary = reader.GetInt32(4);
                     category = reader.GetString(5);
+                    email = reader.GetString(6);
 
                     if (category == "restaurant")
-                    {
-                        jobid = reader.GetInt32(6);
-                    }
-
-                    if (category == "hotel")
                     {
                         jobid = reader.GetInt32(7);
                     }
 
-                    if (category == "ride")
+                    if (category == "hotel")
                     {
                         jobid = reader.GetInt32(8);
                     }
 
-                    htmlStr += "<tr><td>" + id + "</td><td>" + first + "</td><td>" + last + "</td><td>" + gender + "</td><td>" + salary + "</td><td>" + category + "</td><td>" + jobid + "</td></tr>";
+                    if (category == "ride")
+                    {
+                        jobid = reader.GetInt32(9);
+                    }
+
+                    htmlStr += "<tr><td>" + id + "</td><td>" + first + "</td><td>" + last + "</td><td>" + email + "</td><td>" + gender + "</td><td>" + salary + "</td><td>" + category + "</td><td>" + jobid + "</td></tr>";
                 }
                 reader.Close();
             }
@@ -456,7 +470,7 @@ namespace rnrtp2
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (sid_textbox.Text.Length > 0 && sfirst_textbox.Text.Length > 0 && sjsite.Value.Length > 0)
+            if (sid_textbox.Text.Length > 0 && sfirst_textbox.Text.Length > 0 && sjsite.Value != "SELECT")
             {
                 MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
 
@@ -480,7 +494,7 @@ namespace rnrtp2
 
                 //gender
                 MySqlCommand updateGender = new MySqlCommand("UPDATE staff SET gender = @gender WHERE employeeID = @id AND firstName = @first;", dbcon);
-                if (gender.Value.Length == 1)
+                if (gender.Value != "SELECT")
                 {
                     updateGender.Parameters.AddWithValue("@id", sid_textbox.Text);
                     updateGender.Parameters.AddWithValue("@first", sfirst_textbox.Text);

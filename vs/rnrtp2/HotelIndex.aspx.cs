@@ -21,5 +21,11 @@ namespace rnrtp2
         {
 
         }
+
+        protected void LogoutGo(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("Login.aspx");
+        }
     }
 }

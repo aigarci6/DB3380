@@ -11,18 +11,30 @@ namespace rnrtp2
     public partial class AddEmployee : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {/*
+        {
             //auth
             if (Session["username"] == null)
             {
                 Response.Redirect("Login.aspx");
             }
 
-            if ((string)Session["username"] != "HR")
+            string jcategory = "";
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
+            dbcon.Open();
+            MySqlCommand search = new MySqlCommand("SELECT jobCategory FROM credentials WHERE userName = @username", dbcon);
+            search.Parameters.AddWithValue("@username", (string)Session["username"]);
+            MySqlDataReader sReader = search.ExecuteReader();
+            while (sReader.Read())
+            {
+                jcategory = sReader.GetString(0);
+            }
+            sReader.Close();
+
+            if (jcategory != "HR")
             {
                 Response.Redirect("BadAccess.html");
             }
-            */
+            
 
             if (IsPostBack == true)
             {
@@ -33,13 +45,14 @@ namespace rnrtp2
         protected void Button1_Click(object sender, EventArgs e)
         {
             MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred; Allow User Variables=True;");
-            MySqlCommand insert = new MySqlCommand("CALL InsertStaff(@employeeID, @firstName, @lastName, @gender, @salary, @category);", dbcon);
+            MySqlCommand insert = new MySqlCommand("CALL InsertStaff(@employeeID, @firstName, @lastName, @gender, @salary, @category, @email);", dbcon);
             insert.Parameters.AddWithValue("@employeeID", id_textbox.Text);
             insert.Parameters.AddWithValue("@firstName", first_textbox.Text);
             insert.Parameters.AddWithValue("@lastName", last_textbox.Text);
             insert.Parameters.AddWithValue("@gender", gender.Value);
             insert.Parameters.AddWithValue("@salary", salary_textbox.Text);
             insert.Parameters.AddWithValue("@category", jsite.Value);
+            insert.Parameters.AddWithValue("@email", email_textbox.Text);
 
             //works_hotel
             MySqlCommand insertWorkHotel = new MySqlCommand("INSERT INTO works_hotel (staID, hotID) VALUES (@staID, @hotID);", dbcon);
@@ -90,6 +103,7 @@ namespace rnrtp2
                 jsite.Value = "";
                 jid_textbox.Text = "";
                 salary_textbox.Text = "";
+                email_textbox.Text = "";
             }
         }
 

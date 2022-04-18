@@ -30,15 +30,6 @@
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
 
-        .printbutton {
-            width: 50%;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            text-transform: uppercase;
-            font-weight: bold;
-            font-size: small;
-            text-align:right;
-        }
-
         .searchbar {
             width: 55%;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -87,7 +78,6 @@
 
                 <% Response.Write(currTotals()); %>
             </table>
-                <br /><br />
                 
                 <br /><br /><br />
             <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: black;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>

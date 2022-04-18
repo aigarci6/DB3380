@@ -16,7 +16,8 @@
                 <asp:TextBox ID="first_textbox" runat="server" required="required"></asp:TextBox><br /><br />
                 <asp:Label ID="Label2" runat="server" Text="Last name: "></asp:Label>
                 <asp:TextBox ID="last_textbox" runat="server" required="required"></asp:TextBox><br /><br />
-
+                <asp:Label ID="Label6" runat="server" Text="Email: "></asp:Label>
+                <asp:TextBox ID="email_textbox" runat="server" required="required"></asp:TextBox><br /><br />
                 <asp:Label ID="Label3" runat="server" Text="Gender: "></asp:Label>
                 <select name="gender" style="width:130px;" id="gender" runat="server" required="required">
                     <option value="u">Other</option>

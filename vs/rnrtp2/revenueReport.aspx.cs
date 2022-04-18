@@ -14,7 +14,27 @@ namespace rnrtp2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["username"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
 
+            string jcategory = "";
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
+            dbcon.Open();
+            MySqlCommand search = new MySqlCommand("SELECT jobCategory FROM credentials WHERE userName = @username", dbcon);
+            search.Parameters.AddWithValue("@username", (string)Session["username"]);
+            MySqlDataReader sReader = search.ExecuteReader();
+            while (sReader.Read())
+            {
+                jcategory = sReader.GetString(0);
+            }
+            sReader.Close();
+
+            if (jcategory != "HR" && jcategory != "hotel" && jcategory != "ride" && jcategory != "restaurant")
+            {
+                Response.Redirect("BadAccess.html");
+            }
         }
 
         protected void generatePage(object sender, EventArgs e)
@@ -26,7 +46,7 @@ namespace rnrtp2
         {
             if (month.Value.Length == 0 || year.Value.Length == 0)
             {
-                return "<h1>Please enter date above </h1 >";
+                return "<h3>Please enter date above. </h3 >";
             }
 
             string munth = month.Value;
@@ -96,50 +116,73 @@ namespace rnrtp2
             //setting up revenue
             html += "<p><h2>" + munth + "/" + yeer + " Revenue </h2>" +
                 "<table width=\"50%\" align=\"center\" cellpadding=\"2\" cellspacing=\"2\" border=\"0\" bgcolor=\"#EAEAEA\">" +
-                "<tr align=\"center\" style=\"background-color: #004080; color: White;\">" +
+                "<tr>" +
                 "<td> Ticket Revenue </td>" +
                 "<td> Hotel Revenue </td>" +
                 "<td> Restaurant Revenue </td>" +
                 "</tr>" +
-                "<tr align=\"center\" style=\"background-color: grey; color: White;\">" +
+                "<tr>" +
                 "<td> " + ticketSum + " </td>" +
                 "<td> " + hotelSum + " </td>" +
                 "<td> " + restSum + " </td>" +
                 "</tr>" +
                 "</table>" +
-                "</p>";
+                "</p>" + "<br /><br />";
             //setting up deficit
             html += "<p><h2>" + munth + "/" + yeer + " Expenditures </h2>" +
                 "<table width=\"50%\" align=\"center\" cellpadding=\"2\" cellspacing=\"2\" border=\"0\" bgcolor=\"#EAEAEA\">" +
-                "<tr align=\"center\" style=\"background-color: #004080; color: White;\">" +
+                "<tr>" +
                 "<td> Maintanance Costs </td>" +
                 "<td> Salaries </td>" +
                 "<td> Housekeeping </td>" +
                 "</tr>" +
-                "<tr align=\"center\" style=\"background-color: grey; color: White;\">" +
+                "<tr>" +
                 "<td> " + maintSum + " </td>" +
                 "<td> " + salSum + " </td>" +
                 "<td> " + housekeeping + " </td>" +
                 "</tr>" +
                 "</table>" +
-                "</p>";
+                "</p>" + "<br /><br />";
             //showing total balance for month
             int balance = ticketSum+hotelSum+restSum-maintSum-salSum-housekeeping;
             html += "<p><h2>" + munth + "/" + yeer + " Balance </h2>" +
                 "<table width=\"25%\" align=\"center\" cellpadding=\"2\" cellspacing=\"2\" border=\"0\" bgcolor=\"#EAEAEA\">" +
-                "<tr align=\"center\" style=\"background-color: #004080; color: White;\">" +
+                "<tr>" +
                 "<td> Balance </td>" +                
                 "</tr>" +
-                "<tr align=\"center\" style=\"background-color: grey; color: White;\">" +
+                "<tr>" +
                 "<td> " + balance + " </td>" +             
                 "</tr>" +
                 "</table>" +
-                "</p>";
+                "</p>" + "<br /><br />";
             
 
 
 
             return html;
+        }
+
+        protected void HomeLink(object sender, EventArgs e)
+        {
+            if ((string)Session["username"] == "HR")
+            {
+                Response.Redirect("Index.aspx");
+            }
+
+            if ((string)Session["username"] == "hotel")
+            {
+                Response.Redirect("HotelIndex.aspx");
+            }
+
+            if ((string)Session["username"] == "restaurant")
+            {
+                Response.Redirect("RestIndex.aspx");
+            }
+
+            if ((string)Session["username"] == "ride")
+            {
+                Response.Redirect("RideIndex.aspx");
+            }
         }
     }
 }

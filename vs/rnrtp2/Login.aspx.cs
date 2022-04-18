@@ -26,32 +26,33 @@ namespace rnrtp2
             int count = Convert.ToInt32(insert.ExecuteScalar());
             if (count == 1)
             {
+                
+                Session["username"] = username_textbox.Text.Trim();
+
                 string jcategory;
-                MySqlCommand search = new MySqlCommand("SELECT jobCategory FROM credentials WHERE userName = @username AND password = @password", dbcon);
-                search.Parameters.AddWithValue("@username", username_textbox.Text.Trim());
-                search.Parameters.AddWithValue("@password", pass_textbox.Text.Trim());
+                MySqlCommand search = new MySqlCommand("SELECT jobCategory FROM credentials WHERE userName = @username", dbcon);
+                search.Parameters.AddWithValue("@username", (string)Session["username"]);
                 MySqlDataReader sReader = search.ExecuteReader();
                 sReader.Read();
                 jcategory = sReader.GetString(0);
                 sReader.Close();
 
-                Session["username"] = jcategory;
-                if ((string)Session["username"] == "HR")
+                if (jcategory == "HR")
                 {
                     Response.Redirect("Index.aspx");
                 }
 
-                if ((string)Session["username"] == "hotel")
+                if (jcategory == "hotel")
                 {
                     Response.Redirect("HotelIndex.aspx");
                 }
 
-                if ((string)Session["username"] == "restaurant")
+                if (jcategory == "restaurant")
                 {
                     Response.Redirect("RestIndex.aspx");
                 }
 
-                if ((string)Session["username"] == "ride")
+                if (jcategory == "ride")
                 {
                     Response.Redirect("RideIndex.aspx");
                 }

@@ -12,6 +12,7 @@
         <div>
             <h1 style="color:black;">close a ride</h1>
             <fieldset>
+                <asp:Label ID="testing" runat="server" Text=""></asp:Label><br /><br />
                 <asp:Label ID="Label1" runat="server" Text="Employee ID: "></asp:Label>
                 <asp:TextBox ID="eid_textbox" runat="server" required="required"></asp:TextBox><br /><br />
                 <asp:Label ID="Label2" runat="server" Text="Ride ID: "></asp:Label>

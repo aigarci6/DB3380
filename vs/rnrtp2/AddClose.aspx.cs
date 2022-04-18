@@ -11,34 +11,39 @@ namespace rnrtp2
     public partial class AddClose : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {/*
+        {
             
             //auth
+            string jcategory = "";
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
+            dbcon.Open();
+            MySqlCommand search = new MySqlCommand("SELECT jobCategory FROM credentials WHERE userName = @username", dbcon);
+            search.Parameters.AddWithValue("@username", (string)Session["username"]);
+            MySqlDataReader sReader = search.ExecuteReader();
+            while(sReader.Read())
+            {
+                jcategory = sReader.GetString(0);
+            }
+            sReader.Close();
+
+
             if (Session["username"] == null)
             {
                 Response.Redirect("Login.aspx");
             }
 
-            if ((string)Session["username"] != "HR" || (string)Session["username"] != "ride")
+            if (jcategory != "HR" && jcategory != "ride")
             {
                 Response.Redirect("BadAccess.html");
             }
-            */
-
+            dbcon.Close();
+            
+            
 
             if (IsPostBack == true)
             {
                 Response.Write("<script>alert('Ride closed successfully!')</script>");
             }
-
-            DateTime now = DateTime.Now;
-
-            string hour = now.Hour.ToString();
-            string minute = now.Minute.ToString();
-            string second = now.Second.ToString();
-
-            date.Value = now.Date.ToString("yyyy-MM-dd");
-            time_textbox.Text = hour + ":" + minute + ":" + second;
             
         }
 

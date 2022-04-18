@@ -20,7 +20,9 @@
                     <option value="seasonal">Seasonal</option>
                 </select> <br /><br />
                 <label for="email" >Email:</label>
-                <input type="email" name="email" value="" runat="server" id="email" style="width:130px;" required="required"/> <br /><br />
+                <input type="email" name="email" value="" runat="server" id="email" style="width:130px;" required="required"/>
+                <br />
+                <asp:Label ID="errormessage" font-size="small" runat="server" Text="ERROR SENDING EMAIL. TRY AGAIN." ForeColor="Red"></asp:Label> <br /><br />
                 <asp:Button ID="Button2" runat="server" Text="Submit" OnClick="buttonClick"  /> 
                 <br /><br /><br />
            <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: white;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>

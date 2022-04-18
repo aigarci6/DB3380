@@ -87,7 +87,8 @@
         <h1>reports.</h1>
         <div class="list">
             <a href="TicketReport.aspx">daily ticket report</a><br />
-            <a href="VisitorCountReport.aspx">hotel and restaurant visitor report</a>
+            <a href="VisitorCountReport.aspx">hotel and restaurant visitor report</a><br />
+            <a href="revenueReport.aspx">revenue report</a>
         </div>
 
         <h1>employee.</h1>
@@ -130,12 +131,13 @@
             <a href="AddHotel.aspx">add a new hotel</a><br />
             <a href="SearchHotel.aspx">manage existing hotels</a><br />
             <a href="AddVisitHotel.aspx">visitor hotel check in</a><br />
-            <a href="SearchVisitRestaurant.aspx">manage hotel visits</a>
+            <a href="SearchVisitHotel.aspx">manage hotel visits</a>
         </div>
         <br /><br />
+        <form id="form1" runat="server">
         <div class="logout">
-            <a href="Login.aspx" style="color:#333;">LOGOUT</a>
-        </div>
+            <asp:LinkButton ID="linkGoSomewhere" style="color:#333;" runat="server" OnClick="LogoutGo" Text="LOGOUT"/>
+        </div></form>
         <br /><br /><br />
     </div>
         

@@ -63,6 +63,7 @@
                 <td> employee id </td>
                 <td> first name </td>
                 <td> last name </td>
+                <td> email </td>
                 <td> gender </td>
                 <td> weekly salary </td>
                 <td> job category </td>
@@ -83,6 +84,7 @@
 
                 <asp:Label ID="Label10" runat="server" Text="Job Category: "></asp:Label>
                 <select name="sjsite" style="width:130px;" id="sjsite" runat="server" required="required">
+                    <option value="SELECT">SELECT</option>
                     <option value="HR">HR</option>
                     <option value="hotel">Hotel</option>
                     <option value="restaurant">Restaurant</option>
@@ -94,9 +96,11 @@
                 <asp:TextBox ID="first_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Label ID="Label3" runat="server" Text="Last Name: "></asp:Label>
                 <asp:TextBox ID="last_textbox" runat="server"></asp:TextBox><br /><br />
-                
+                <asp:Label ID="Label13" runat="server" Text="Email: "></asp:Label>
+                <asp:TextBox ID="email_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Label ID="Label5" runat="server" Text="Gender: "></asp:Label>
                 <select name="gender" style="width:130px;" id="gender" runat="server" required="required">
+                    <option value="SELECT">SELECT</option>
                     <option value="u">Other</option>
                     <option value="m">Male</option>
                     <option value="f">Female</option>

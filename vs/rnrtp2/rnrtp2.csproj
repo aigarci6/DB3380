@@ -65,6 +65,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -237,6 +238,13 @@
     <Compile Include="RestIndex.aspx.designer.cs">
       <DependentUpon>RestIndex.aspx</DependentUpon>
     </Compile>
+    <Compile Include="revenueReport.aspx.cs">
+      <DependentUpon>revenueReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="revenueReport.aspx.designer.cs">
+      <DependentUpon>revenueReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RideIndex.aspx.cs">
       <DependentUpon>RideIndex.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -355,6 +363,7 @@
     <Content Include="Index.aspx" />
     <Content Include="newindex.jpg" />
     <Content Include="RestIndex.aspx" />
+    <Content Include="revenueReport.aspx" />
     <Content Include="RideIndex.aspx" />
     <Content Include="Rides.jpg" />
     <Content Include="Scripts\bootstrap.js" />
