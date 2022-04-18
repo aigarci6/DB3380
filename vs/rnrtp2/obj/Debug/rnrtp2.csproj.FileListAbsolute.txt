@@ -644,4 +644,3 @@ C:\Users\giann\OneDrive\Desktop\DatabaseThing\DB3380\vs\rnrtp2\obj\Debug\rnrtp2.
 C:\Users\giann\OneDrive\Desktop\DatabaseThing\DB3380\vs\rnrtp2\obj\Debug\rnrtp2.dll
 C:\Users\giann\OneDrive\Desktop\DatabaseThing\DB3380\vs\rnrtp2\obj\Debug\rnrtp2.pdb
 C:\Users\giann\OneDrive\Desktop\DatabaseThing\DB3380\vs\rnrtp2\bin\System.Numerics.Vectors.dll
-C:\Users\kruna\OneDrive\Documents\GitHub\DB3380\vs\rnrtp2\bin\System.Numerics.Vectors.dll
