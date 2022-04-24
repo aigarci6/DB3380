@@ -36,9 +36,58 @@ namespace rnrtp2
             }
             
 
-
             updateerrormessage.Visible = false;
             deleteerrormessage.Visible = false;
+
+            //dropdownlist
+            MySqlConnection dbconn = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred; Allow User Variables=True;");
+            MySqlCommand jobid = new MySqlCommand("SELECT hotelID, name FROM hotel ORDER BY name ASC;", dbconn);
+            MySqlCommand rideid = new MySqlCommand("SELECT rideID, name FROM rides ORDER BY name ASC;", dbconn);
+            MySqlCommand restid = new MySqlCommand("SELECT restaurantID, name FROM restaurant ORDER BY name ASC;", dbconn);
+
+            ListItem firstListItem = new ListItem("SELECT", "000");
+            DropDownList1.Items.Add(firstListItem);
+
+            dbconn.Open();
+            MySqlDataReader jobReader = jobid.ExecuteReader();
+            if (!IsPostBack)
+            {
+                while (jobReader.Read())
+                {
+                    string name = "(Hotel) " + jobReader.GetString(1);
+                    string id = jobReader.GetString(0);
+                    ListItem newListItem = new ListItem(name, id);
+                    DropDownList1.Items.Add(newListItem);
+                }
+            }
+            jobReader.Close();
+
+            MySqlDataReader rideReader = rideid.ExecuteReader();
+            if (!IsPostBack)
+            {
+                while (rideReader.Read())
+                {
+                    string name = "(Ride) " + rideReader.GetString(1);
+                    string id = rideReader.GetString(0);
+                    ListItem newListItem = new ListItem(name, id);
+                    DropDownList1.Items.Add(newListItem);
+                }
+            }
+            rideReader.Close();
+
+            MySqlDataReader restReader = restid.ExecuteReader();
+            if (!IsPostBack)
+            {
+                while (restReader.Read())
+                {
+                    string name = "(Restaurant) " + restReader.GetString(1);
+                    string id = restReader.GetString(0);
+                    ListItem newListItem = new ListItem(name, id);
+                    DropDownList1.Items.Add(newListItem);
+                }
+            }
+            restReader.Close();
+            dbconn.Close();
         }
 
         public string getData()
@@ -514,26 +563,26 @@ namespace rnrtp2
                 //jid
                 //hotel
                 MySqlCommand updateHID = new MySqlCommand("UPDATE works_hotel SET hotID = @jid WHERE staID = @id;", dbcon);
-                if (sjsite.Value.ToLower() == "hotel" && jid_textbox.Text.Length > 0)
+                if (sjsite.Value.ToLower() == "hotel" && DropDownList1.SelectedItem.Text.Contains("Hotel"))
                 {
                     updateHID.Parameters.AddWithValue("@id", sid_textbox.Text);
-                    updateHID.Parameters.AddWithValue("@jid", jid_textbox.Text);
+                    updateHID.Parameters.AddWithValue("@jid", DropDownList1.SelectedValue);
                 }
 
                 //restaurant
                 MySqlCommand updateRestID = new MySqlCommand("UPDATE works_restaurant SET restID = @jid WHERE staID = @id;", dbcon);
-                if (sjsite.Value.ToLower() == "restaurant" && jid_textbox.Text.Length > 0)
+                if (sjsite.Value.ToLower() == "restaurant" && DropDownList1.SelectedItem.Text.Contains("Restaurant"))
                 {
                     updateRestID.Parameters.AddWithValue("@id", sid_textbox.Text);
-                    updateRestID.Parameters.AddWithValue("@jid", jid_textbox.Text);
+                    updateRestID.Parameters.AddWithValue("@jid", DropDownList1.SelectedValue);
                 }
 
                 //ride
                 MySqlCommand updateRID = new MySqlCommand("UPDATE works_ride SET rID = @jid WHERE staID = @id;", dbcon);
-                if (sjsite.Value.ToLower() == "ride" && jid_textbox.Text.Length > 0)
+                if (sjsite.Value.ToLower() == "ride" && DropDownList1.SelectedItem.Text.Contains("Ride"))
                 {
                     updateRID.Parameters.AddWithValue("@id", sid_textbox.Text);
-                    updateRID.Parameters.AddWithValue("@jid", jid_textbox.Text);
+                    updateRID.Parameters.AddWithValue("@jid", DropDownList1.SelectedValue);
                 }
 
 
@@ -556,15 +605,15 @@ namespace rnrtp2
                 }
 
                 //job id
-                if (sjsite.Value.ToLower() == "hotel" && jid_textbox.Text.Length > 0)
+                if (sjsite.Value.ToLower() == "hotel" && DropDownList1.SelectedItem.Text.Contains("Hotel"))
                 {
                     updateHID.ExecuteNonQuery();
                 }
-                if (sjsite.Value.ToLower() == "restaurant" && jid_textbox.Text.Length > 0)
+                if (sjsite.Value.ToLower() == "restaurant" && DropDownList1.SelectedItem.Text.Contains("Restaurant"))
                 {
                     updateRestID.ExecuteNonQuery();
                 }
-                if (sjsite.Value.ToLower() == "ride" && jid_textbox.Text.Length > 0)
+                if (sjsite.Value.ToLower() == "ride" && DropDownList1.SelectedItem.Text.Contains("Ride"))
                 {
                     updateRID.ExecuteNonQuery();
                 }
@@ -580,7 +629,6 @@ namespace rnrtp2
                     last_textbox.Text = "";
                     gender.Value = "";
                     salary_textbox.Text = "";
-                    jid_textbox.Text = "";
                 }
 
                 if (IsPostBack == true)

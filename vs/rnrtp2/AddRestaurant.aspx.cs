@@ -40,6 +40,28 @@ namespace rnrtp2
             {
                 Response.Write("<script>alert('Restaurant added successfully!')</script>");
             }
+
+            //dropdownlist
+            MySqlConnection dbconn = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred; Allow User Variables=True;");
+            MySqlCommand locid = new MySqlCommand("SELECT locationID, locationName FROM location ORDER BY locationName ASC;", dbconn);
+
+            ListItem firstListItem = new ListItem("SELECT", "000");
+            DropDownList1.Items.Add(firstListItem);
+
+            dbconn.Open();
+            MySqlDataReader locReader = locid.ExecuteReader();
+            if (!IsPostBack)
+            {
+                while (locReader.Read())
+                {
+                    string name = locReader.GetString(1);
+                    string id = locReader.GetString(0);
+                    ListItem newListItem = new ListItem(name, id);
+                    DropDownList1.Items.Add(newListItem);
+                }
+            }
+            locReader.Close();
+            dbconn.Close();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -48,7 +70,7 @@ namespace rnrtp2
             MySqlCommand insert = new MySqlCommand("CALL InsertRestaurant(@restaurantID, @name, @restlocID, @capacity, @exp);", dbcon);
             insert.Parameters.AddWithValue("@restaurantID", id_textbox.Text);
             insert.Parameters.AddWithValue("@name", name_textbox.Text);
-            insert.Parameters.AddWithValue("@restlocID", location_textbox.Text);
+            insert.Parameters.AddWithValue("@restlocID", DropDownList1.SelectedValue);
             insert.Parameters.AddWithValue("@capacity", capacity_textbox.Text);
 
             if (exp_textbox.Text.Length > 0)
@@ -69,7 +91,6 @@ namespace rnrtp2
             {
                 id_textbox.Text = "";
                 name_textbox.Text = "";
-                location_textbox.Text = "";
                 capacity_textbox.Text = "";
             }
         }

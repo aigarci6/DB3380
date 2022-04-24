@@ -38,34 +38,72 @@ namespace rnrtp2
 
             updateerrormessage.Visible = false;
             deleteerrormessage.Visible = false;
+
+            //dropdownlist restaurant update info
+            MySqlConnection dbconn = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred; Allow User Variables=True;");
+            MySqlCommand restid = new MySqlCommand("SELECT restaurantID, name FROM restaurant ORDER BY name ASC;", dbconn);
+            MySqlCommand locid = new MySqlCommand("SELECT locationID, locationName FROM location ORDER BY locationName ASC;", dbconn);
+
+            ListItem firstListItem = new ListItem("SELECT", "000");
+            DropDownList3.Items.Add(firstListItem);
+            DropDownList1.Items.Add(firstListItem);
+
+            dbconn.Open();
+            MySqlDataReader restReader = restid.ExecuteReader();
+            if (!IsPostBack)
+            {
+                while (restReader.Read())
+                {
+                    string name = restReader.GetString(1);
+                    string id = restReader.GetString(0);
+                    ListItem newListItem = new ListItem(name, id);
+                    DropDownList3.Items.Add(newListItem);
+                }
+            }
+            restReader.Close();
+
+            MySqlDataReader locReader = locid.ExecuteReader();
+            if (!IsPostBack)
+            {
+                while (locReader.Read())
+                {
+                    string name = locReader.GetString(1);
+                    string id = locReader.GetString(0);
+                    ListItem newListItem = new ListItem(name, id);
+                    DropDownList1.Items.Add(newListItem);
+                }
+            }
+            locReader.Close();
+
+            dbconn.Close();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (id_textbox.Text.Length > 0 && name_textbox.Text.Length > 0)
+            if (DropDownList3.SelectedItem.Text != "SELECT")
             {
                 MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
 
                 //location
                 MySqlCommand updateLocation = new MySqlCommand("UPDATE restaurant SET rest_locID = @location WHERE restaurantID = @id AND name = @name;", dbcon);
-                if (location_textbox.Text.Length > 0)
+                if (DropDownList1.SelectedItem.Text != "SELECT")
                 {
-                    updateLocation.Parameters.AddWithValue("@id", id_textbox.Text);
-                    updateLocation.Parameters.AddWithValue("@name", name_textbox.Text);
-                    updateLocation.Parameters.AddWithValue("@location", location_textbox.Text);
+                    updateLocation.Parameters.AddWithValue("@id", DropDownList3.SelectedValue);
+                    updateLocation.Parameters.AddWithValue("@name", DropDownList3.SelectedItem.Text);
+                    updateLocation.Parameters.AddWithValue("@location", DropDownList1.SelectedValue);
                 }
 
                 //capacity
                 MySqlCommand updateCapacity = new MySqlCommand("UPDATE restaurant SET capacity = @capacity WHERE restaurantID = @id AND name = @name;", dbcon);
                 if (capacity_textbox.Text.Length > 0)
                 {
-                    updateCapacity.Parameters.AddWithValue("@id", id_textbox.Text);
-                    updateCapacity.Parameters.AddWithValue("@name", name_textbox.Text);
+                    updateCapacity.Parameters.AddWithValue("@id", DropDownList3.SelectedValue);
+                    updateCapacity.Parameters.AddWithValue("@name", DropDownList3.SelectedItem.Text);
                     updateCapacity.Parameters.AddWithValue("@capacity", capacity_textbox.Text);
                 }
 
                 dbcon.Open();
-                if (location_textbox.Text.Length > 0)
+                if (DropDownList1.SelectedItem.Text != "SELECT")
                 {
                     updateLocation.ExecuteNonQuery();
                 }
@@ -77,9 +115,6 @@ namespace rnrtp2
 
                 if (IsPostBack)
                 {
-                    id_textbox.Text = "";
-                    name_textbox.Text = "";
-                    location_textbox.Text = "";
                     capacity_textbox.Text = "";
                 }
 

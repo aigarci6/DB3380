@@ -12,6 +12,7 @@ namespace rnrtp2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             //auth
             if (Session["username"] == null)
             {
@@ -41,6 +42,29 @@ namespace rnrtp2
             {
                 Response.Write("<script>alert('Restaurant visit added successfully!')</script>");
             }
+
+
+            //dropdownlist restaurant update info
+            MySqlConnection dbconn = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred; Allow User Variables=True;");
+            MySqlCommand restid = new MySqlCommand("SELECT restaurantID, name FROM restaurant ORDER BY name ASC;", dbconn);
+
+            ListItem firstListItem = new ListItem("SELECT", "000");
+            DropDownList3.Items.Add(firstListItem);
+
+            dbconn.Open();
+            MySqlDataReader restReader = restid.ExecuteReader();
+            if (!IsPostBack)
+            {
+                while (restReader.Read())
+                {
+                    string name = restReader.GetString(1);
+                    string id = restReader.GetString(0);
+                    ListItem newListItem = new ListItem(name, id);
+                    DropDownList3.Items.Add(newListItem);
+                }
+            }
+            restReader.Close();
+            dbconn.Close();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -48,7 +72,7 @@ namespace rnrtp2
             MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
             MySqlCommand insert = new MySqlCommand("CALL InsertVisitRestaurant(@ticketIDr, @restID, @dateVisited, @amountSpent);", dbcon);
             insert.Parameters.AddWithValue("@ticketIDr", id_textbox.Text);
-            insert.Parameters.AddWithValue("@restID", rid_textbox.Text);
+            insert.Parameters.AddWithValue("@restID", DropDownList3.SelectedValue);
             insert.Parameters.AddWithValue("@dateVisited", date.Value);
 
             if (spent_textbox.Text.Length > 0)
@@ -67,7 +91,6 @@ namespace rnrtp2
             if (IsPostBack)
             {
                 id_textbox.Text = "";
-                rid_textbox.Text = "";
                 spent_textbox.Text = "";
             }
         }

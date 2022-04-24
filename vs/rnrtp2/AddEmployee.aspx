@@ -28,11 +28,12 @@
 
 
 
-                <asp:Label ID="Label4" runat="server" Text="ID: "></asp:Label>
+                <asp:Label ID="Label4" runat="server" Text="Employee ID: "></asp:Label>
                 <asp:TextBox ID="id_textbox" runat="server" required="required"></asp:TextBox><br /><br />
                 
                 <asp:Label ID="Label5" runat="server" Text="Job Category: "></asp:Label>
                 <select name="jsite" style="width:130px;" id="jsite" runat="server" required="required">
+                    <option value="SELECT">SELECT</option>
                     <option value="HR">HR</option>
                     <option value="hotel">Hotel</option>
                     <option value="restaurant">Restaurant</option>
@@ -41,7 +42,10 @@
 
 
                 <asp:Label ID="Label8" runat="server" Text="Job ID: "></asp:Label>
-                <asp:TextBox ID="jid_textbox" runat="server" required="required"></asp:TextBox><br /><br />
+                <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList> <br />
+                <asp:Label ID="errormessage" font-size="Small" runat="server" Text="ERROR: Invalid job chosen!" ForeColor="Red"></asp:Label><br />
+
+
                 <asp:Label ID="Label7" runat="server" Text="Weekly salary: "></asp:Label>
                 <asp:TextBox ID="salary_textbox" runat="server" required="required"></asp:TextBox><br /><br />
                 <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" />

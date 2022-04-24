@@ -41,27 +41,27 @@ namespace rnrtp2
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (id_textbox.Text.Length > 0 && date_textbox.Text.Length > 0)
+            if (id_textbox.Text.Length > 0 && date.Value.Length > 0)
             {
                 MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
 
-                //location
+                //type
                 MySqlCommand updateTicketType = new MySqlCommand("UPDATE visitor SET ticketType = @type, ticketCost = @cost WHERE ticketID = @id AND visitDate = @date;", dbcon);
-                if (type_textbox.Text.Length > 0)
+                if (ticket.Value != "select")
                 {
                     updateTicketType.Parameters.AddWithValue("@id", id_textbox.Text);
-                    updateTicketType.Parameters.AddWithValue("@date", date_textbox.Text);
+                    updateTicketType.Parameters.AddWithValue("@date", date.Value);
 
-                    if (type_textbox.Text == "Seasonal" || type_textbox.Text == "seasonal")
+                    if (ticket.Value == "seasonal")
                     {
-                        updateTicketType.Parameters.AddWithValue("@type", "seasonal");
-                        updateTicketType.Parameters.AddWithValue("@cost", 350);
+                        updateTicketType.Parameters.AddWithValue("@type", ticket.Value);
+                        updateTicketType.Parameters.AddWithValue("@cost", 200);
                     }
 
-                    if (type_textbox.Text == "General" || type_textbox.Text == "general")
+                    if (ticket.Value == "general")
                     {
-                        updateTicketType.Parameters.AddWithValue("@type", "general");
-                        updateTicketType.Parameters.AddWithValue("@cost", 150);
+                        updateTicketType.Parameters.AddWithValue("@type", ticket.Value);
+                        updateTicketType.Parameters.AddWithValue("@cost", 50);
                     }
                 }
 
@@ -70,12 +70,12 @@ namespace rnrtp2
                 if (email_textbox.Text.Length > 0)
                 {
                     updateEmail.Parameters.AddWithValue("@id", id_textbox.Text);
-                    updateEmail.Parameters.AddWithValue("@date", date_textbox.Text);
+                    updateEmail.Parameters.AddWithValue("@date", date.Value);
                     updateEmail.Parameters.AddWithValue("@email", email_textbox.Text);
                 }
 
                 dbcon.Open();
-                if (type_textbox.Text.Length > 0)
+                if (ticket.Value != "select")
                 {
                     updateTicketType.ExecuteNonQuery();
                 }
@@ -88,8 +88,6 @@ namespace rnrtp2
                 if (IsPostBack)
                 {
                     id_textbox.Text = "";
-                    date_textbox.Text = "";
-                    type_textbox.Text = "";
                     email_textbox.Text = "";
                 }
 

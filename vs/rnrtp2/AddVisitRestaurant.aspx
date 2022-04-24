@@ -17,8 +17,10 @@
                 <input type="date" name="date" id="date" runat="server" value="" style="width:130px;" required="required"/> <br /><br />
                 <asp:Label ID="Label1" runat="server" Text="Ticket ID: "></asp:Label>
                 <asp:TextBox ID="id_textbox" runat="server" required="required"></asp:TextBox><br /><br />
-                <asp:Label ID="Label2" runat="server" Text="Restaurant ID: "></asp:Label>
-                <asp:TextBox ID="rid_textbox" runat="server" required="required"></asp:TextBox><br /><br />
+
+                <asp:Label ID="Label2" runat="server" Text="Restaurant: "></asp:Label>
+                <asp:DropDownList ID="DropDownList3" runat="server"></asp:DropDownList> <br /><br />
+
                 <asp:Label ID="Label3" runat="server" Text="Amount Spent: "></asp:Label>
                 <asp:TextBox ID="spent_textbox" runat="server"></asp:TextBox><br /><br />
 

@@ -69,23 +69,6 @@
 
                 <% Response.Write(getData()); %>
             </table>
-            <br />
-
-            <!-- UPDATE -->
-                <h1>Update:</h1>
-                <h3>visitor information</h3>
-                <asp:Label ID="Label1" runat="server" Text="Ticket ID: "></asp:Label>
-                <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label2" runat="server" Text="Hotel ID: "></asp:Label>
-                <asp:TextBox ID="hid_textbox" runat="server"></asp:TextBox><br />
-                <asp:Label ID="errormessage" font-size="small" runat="server" Text="ERROR: Missing field(s)!" ForeColor="Red"></asp:Label>
-
-                <h3>update</h3>
-                <asp:Label ID="Label4" runat="server" Text="Days Stayed: "></asp:Label>
-                <asp:TextBox ID="days_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label5" runat="server" Text="Room Number: "></asp:Label>
-                <asp:TextBox ID="room_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Update" />
                 <br /><br /><br />
             <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: white;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
             </fieldset>

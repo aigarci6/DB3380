@@ -108,8 +108,11 @@
                 
                 <asp:Label ID="Label6" runat="server" Text="Weekly Salary: "></asp:Label>
                 <asp:TextBox ID="salary_textbox" runat="server"></asp:TextBox><br /><br />
+
                 <asp:Label ID="Label8" runat="server" Text="Job ID: "></asp:Label>
-                <asp:TextBox ID="jid_textbox" runat="server"></asp:TextBox><br /><br />
+                <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList><br /><br />
+
+
                 <asp:Button ID="Button1" runat="server" Text="Update" OnClick="Button1_Click" /><br />
 
                 <!-- DELETE -->

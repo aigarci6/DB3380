@@ -24,7 +24,7 @@
         .navigationbar {
             height:100%;
             width: 450px;
-            background-color: rgb(0,0,0,0.7);
+            background-color: #111;
             color: lightblue;
             padding-left:40px;
             padding-top:20px;

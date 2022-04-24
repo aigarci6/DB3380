@@ -40,6 +40,28 @@ namespace rnrtp2
             {
                 Response.Write("<script>alert('Ride added successfully!')</script>");
             }
+
+            //dropdownlist
+            MySqlConnection dbconn = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred; Allow User Variables=True;");
+            MySqlCommand locid = new MySqlCommand("SELECT locationID, locationName FROM location ORDER BY locationName ASC;", dbconn);
+
+            ListItem firstListItem = new ListItem("SELECT", "000");
+            DropDownList1.Items.Add(firstListItem);
+
+            dbconn.Open();
+            MySqlDataReader locReader = locid.ExecuteReader();
+            if (!IsPostBack)
+            {
+                while (locReader.Read())
+                {
+                    string name = locReader.GetString(1);
+                    string id = locReader.GetString(0);
+                    ListItem newListItem = new ListItem(name, id);
+                    DropDownList1.Items.Add(newListItem);
+                }
+            }
+            locReader.Close();
+            dbconn.Close();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -52,7 +74,7 @@ namespace rnrtp2
             insert.Parameters.AddWithValue("@maxWeight", maxweight_textbox.Text);
             insert.Parameters.AddWithValue("@minHeight", minheight_textbox.Text);
             insert.Parameters.AddWithValue("@minAge", minage_textbox.Text);
-            insert.Parameters.AddWithValue("@rlocID", location_textbox.Text);
+            insert.Parameters.AddWithValue("@rlocID", DropDownList1.SelectedValue);
 
             dbcon.Open();
             insert.ExecuteNonQuery();
@@ -66,7 +88,6 @@ namespace rnrtp2
                 maxweight_textbox.Text = "";
                 minheight_textbox.Text = "";
                 minage_textbox.Text = "";
-                location_textbox.Text = "";
             }
         }
 

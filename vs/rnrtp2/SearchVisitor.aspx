@@ -72,12 +72,16 @@
                 <asp:Label ID="Label1" runat="server" Text="Ticket ID: "></asp:Label>
                 <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Label ID="Label2" runat="server" Text="Visit Date: "></asp:Label>
-                <asp:TextBox ID="date_textbox" runat="server"></asp:TextBox><br />
+                <input type="date" name="date" id="date" runat="server" value="" style="width:130px;"/> <br /><br />
                 <asp:Label ID="errormessage" font-size="small" runat="server" Text="ERROR: Missing field(s)!" ForeColor="Red"></asp:Label>
 
                 <h2>update</h2>
                 <asp:Label ID="Label3" runat="server" Text="Ticket Type: "></asp:Label>
-                <asp:TextBox ID="type_textbox" runat="server"></asp:TextBox><br /><br />
+                <select name="ticket" style="width:130px;" id="ticket" runat="server">
+                    <option value="select">SELECT</option>
+                    <option value="general">General</option>
+                    <option value="seasonal">Seasonal</option>
+                </select> <br /><br />
                 <asp:Label ID="Label4" runat="server" Text="Email: "></asp:Label>
                 <asp:TextBox ID="email_textbox" runat="server"></asp:TextBox><br /><br />
 

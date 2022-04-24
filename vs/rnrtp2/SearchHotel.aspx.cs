@@ -38,29 +38,66 @@ namespace rnrtp2
 
             updateerrormessage.Visible = false;
             deleteerrormessage.Visible = false;
+
+            //dropdownlist
+            MySqlConnection dbconn = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred; Allow User Variables=True;");
+            MySqlCommand locid = new MySqlCommand("SELECT locationID, locationName FROM location ORDER BY locationName ASC;", dbconn);
+            MySqlCommand hotid = new MySqlCommand("SELECT hotelID, name FROM hotel ORDER BY name ASC;", dbconn);
+
+            ListItem firstListItem = new ListItem("SELECT", "000");
+            DropDownList1.Items.Add(firstListItem);
+            DropDownList2.Items.Add(firstListItem);
+
+            dbconn.Open();
+            MySqlDataReader locReader = locid.ExecuteReader();
+            if (!IsPostBack)
+            {
+                while (locReader.Read())
+                {
+                    string name = locReader.GetString(1);
+                    string id = locReader.GetString(0);
+                    ListItem newListItem = new ListItem(name, id);
+                    DropDownList1.Items.Add(newListItem);
+                }
+            }
+            locReader.Close();
+
+            MySqlDataReader hotReader = hotid.ExecuteReader();
+            if (!IsPostBack)
+            {
+                while (hotReader.Read())
+                {
+                    string name = hotReader.GetString(1);
+                    string id = hotReader.GetString(0);
+                    ListItem newListItem = new ListItem(name, id);
+                    DropDownList2.Items.Add(newListItem);
+                }
+            }
+            hotReader.Close();
+            dbconn.Close();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (id_textbox.Text.Length > 0 && name_textbox.Text.Length > 0)
+            if (DropDownList2.SelectedItem.Text != "SELECT")
             {
                 MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
 
                 //location
                 MySqlCommand updateLocation = new MySqlCommand("UPDATE hotel SET h_locID = @location WHERE hotelID = @id AND name = @name;", dbcon);
-                if (location_textbox.Text.Length > 0)
+                if (DropDownList1.SelectedItem.Value != "SELECT")
                 {
-                    updateLocation.Parameters.AddWithValue("@id", id_textbox.Text);
-                    updateLocation.Parameters.AddWithValue("@name", name_textbox.Text);
-                    updateLocation.Parameters.AddWithValue("@location", location_textbox.Text);
+                    updateLocation.Parameters.AddWithValue("@id", DropDownList2.SelectedValue);
+                    updateLocation.Parameters.AddWithValue("@name", DropDownList2.SelectedItem.Text);
+                    updateLocation.Parameters.AddWithValue("@location", DropDownList1.SelectedValue);
                 }
 
                 //capacity
                 MySqlCommand updateCapacity = new MySqlCommand("UPDATE hotel SET capacity = @capacity WHERE hotelID = @id AND name = @name;", dbcon);
                 if (capacity_textbox.Text.Length > 0)
                 {
-                    updateCapacity.Parameters.AddWithValue("@id", id_textbox.Text);
-                    updateCapacity.Parameters.AddWithValue("@name", name_textbox.Text);
+                    updateCapacity.Parameters.AddWithValue("@id", DropDownList2.SelectedValue);
+                    updateCapacity.Parameters.AddWithValue("@name", DropDownList2.SelectedItem.Text);
                     updateCapacity.Parameters.AddWithValue("@capacity", capacity_textbox.Text);
                 }
 
@@ -68,14 +105,14 @@ namespace rnrtp2
                 MySqlCommand updateRating = new MySqlCommand("UPDATE hotel SET rating = @rating WHERE hotelID = @id AND name = @name;", dbcon);
                 if (rating_textbox.Text.Length > 0)
                 {
-                    updateRating.Parameters.AddWithValue("@id", id_textbox.Text);
-                    updateRating.Parameters.AddWithValue("@name", name_textbox.Text);
+                    updateRating.Parameters.AddWithValue("@id", DropDownList2.SelectedValue);
+                    updateRating.Parameters.AddWithValue("@name", DropDownList2.SelectedItem.Text);
                     updateRating.Parameters.AddWithValue("@rating", rating_textbox.Text);
                 }
 
 
                 dbcon.Open();
-                if (location_textbox.Text.Length > 0)
+                if (DropDownList1.SelectedItem.Value != "SELECT")
                 {
                     updateLocation.ExecuteNonQuery();
                 }
@@ -91,9 +128,6 @@ namespace rnrtp2
 
                 if (IsPostBack)
                 {
-                    id_textbox.Text = "";
-                    name_textbox.Text = "";
-                    location_textbox.Text = "";
                     capacity_textbox.Text = "";
                     rating_textbox.Text = "";
                 }

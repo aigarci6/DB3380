@@ -40,6 +40,61 @@ namespace rnrtp2
             {
                 Response.Write("<script>alert('Employee added successfully!')</script>");
             }
+
+            if (IsPostBack == true || IsPostBack == false)
+            {
+                errormessage.Visible = false;
+            }
+
+            //dropdownlist
+            MySqlConnection dbconn = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred; Allow User Variables=True;");
+            MySqlCommand jobid = new MySqlCommand("SELECT hotelID, name FROM hotel ORDER BY name ASC;", dbconn);
+            MySqlCommand rideid = new MySqlCommand("SELECT rideID, name FROM rides ORDER BY name ASC;", dbconn);
+            MySqlCommand restid = new MySqlCommand("SELECT restaurantID, name FROM restaurant ORDER BY name ASC;", dbconn);
+
+            ListItem firstListItem = new ListItem("(HR) N/A", "000");
+            DropDownList1.Items.Add(firstListItem);
+
+            dbconn.Open();
+            MySqlDataReader jobReader = jobid.ExecuteReader();
+            if (!IsPostBack)
+            {
+                while (jobReader.Read())
+                {
+                    string name = "(Hotel) " + jobReader.GetString(1);
+                    string id = jobReader.GetString(0);
+                    ListItem newListItem = new ListItem(name, id);
+                    DropDownList1.Items.Add(newListItem);
+                }
+            }
+            jobReader.Close();
+
+            MySqlDataReader rideReader = rideid.ExecuteReader();
+            if (!IsPostBack)
+            {
+                while (rideReader.Read())
+                {
+                    string name = "(Ride) " + rideReader.GetString(1);
+                    string id = rideReader.GetString(0);
+                    ListItem newListItem = new ListItem(name, id);
+                    DropDownList1.Items.Add(newListItem);
+                }
+            }
+            rideReader.Close();
+
+            MySqlDataReader restReader = restid.ExecuteReader();
+            if (!IsPostBack)
+            {
+                while (restReader.Read())
+                {
+                    string name = "(Restaurant) " + restReader.GetString(1);
+                    string id = restReader.GetString(0);
+                    ListItem newListItem = new ListItem(name, id);
+                    DropDownList1.Items.Add(newListItem);
+                }
+            }
+            restReader.Close();
+            dbconn.Close();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -56,40 +111,61 @@ namespace rnrtp2
 
             //works_hotel
             MySqlCommand insertWorkHotel = new MySqlCommand("INSERT INTO works_hotel (staID, hotID) VALUES (@staID, @hotID);", dbcon);
-            if (jsite.Value.ToLower() == "hotel")
+            if (jsite.Value.ToLower() == "hotel" && DropDownList1.SelectedItem.Text.Contains("Hotel"))
             {
                 insertWorkHotel.Parameters.AddWithValue("@staID", id_textbox.Text);
-                insertWorkHotel.Parameters.AddWithValue("@hotID", jid_textbox.Text);
+                insertWorkHotel.Parameters.AddWithValue("@hotID", DropDownList1.SelectedValue);
+            }
+
+            else
+            {
+                errormessage.Visible = true;
             }
 
             //works_restaurant
             MySqlCommand insertWorkRestaurant = new MySqlCommand("INSERT INTO works_restaurant (staID, restID) VALUES (@staID, @restID);", dbcon);
-            if (jsite.Value.ToLower() == "restaurant")
+            if (jsite.Value.ToLower() == "restaurant" && DropDownList1.SelectedItem.Text.Contains("Restaurant"))
             {
                 insertWorkRestaurant.Parameters.AddWithValue("@staID", id_textbox.Text);
-                insertWorkRestaurant.Parameters.AddWithValue("@restID", jid_textbox.Text);
+                insertWorkRestaurant.Parameters.AddWithValue("@restID", DropDownList1.SelectedValue);
+            }
+
+            else
+            {
+                errormessage.Visible = true;
             }
 
             MySqlCommand insertWorkRide = new MySqlCommand("INSERT INTO works_ride (staID, rID) VALUES (@staID, @rID);", dbcon);
             //works_ride
-            if (jsite.Value.ToLower() == "ride")
+            if (jsite.Value.ToLower() == "ride" && DropDownList1.SelectedItem.Text.Contains("Ride"))
             {
                 insertWorkRide.Parameters.AddWithValue("@staID", id_textbox.Text);
-                insertWorkRide.Parameters.AddWithValue("@rID", jid_textbox.Text);
+                insertWorkRide.Parameters.AddWithValue("@rID", DropDownList1.SelectedValue);
+            }
+
+            else
+            {
+                errormessage.Visible = true;
             }
 
             dbcon.Open();
-            insert.ExecuteNonQuery();
-            if (jsite.Value.ToLower() == "hotel")
+            if (jsite.Value.ToLower() == "HR")
             {
+                insert.ExecuteNonQuery();
+            }
+            if (jsite.Value.ToLower() == "hotel" && DropDownList1.SelectedItem.Text.Contains("Hotel"))
+            {
+                insert.ExecuteNonQuery();
                 insertWorkHotel.ExecuteNonQuery();
             }
-            if (jsite.Value.ToLower() == "restaurant")
+            if (jsite.Value.ToLower() == "restaurant" && DropDownList1.SelectedItem.Text.Contains("Restaurant"))
             {
+                insert.ExecuteNonQuery();
                 insertWorkRestaurant.ExecuteNonQuery();
             }
-            if (jsite.Value.ToLower() == "ride")
+            if (jsite.Value.ToLower() == "ride" && DropDownList1.SelectedItem.Text.Contains("Ride"))
             {
+                insert.ExecuteNonQuery();
                 insertWorkRide.ExecuteNonQuery();
             }
             dbcon.Close();
@@ -101,7 +177,6 @@ namespace rnrtp2
                 last_textbox.Text = "";
                 gender.Value = "";
                 jsite.Value = "";
-                jid_textbox.Text = "";
                 salary_textbox.Text = "";
                 email_textbox.Text = "";
             }

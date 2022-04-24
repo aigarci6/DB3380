@@ -73,15 +73,13 @@
             <!-- UPDATE -->
                 <h1>Update:</h1>
                 <h3>restaurant information</h3>
-                <asp:Label ID="Label1" runat="server" Text="ID: "></asp:Label>
-                <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label2" runat="server" Text="Name: "></asp:Label>
-                <asp:TextBox ID="name_textbox" runat="server"></asp:TextBox><br />
+                <asp:Label ID="Label1" runat="server" Text="Name: "></asp:Label>
+                <asp:DropDownList ID="DropDownList3" runat="server"></asp:DropDownList> <br />
                 <asp:Label ID="updateerrormessage" font-size="small" runat="server" Text="ERROR: Missing field(s)!" ForeColor="Red"></asp:Label>
 
                 <h3>update</h3>
                 <asp:Label ID="Label3" runat="server" Text="Location ID: "></asp:Label>
-                <asp:TextBox ID="location_textbox" runat="server"></asp:TextBox><br /><br />
+                <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList> <br /><br />
                 <asp:Label ID="Label5" runat="server" Text="Capacity: "></asp:Label>
                 <asp:TextBox ID="capacity_textbox" runat="server"></asp:TextBox><br /><br />
 
@@ -89,9 +87,9 @@
                 <br />
                 <!-- DELETE -->
             <h1>Delete:</h1>
-                <asp:Label ID="Label8" runat="server" Text="ID: "></asp:Label>
+                <asp:Label ID="Label8" runat="server" Text="Ride ID: "></asp:Label>
                 <asp:TextBox ID="delete_id" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label9" runat="server" Text="Name: "></asp:Label>
+                <asp:Label ID="Label9" runat="server" Text="Ride Name: "></asp:Label>
                 <asp:TextBox ID="delete_name" runat="server"></asp:TextBox><br /><br />
                 <asp:Button ID="Button3" runat="server" Text="Delete Restaurant" OnClick="Button3_Click"/><br />
                 <asp:Label ID="deleteerrormessage" font-size="small" runat="server" Text="ERROR: Missing field(s)!" ForeColor="Red"></asp:Label>

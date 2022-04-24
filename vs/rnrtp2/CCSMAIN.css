@@ -367,7 +367,7 @@ fieldset4 {
 }
 
 .mainnav {
-    background: rgba(0, 0, 0, 0);
+    background: #111;
     overflow: hidden;
     margin-top: 5%;
     padding-left: 5%;
@@ -415,13 +415,13 @@ fieldset4 {
 
 .maincol {
     display: table-cell;
-    background: rgba(0, 0, 0, .6);
+    background: #111;
     width: 45%;
 }
 
 .maincol2 {
     display: table-cell;
-    background: rgba(0, 0, 0, .6);
+    background: #111;
     width: 100%;
     padding-bottom: 5%;
     padding-top: 2%;

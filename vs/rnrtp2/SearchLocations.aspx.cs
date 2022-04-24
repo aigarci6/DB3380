@@ -35,13 +35,35 @@ namespace rnrtp2
                 Response.Redirect("BadAccessP.aspx");
             }
             
-
+            
             errormessage.Visible = false;
+            
+            //dropdownlist
+            MySqlConnection dbconn = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred; Allow User Variables=True;");
+            MySqlCommand locid = new MySqlCommand("SELECT locationID, locationName FROM location ORDER BY locationName ASC;", dbconn);
+
+            ListItem firstListItem = new ListItem("SELECT", "000");
+            DropDownList1.Items.Add(firstListItem);
+
+            dbconn.Open();
+            MySqlDataReader locReader = locid.ExecuteReader();
+            if (!IsPostBack)
+            {
+                while (locReader.Read())
+                {
+                    string name = locReader.GetString(1);
+                    string id = locReader.GetString(0);
+                    ListItem newListItem = new ListItem(name, id);
+                    DropDownList1.Items.Add(newListItem);
+                }
+            }
+            locReader.Close();
+            dbconn.Close();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (id_textbox.Text.Length > 0)
+            if (DropDownList1.SelectedItem.Text != "SELECT")
             {
                 MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
 
@@ -49,7 +71,7 @@ namespace rnrtp2
                 MySqlCommand updateName = new MySqlCommand("UPDATE location SET locationName = @locationName WHERE locationID = @locationID;", dbcon);
                 if (name_textbox.Text.Length > 0)
                 {
-                    updateName.Parameters.AddWithValue("@locationID", id_textbox.Text);
+                    updateName.Parameters.AddWithValue("@locationID", DropDownList1.SelectedValue);
                     updateName.Parameters.AddWithValue("@locationName", name_textbox.Text);
                 }
 
@@ -62,13 +84,13 @@ namespace rnrtp2
 
                 if (IsPostBack)
                 {
-                    id_textbox.Text = "";
                     name_textbox.Text = "";
                 }
 
                 if (IsPostBack == true)
                 {
                     Response.Write("<script>alert('Location updated successfully!')</script>");
+                    Response.Redirect(Request.RawUrl);
                 }
             }
 

@@ -14,8 +14,8 @@
             <fieldset>
                 <asp:Label ID="Label1" runat="server" Text="Ticket ID: "></asp:Label>
                 <asp:TextBox ID="id_textbox" runat="server" required="required"></asp:TextBox><br /><br />
-                <asp:Label ID="Label2" runat="server" Text="Hotel ID: "></asp:Label>
-                <asp:TextBox ID="hid_textbox" runat="server" required="required"></asp:TextBox><br /><br />
+                <asp:Label ID="Label2" runat="server" Text="Hotel: "></asp:Label>
+                <asp:DropDownList ID="DropDownList2" runat="server"></asp:DropDownList> <br /><br />
                 <asp:Label ID="Labe1" runat="server" Text="Amount Spent: "></asp:Label>
                 <asp:TextBox ID="spent_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Label ID="Label5" runat="server" Text="Date: "></asp:Label>

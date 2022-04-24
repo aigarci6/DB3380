@@ -40,6 +40,26 @@ namespace rnrtp2
             {
                 Response.Write("<script>alert('Hotel Visit added successfully!')</script>");
             }
+
+            //dropdownlist
+            MySqlConnection dbconn = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred; Allow User Variables=True;");
+            MySqlCommand hotid = new MySqlCommand("SELECT hotelID, name FROM hotel ORDER BY name ASC;", dbconn);
+            dbconn.Open();
+            ListItem firstListItem = new ListItem("SELECT", "000");
+            DropDownList2.Items.Add(firstListItem);
+            MySqlDataReader hotReader = hotid.ExecuteReader();
+            if (!IsPostBack)
+            {
+                while (hotReader.Read())
+                {
+                    string name = hotReader.GetString(1);
+                    string id = hotReader.GetString(0);
+                    ListItem newListItem = new ListItem(name, id);
+                    DropDownList2.Items.Add(newListItem);
+                }
+            }
+            hotReader.Close();
+            dbconn.Close();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -47,7 +67,7 @@ namespace rnrtp2
             MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
             MySqlCommand insert = new MySqlCommand("CALL InsertVisitHotel(@tickIDh, @hotID, @dateVisited, @amountSpent, @daysStayed, @roomNumber);", dbcon);
             insert.Parameters.AddWithValue("@tickIDh", id_textbox.Text);
-            insert.Parameters.AddWithValue("@hotID", hid_textbox.Text);
+            insert.Parameters.AddWithValue("@hotID", DropDownList2.SelectedValue);
             insert.Parameters.AddWithValue("@roomNumber", room_textbox.Text);
             insert.Parameters.AddWithValue("@dateVisited", date.Value);
 
@@ -77,7 +97,6 @@ namespace rnrtp2
             if (IsPostBack)
             {
                 id_textbox.Text = "";
-                hid_textbox.Text = "";
                 room_textbox.Text = "";
                 spent_textbox.Text = "";
                 days_textbox.Text = "";

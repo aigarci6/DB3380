@@ -66,7 +66,7 @@
                 <h1>Update:</h1>
                 <h3>location information</h3>
                 <asp:Label ID="Label1" runat="server" Text="Location ID: "></asp:Label>
-                <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox><br />
+                <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList> <br />
                 <asp:Label ID="errormessage" font-size="small" runat="server" Text="ERROR: Missing field(s)!" ForeColor="Red"></asp:Label>
 
                 <h3>update</h3>

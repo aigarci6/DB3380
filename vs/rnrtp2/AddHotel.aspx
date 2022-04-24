@@ -18,8 +18,10 @@
             <asp:TextBox ID="name_textbox" runat="server" required="required"></asp:TextBox><br /><br />
             <asp:Label ID="Label3" runat="server" Text="Capacity: "></asp:Label>
             <asp:TextBox ID="capacity_textbox" runat="server" required="required"></asp:TextBox><br /><br />
+
             <asp:Label ID="Label4" runat="server" Text="Location ID: "></asp:Label>
-            <asp:TextBox ID="location_textbox" runat="server" required="required"></asp:TextBox><br /><br />
+            <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList> <br /><br />
+
             <asp:Label ID="Label5" runat="server" Text="Rating: "></asp:Label>
             <asp:TextBox ID="rating_textbox" runat="server" required="required"></asp:TextBox><br /><br />
             <asp:Label ID="Label6" runat="server" Text="Weekly Expenditure: "></asp:Label>

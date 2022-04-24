@@ -15,8 +15,10 @@
                 <asp:Label ID="testing" runat="server" Text=""></asp:Label><br /><br />
                 <asp:Label ID="Label1" runat="server" Text="Employee ID: "></asp:Label>
                 <asp:TextBox ID="eid_textbox" runat="server" required="required"></asp:TextBox><br /><br />
-                <asp:Label ID="Label2" runat="server" Text="Ride ID: "></asp:Label>
-                <asp:TextBox ID="rid_textbox" runat="server" required="required"></asp:TextBox><br /><br />
+
+                <asp:Label ID="Label2" runat="server" Text="Ride: "></asp:Label>
+                <asp:DropDownList ID="DropDownList2" runat="server"></asp:DropDownList> <br /><br />
+
                 <asp:Label ID="Label3" runat="server" Text="Date: "></asp:Label>
                 <input type="date" name="date" id="date" runat="server" value="" style="width:200px;" required="required"/> <br /><br />
                 <asp:Label ID="Label4" runat="server" Text="Time: "></asp:Label>

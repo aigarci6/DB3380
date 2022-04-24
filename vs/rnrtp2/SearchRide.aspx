@@ -80,15 +80,13 @@
             <!-- UPDATE -->
             <h1>Update:</h1>
             <h3>ride information</h3>
-                <asp:Label ID="Label1" runat="server" Text="ID: "></asp:Label>
-                <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox><br /><br />
-                <asp:Label ID="Label2" runat="server" Text="Name: "></asp:Label>
-                <asp:TextBox ID="name_textbox" runat="server"></asp:TextBox><br />
+                <asp:DropDownList ID="DropDownList2" runat="server"></asp:DropDownList> <br /><br />
                 <asp:Label ID="updateerrormessage" font-size="small" runat="server" Text="ERROR: Missing field(s)!" ForeColor="Red"></asp:Label>
 
                 <h3>update</h3>
                 <asp:Label ID="Label3" runat="server" Text="Location ID: "></asp:Label>
-                <asp:TextBox ID="location_textbox" runat="server"></asp:TextBox><br /><br />
+                <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList> <br /><br />
+
                 <asp:Label ID="Label4" runat="server" Text="Capacity: "></asp:Label>
                 <asp:TextBox ID="capacity_textbox" runat="server"></asp:TextBox><br /><br />
                 <asp:Label ID="Label5" runat="server" Text="Maximum Weight: "></asp:Label>

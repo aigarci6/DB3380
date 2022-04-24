@@ -46,7 +46,30 @@ namespace rnrtp2
             {
                 Response.Write("<script>alert('Ride closed successfully!')</script>");
             }
-            
+
+            //dropdownlist
+            MySqlConnection dbconn = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred; Allow User Variables=True;");
+            MySqlCommand rideid = new MySqlCommand("SELECT rideID, name FROM rides ORDER BY name ASC;", dbconn);
+
+            ListItem firstListItem = new ListItem("SELECT", "000");
+            DropDownList2.Items.Add(firstListItem);
+
+            dbconn.Open();
+            MySqlDataReader rideReader = rideid.ExecuteReader();
+            if (!IsPostBack)
+            {
+                while (rideReader.Read())
+                {
+                    string name = rideReader.GetString(1);
+                    string id = rideReader.GetString(0);
+                    ListItem newListItem = new ListItem(name, id);
+                    DropDownList2.Items.Add(newListItem);
+                }
+            }
+            rideReader.Close();
+
+            dbconn.Close();
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -62,7 +85,7 @@ namespace rnrtp2
             string str = date.Value;
             string[] dates = str.Split('-');
 
-            insert.Parameters.AddWithValue("@rideid", rid_textbox.Text);
+            insert.Parameters.AddWithValue("@rideid", DropDownList2.SelectedValue);
             insert.Parameters.AddWithValue("@empID", eid_textbox.Text);
             insert.Parameters.AddWithValue("@dte", date.Value);
             insert.Parameters.AddWithValue("@tme", time_textbox.Text);
@@ -70,7 +93,7 @@ namespace rnrtp2
             insert.Parameters.AddWithValue("@cst", cost.Text);
             insert.Parameters.AddWithValue("@yeer", dates[0]);
             insert.Parameters.AddWithValue("@munth", dates[1]);
-            emailQ.Parameters.AddWithValue("@ridID", rid_textbox.Text);
+            emailQ.Parameters.AddWithValue("@ridID", DropDownList2.SelectedValue);
             emailQ.Parameters.AddWithValue("@stafID", eid_textbox.Text);
 
             dbcon.Open();
@@ -120,7 +143,7 @@ namespace rnrtp2
                 {
                     From = fromEmail,
                     Subject = subject,
-                    Body = "Ride #" + rid_textbox.Text + " has been closed on " + date.Value + " at " + time_textbox.Text,
+                    Body = "Ride #" + DropDownList2.SelectedValue + " has been closed on " + date.Value + " at " + time_textbox.Text,
                 };
                 message.To.Add(toEmail);
 
@@ -142,7 +165,6 @@ namespace rnrtp2
 
             if (IsPostBack)
             {
-                rid_textbox.Text = "";
                 eid_textbox.Text = "";
                 date.Value = "";
                 time_textbox.Text = "";

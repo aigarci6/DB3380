@@ -38,29 +38,68 @@ namespace rnrtp2
 
             updateerrormessage.Visible = false;
             deleteerrormessage.Visible = false;
+
+            //dropdownlist for location id
+            MySqlConnection dbconn = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred; Allow User Variables=True;");
+            MySqlCommand locid = new MySqlCommand("SELECT locationID, locationName FROM location ORDER BY locationName ASC;", dbconn);
+            MySqlCommand rideid = new MySqlCommand("SELECT rideID, name FROM rides ORDER BY name ASC;", dbconn);
+
+            ListItem firstListItem = new ListItem("SELECT", "000");
+            DropDownList1.Items.Add(firstListItem);
+            DropDownList2.Items.Add(firstListItem);
+
+            dbconn.Open();
+            MySqlDataReader locReader = locid.ExecuteReader();
+            if (!IsPostBack)
+            {
+                while (locReader.Read())
+                {
+                    string name = locReader.GetString(1);
+                    string id = locReader.GetString(0);
+                    ListItem newListItem = new ListItem(name, id);
+                    DropDownList1.Items.Add(newListItem);
+                }
+            }
+            locReader.Close();
+
+
+            MySqlDataReader rideReader = rideid.ExecuteReader();
+            if (!IsPostBack)
+            {
+                while (rideReader.Read())
+                {
+                    string name = rideReader.GetString(1);
+                    string id = rideReader.GetString(0);
+                    ListItem newListItem = new ListItem(name, id);
+                    DropDownList2.Items.Add(newListItem);
+                }
+            }
+            rideReader.Close();
+
+            dbconn.Close();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (id_textbox.Text.Length > 0 && name_textbox.Text.Length > 0)
+            if (DropDownList2.SelectedItem.Text != "SELECT")
             {
                 MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
 
                 //location
                 MySqlCommand updateLocation = new MySqlCommand("UPDATE rides SET r_locID = @location WHERE rideID = @id AND name = @name;", dbcon);
-                if (location_textbox.Text.Length > 0)
+                if (DropDownList1.SelectedItem.Text != "SELECT")
                 {
-                    updateLocation.Parameters.AddWithValue("@id", id_textbox.Text);
-                    updateLocation.Parameters.AddWithValue("@name", name_textbox.Text);
-                    updateLocation.Parameters.AddWithValue("@location", location_textbox.Text);
+                    updateLocation.Parameters.AddWithValue("@id", DropDownList2.SelectedValue);
+                    updateLocation.Parameters.AddWithValue("@name", DropDownList2.SelectedItem.Text);
+                    updateLocation.Parameters.AddWithValue("@location", DropDownList1.SelectedValue);
                 }
 
                 //capacity
                 MySqlCommand updateCapacity = new MySqlCommand("UPDATE rides SET capacity = @capacity WHERE rideID = @id AND name = @name;", dbcon);
                 if (capacity_textbox.Text.Length > 0)
                 {
-                    updateCapacity.Parameters.AddWithValue("@id", id_textbox.Text);
-                    updateCapacity.Parameters.AddWithValue("@name", name_textbox.Text);
+                    updateCapacity.Parameters.AddWithValue("@id", DropDownList2.SelectedValue);
+                    updateCapacity.Parameters.AddWithValue("@name", DropDownList2.SelectedItem.Text);
                     updateCapacity.Parameters.AddWithValue("@capacity", capacity_textbox.Text);
                 }
 
@@ -68,8 +107,8 @@ namespace rnrtp2
                 MySqlCommand updateWeight = new MySqlCommand("UPDATE rides SET maxWeight = @weight WHERE rideID = @id AND name = @name;", dbcon);
                 if (maxweight_textbox.Text.Length > 0)
                 {
-                    updateWeight.Parameters.AddWithValue("@id", id_textbox.Text);
-                    updateWeight.Parameters.AddWithValue("@name", name_textbox.Text);
+                    updateWeight.Parameters.AddWithValue("@id", DropDownList2.SelectedValue);
+                    updateWeight.Parameters.AddWithValue("@name", DropDownList2.SelectedItem.Text);
                     updateWeight.Parameters.AddWithValue("@weight", maxweight_textbox.Text);
                 }
 
@@ -77,8 +116,8 @@ namespace rnrtp2
                 MySqlCommand updateHeight = new MySqlCommand("UPDATE rides SET minHeight = @height WHERE rideID = @id AND name = @name;", dbcon);
                 if (minheight_textbox.Text.Length > 0)
                 {
-                    updateHeight.Parameters.AddWithValue("@id", id_textbox.Text);
-                    updateHeight.Parameters.AddWithValue("@name", name_textbox.Text);
+                    updateHeight.Parameters.AddWithValue("@id", DropDownList2.SelectedValue);
+                    updateHeight.Parameters.AddWithValue("@name", DropDownList2.SelectedItem.Text);
                     updateHeight.Parameters.AddWithValue("@height", minheight_textbox.Text);
                 }
 
@@ -86,13 +125,13 @@ namespace rnrtp2
                 MySqlCommand updateAge = new MySqlCommand("UPDATE rides SET minAge = @age WHERE rideID = @id AND name = @name;", dbcon);
                 if (minage_textbox.Text.Length > 0)
                 {
-                    updateAge.Parameters.AddWithValue("@id", id_textbox.Text);
-                    updateAge.Parameters.AddWithValue("@name", name_textbox.Text);
+                    updateAge.Parameters.AddWithValue("@id", DropDownList2.SelectedValue);
+                    updateAge.Parameters.AddWithValue("@name", DropDownList2.SelectedItem.Text);
                     updateAge.Parameters.AddWithValue("@age", minage_textbox.Text);
                 }
 
                 dbcon.Open();
-                if (location_textbox.Text.Length > 0)
+                if (DropDownList1.SelectedItem.Text != "SELECT")
                 {
                     updateLocation.ExecuteNonQuery();
                 }
@@ -116,9 +155,6 @@ namespace rnrtp2
 
                 if (IsPostBack)
                 {
-                    id_textbox.Text = "";
-                    name_textbox.Text = "";
-                    location_textbox.Text = "";
                     capacity_textbox.Text = "";
                     maxweight_textbox.Text = "";
                     minheight_textbox.Text = "";
@@ -166,7 +202,7 @@ namespace rnrtp2
             //* (all)
             if (search.Value == "all")
             {
-                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE rides.archived <= @archived ORDER BY rideID ASC;", dbcon);
+                MySqlCommand search = new MySqlCommand("SELECT rideID, name, capacity, maxWeight, minHeight, minAge, r_locID, IFNULL(locationName, @auto) AS locationName FROM rides LEFT OUTER JOIN location ON r_locID = locationID WHERE rides.archived <= @archived ORDER BY name ASC;", dbcon);
                 search.Parameters.AddWithValue("@auto", "N/A");
 
                 if (archived.Checked)
