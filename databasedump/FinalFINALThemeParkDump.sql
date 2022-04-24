@@ -39,7 +39,7 @@ CREATE TABLE `closes` (
   KEY `closingStaff_idx` (`employeeID`),
   CONSTRAINT `closedRide` FOREIGN KEY (`rideID`) REFERENCES `rides` (`rideID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `closingStaff` FOREIGN KEY (`employeeID`) REFERENCES `staff` (`employeeID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,7 +48,7 @@ CREATE TABLE `closes` (
 
 LOCK TABLES `closes` WRITE;
 /*!40000 ALTER TABLE `closes` DISABLE KEYS */;
-INSERT INTO `closes` VALUES (6,401,109,'2022-04-18','04:53:54','maintenance',200,4,2022),(7,401,109,'2022-04-10','04:54:46','weather',100,4,2022),(8,417,113,'2022-01-04','08:00:00','maintenance',300,1,2022),(9,417,113,'2022-02-13','05:00:00','weather',0,2,2022),(10,411,123,'2022-04-19','12:00:00','weather',0,2,2022),(11,417,113,'2022-04-19','12:00:00','weather',0,2,2022),(12,410,122,'2022-04-10','05:00:00','maintenance',400,4,2022),(22,420,102,'2022-04-19','00:17:25','maintenance',350,4,2022),(23,420,102,'2022-04-21','00:22:03','maintenance',350,4,2022),(24,420,102,'2022-04-21','00:22:13','maintenance',400,4,2022);
+INSERT INTO `closes` VALUES (6,401,109,'2022-04-18','04:53:54','maintenance',200,4,2022),(7,401,109,'2022-04-10','04:54:46','weather',100,4,2022),(8,417,113,'2022-01-04','08:00:00','maintenance',300,1,2022),(9,417,113,'2022-02-13','05:00:00','weather',0,2,2022),(10,411,123,'2022-04-19','12:00:00','weather',0,2,2022),(11,417,113,'2022-04-19','12:00:00','weather',0,2,2022),(12,410,122,'2022-04-10','05:00:00','maintenance',400,4,2022),(22,420,102,'2022-04-19','00:17:25','maintenance',350,4,2022),(23,420,102,'2022-04-21','00:22:03','maintenance',350,4,2022),(24,420,102,'2022-04-21','00:22:13','maintenance',400,4,2022),(25,3,101,'2022-04-24','10:00:00','maintenance',10,4,2022);
 /*!40000 ALTER TABLE `closes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -114,7 +114,7 @@ CREATE TABLE `emailq` (
   `type` varchar(10) NOT NULL,
   `relatedID` int(20) DEFAULT NULL,
   PRIMARY KEY (`idEmail`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -153,7 +153,7 @@ CREATE TABLE `hotel` (
 
 LOCK TABLES `hotel` WRITE;
 /*!40000 ALTER TABLE `hotel` DISABLE KEYS */;
-INSERT INTO `hotel` VALUES (501,'Welcome Hotel',905,200,5050,4,325,0),(502,'Hilltop Hotel',910,300,8000,5,0,0),(503,'Suburban Simulation',904,100,9001,4,0,0),(504,'Apartmentland',903,150,4500,3,0,0),(505,'CEO Condominiums Inc.',903,30,10000,5,12000,0),(506,'Spicy Resort',911,125,6125,4,502,0),(507,'Bilgewater Resorts',906,70,5300,5,0,0),(508,'Voyager of the Seas',906,300,9050,4,400,0);
+INSERT INTO `hotel` VALUES (501,'Welcome Hotel',903,200,5050,4,325,0),(502,'Hilltop Hotel',910,300,8000,5,0,0),(503,'Suburban Simulation',904,100,9001,4,0,0),(504,'Apartmentland',903,150,4500,3,0,0),(505,'CEO Condominiums Inc.',903,30,10000,5,12000,0),(506,'Spicy Resort',911,125,6125,4,502,0),(507,'Bilgewater Resorts',906,70,5300,5,0,0),(508,'Voyager of the Seas',906,300,9050,4,400,0),(45612,'Courtney\'s Hotel',911,1000,1000,5,0,0);
 /*!40000 ALTER TABLE `hotel` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,7 +177,7 @@ CREATE TABLE `location` (
 
 LOCK TABLES `location` WRITE;
 /*!40000 ALTER TABLE `location` DISABLE KEYS */;
-INSERT INTO `location` VALUES (901,'Perry\'s Plaza'),(902,'Randy\'s Road'),(903,'Cindy\'s City'),(904,'Terry\'s Town'),(905,'Ezra\'s Entrance'),(906,'Sally\'s Seaport'),(907,'Jerry\'s Jungle'),(908,'Mike\'s Mountain'),(909,'Zoe\'s Zoo'),(910,'Hilda\'s Hill'),(911,'Ambulance Land');
+INSERT INTO `location` VALUES (901,'Perry\'s Plaza'),(902,'Randy\'s Road'),(903,'Cindy\'s City'),(904,'Terry\'s Town'),(905,'Ezra\'s Entrance'),(906,'Sally\'s Seaport'),(907,'Jerry\'s Jungle'),(908,'Mike\'s Mountain'),(909,'Zoe\'s Zoo'),(910,'Hilda\'s Hill'),(911,'Courtney Country');
 /*!40000 ALTER TABLE `location` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -207,7 +207,7 @@ CREATE TABLE `restaurant` (
 
 LOCK TABLES `restaurant` WRITE;
 /*!40000 ALTER TABLE `restaurant` DISABLE KEYS */;
-INSERT INTO `restaurant` VALUES (601,'Perry\'s Pizza',901,20,100,900,0),(602,'Bubba Gump',906,50,156,1100,0),(603,'Sakura\'s Sushi',906,25,40,800,0),(604,'Home Cooked Goods!',904,20,125,750,0),(605,'Plump Pot Pies',904,30,49,1100,0),(606,'Francie\'s Funnel Cakes',905,2,0,300,0),(607,'Hilltop Bakery',910,30,0,900,0),(608,'Brisket Express',904,30,175,900,0),(609,'Juicy Sausage and Creamy Oysters',904,40,0,900,0),(610,'Pufferfish Plate',911,30,0,1500,0),(611,'Hilltop Creamery',910,20,0,800,0),(612,'Hilltop Dinery',910,50,124,1300,0),(613,'Veg-Out Gupta\'s',903,30,0,600,0),(614,'Latte Lounge',907,30,0,600,0),(615,'Peak Experience',908,30,150,1250,0),(616,'Infernal Wings',911,50,0,1150,0);
+INSERT INTO `restaurant` VALUES (601,'Perry\'s Pizza',903,20,100,900,0),(602,'Bubba Gump',906,50,156,1100,0),(603,'Sakura\'s Sushi',906,25,40,800,0),(604,'Home Cooked Goods!',904,20,125,750,0),(605,'Plump Pot Pies',904,30,49,1100,0),(606,'Francie\'s Funnel Cakes',905,2,0,300,0),(607,'Hilltop Bakery',910,30,0,900,0),(608,'Brisket Express',904,30,175,900,0),(609,'Juicy Sausage and Creamy Oysters',904,40,0,900,0),(610,'Pufferfish Plate',911,30,0,1500,0),(611,'Hilltop Creamery',910,20,0,800,0),(612,'Hilltop Dinery',910,50,124,1300,0),(613,'Veg-Out Gupta\'s',903,30,0,600,0),(614,'Latte Lounge',907,30,0,600,0),(615,'Peak Experience',908,30,150,1250,0),(616,'Infernal Wings',911,50,0,1150,0);
 /*!40000 ALTER TABLE `restaurant` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -238,7 +238,7 @@ CREATE TABLE `rides` (
 
 LOCK TABLES `rides` WRITE;
 /*!40000 ALTER TABLE `rides` DISABLE KEYS */;
-INSERT INTO `rides` VALUES (3,30,'allin',200,140,8,101,1),(401,18,'Roland\'s Rollercoaster',300,130,10,902,0),(402,8,'Rocky\'s Rock Climbing',250,110,15,902,0),(403,20,'Mary\'s Merry-Go-Round',300,60,2,901,0),(404,100,'The Error-Infested Haunted House',600,60,4,903,0),(405,100,'Finn\'s Hedge Maze',600,60,2,907,0),(406,2,'Wally\'s Waterslide',250,80,6,906,0),(407,4,'Rita\'s River Rapids',250,60,6,906,0),(408,1,'Faust\'s Fast Slide',250,110,10,906,0),(409,4,'Manny\'s Raft-Slide',250,80,5,906,0),(410,17,'Trisha\'s Tram',500,0,0,902,0),(411,18,'Tasha\'s Train',350,0,0,902,0),(412,10,'Billy\'s Bumper Cars',250,60,4,901,0),(413,20,'Vivian\'s Vine Swings',250,40,7,907,0),(414,10,'Richard\'s Racetrack',300,60,8,901,0),(415,7,'Splinter Bridge',200,60,5,907,0),(416,50,'Mirabel\'s Mirror Maze',600,0,0,903,0),(417,20,'Eternal Coaster',300,140,10,908,0),(418,8,'Gondola',300,0,0,908,0),(419,2,'Bobby\'s Bobsled',250,110,10,908,0),(420,40,'Aromatic Garden',600,60,18,911,0),(42069,30,'Death Thriller',200,135,8,42069,1);
+INSERT INTO `rides` VALUES (3,30,'allin',200,140,8,101,1),(401,18,'Roland\'s Rollercoaster',300,130,10,902,0),(402,8,'Rocky\'s Rock Climbing',250,110,15,902,0),(403,20,'Mary\'s Merry-Go-Round',300,60,2,901,0),(404,100,'The Error-Infested Haunted House',600,60,4,903,0),(405,100,'Finn\'s Hedge Maze',600,60,2,907,0),(406,2,'Wally\'s Waterslide',250,80,6,906,0),(407,4,'Rita\'s River Rapids',250,60,6,906,0),(408,1,'Faust\'s Fast Slide',250,110,10,906,0),(409,4,'Manny\'s Raft-Slide',250,80,5,906,0),(410,17,'Trisha\'s Tram',500,0,0,902,0),(411,18,'Tasha\'s Train',350,0,0,902,0),(412,10,'Billy\'s Bumper Cars',250,60,4,901,0),(413,20,'Vivian\'s Vine Swings',250,40,7,907,0),(414,10,'Richard\'s Racetrack',300,60,8,901,0),(415,7,'Splinter Bridge',200,60,5,907,0),(416,50,'Mirabel\'s Mirror Maze',600,0,0,903,0),(417,20,'Eternal Coaster',300,140,10,908,0),(418,8,'Gondola',300,0,0,908,0),(419,2,'Bobby\'s Bobsled',250,110,10,908,0),(420,100,'Aromatic Garden',600,60,18,910,0),(42069,30,'Death Thriller',200,135,8,42069,1);
 /*!40000 ALTER TABLE `rides` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -401,7 +401,7 @@ CREATE TABLE `visitor` (
 
 LOCK TABLES `visitor` WRITE;
 /*!40000 ALTER TABLE `visitor` DISABLE KEYS */;
-INSERT INTO `visitor` VALUES (18,'2022-04-17',4,17,2022,'seasonal',200,'rocknrolllover@gmail.com'),(19,'2022-04-17',4,17,2022,'general',50,'normie@gmail.com'),(20,'2022-01-01',4,18,2022,'seasonal',200,'first@email.com'),(21,'2022-03-25',4,18,2022,'general',50,'foodeater@outlook.com'),(22,'2022-04-18',4,18,2022,'general',50,'foodlover@yahoo.com'),(23,'2022-04-18',4,18,2022,'general',50,'riderider@gmail.com'),(26,'2022-04-18',4,18,2022,'seasonal',200,'notascam@realorg.com'),(27,'2022-04-18',4,18,2022,'seasonal',200,'scumbagsam@realorg.com'),(29,'2022-04-21',4,21,2022,'general',50,'court@eh.com'),(30,'2022-02-28',2,28,2022,'seasonal',200,'giannotirado@gmail.com'),(32,'2022-03-14',2,28,2022,'general',50,'freddy@falseemail.com'),(37,'2022-04-19',4,19,2022,'general',50,'courtneysemail@gmail.com'),(38,'2022-04-11',4,11,2022,'general',50,'counguyen2@outlook.com'),(39,'2022-04-18',4,18,2022,'general',50,'medinaitsai@gmail.com'),(40,'2022-04-19',4,19,2022,'general',50,'medinaitsai@gmail.com');
+INSERT INTO `visitor` VALUES (18,'2022-04-17',4,17,2022,'general',50,'rocknrolllover@gmail.com'),(19,'2022-04-17',4,17,2022,'general',50,'normie@gmail.com'),(20,'2022-01-01',4,18,2022,'seasonal',200,'first@email.com'),(21,'2022-03-25',4,18,2022,'general',50,'foodeater@outlook.com'),(22,'2022-04-18',4,18,2022,'general',50,'foodlover@yahoo.com'),(23,'2022-04-18',4,18,2022,'general',50,'riderider@gmail.com'),(26,'2022-04-18',4,18,2022,'seasonal',200,'notascam@realorg.com'),(27,'2022-04-18',4,18,2022,'seasonal',200,'scumbagsam@realorg.com'),(29,'2022-04-21',4,21,2022,'general',50,'court@eh.com'),(30,'2022-02-28',2,28,2022,'seasonal',200,'giannotirado@gmail.com'),(32,'2022-03-14',2,28,2022,'general',50,'freddy@falseemail.com'),(37,'2022-04-19',4,19,2022,'general',50,'courtneysemail@gmail.com'),(38,'2022-04-11',4,11,2022,'general',50,'counguyen2@outlook.com'),(39,'2022-04-18',4,18,2022,'general',50,'medinaitsai@gmail.com'),(40,'2022-04-19',4,19,2022,'general',50,'medinaitsai@gmail.com');
 /*!40000 ALTER TABLE `visitor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -736,4 +736,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-23 21:27:32
+-- Dump completed on 2022-04-24 18:01:34
