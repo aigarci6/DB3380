@@ -7,10 +7,9 @@ Github (Used for Repository to)
 MySQL (DBMS used for Schema and Back-end)
 Microsoft Azure (Web Application Hosting Platform)
 
-Database Credentials:
+Database dump file is located in "databasedump" folder
 
-
-Accessing the data Entry form files: In File Explorer, access the "vs" folder and open the "rnrtp2.sln" file using Visual Studio. You will be able to see a large number of .aspx files. These are the files which make up our webpages which contain our data entry forms, as well as the SQL commands we used on the buttons to INSERT data into our database.
+Accessing the data Entry form files: In File Explorer, access the "vs" folder and open the "rnrtp2.sln" file using Visual Studio. You will be able to see a large number of .aspx files. These are the files which make up all of our webpages which contain our data entry forms, as well as the SQL commands we used on the buttons to INSERT data into our database.
 
 Website/Web-Application Link for our project:
 https://rnrthemepark.azurewebsites.net/ 
