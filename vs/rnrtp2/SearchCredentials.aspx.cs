@@ -12,13 +12,37 @@ namespace rnrtp2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //auth
+            if (Session["username"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
 
+            string jcategory = "";
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
+            dbcon.Open();
+            MySqlCommand search = new MySqlCommand("SELECT jobCategory FROM credentials WHERE userName = @username", dbcon);
+            search.Parameters.AddWithValue("@username", (string)Session["username"]);
+            MySqlDataReader sReader = search.ExecuteReader();
+            while (sReader.Read())
+            {
+                jcategory = sReader.GetString(0);
+            }
+            sReader.Close();
+
+            if (jcategory != "HR")
+            {
+                Response.Redirect("BadAccessP.aspx");
+            }
+            
+
+            errormessage.Visible = false;
         }
 
         public string getData()
         {
-            MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
-            
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
+
             int id;
             string user;
             string password;
@@ -26,8 +50,13 @@ namespace rnrtp2
 
             dbcon.Open();
 
-            //auto (all)
-            if (sid_textbox.Text.Length == 0 && suser_textbox.Text.Length == 0)
+            //auto none
+            if (search.Value == "none")
+            {
+            }
+
+            //all
+            if (search.Value == "all")
             {
                 MySqlCommand search = new MySqlCommand("SELECT * FROM credentials SORT ORDER BY userName ASC;", dbcon);
                 MySqlDataReader sReader = search.ExecuteReader();
@@ -42,10 +71,10 @@ namespace rnrtp2
             }
 
             //search by id
-            if (sid_textbox.Text.Length > 0 && suser_textbox.Text.Length == 0)
+            if (search.Value == "id")
             {
                 MySqlCommand searchByID = new MySqlCommand("SELECT * FROM credentials WHERE userID = @id ORDER BY userName ASC;", dbcon);
-                searchByID.Parameters.AddWithValue("@id", sid_textbox.Text);
+                searchByID.Parameters.AddWithValue("@id", field_textbox.Text);
                 MySqlDataReader idReader = searchByID.ExecuteReader();
                 while (idReader.Read())
                 {
@@ -58,10 +87,10 @@ namespace rnrtp2
             }
 
             //search by user
-            if (sid_textbox.Text.Length == 0 && suser_textbox.Text.Length > 0)
+            if (search.Value == "user")
             {
                 MySqlCommand searchByUser = new MySqlCommand("SELECT * FROM credentials WHERE userName = @userName ORDER BY userName ASC;", dbcon);
-                searchByUser.Parameters.AddWithValue("@userName", suser_textbox.Text);
+                searchByUser.Parameters.AddWithValue("@userName", field_textbox.Text);
                 MySqlDataReader userReader = searchByUser.ExecuteReader();
                 while (userReader.Read())
                 {
@@ -73,22 +102,6 @@ namespace rnrtp2
                 userReader.Close();
             }
 
-            //search by both
-            if (sid_textbox.Text.Length > 0 && suser_textbox.Text.Length > 0)
-            {
-                MySqlCommand searchAll = new MySqlCommand("SELECT * FROM credentials WHERE userID = @id AND userName = @userName ORDER BY userName ASC;", dbcon);
-                searchAll.Parameters.AddWithValue("@id", id_textbox.Text);
-                searchAll.Parameters.AddWithValue("@userName", suser_textbox.Text);
-                MySqlDataReader allReader = searchAll.ExecuteReader();
-                while (allReader.Read())
-                {
-                    id = allReader.GetInt32(0);
-                    user = allReader.GetString(1);
-                    password = allReader.GetString(2);
-                    htmlStr += "<tr><td>" + id + "</td><td>" + user + "</td><td>" + password + "</td></tr>";
-                }
-                allReader.Close();
-            }
             
             dbcon.Close();
             return htmlStr;
@@ -98,7 +111,7 @@ namespace rnrtp2
         {
             if (id_textbox.Text.Length > 0)
             {
-                MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
+                MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
 
                 if (id_textbox.Text.Length > 0)
                 {
@@ -142,11 +155,50 @@ namespace rnrtp2
                     }
                 }
             }
+
+            else { 
+                errormessage.Visible = true; 
+            }
             
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
+        }
+
+        protected void HomeLink(object sender, EventArgs e)
+        {
+            string jcategory = "";
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
+            dbcon.Open();
+            MySqlCommand search = new MySqlCommand("SELECT jobCategory FROM credentials WHERE userName = @username", dbcon);
+            search.Parameters.AddWithValue("@username", (string)Session["username"]);
+            MySqlDataReader sReader = search.ExecuteReader();
+            while (sReader.Read())
+            {
+                jcategory = sReader.GetString(0);
+            }
+            sReader.Close();
+
+            if (jcategory == "HR")
+            {
+                Response.Redirect("Index.aspx");
+            }
+
+            if (jcategory == "hotel")
+            {
+                Response.Redirect("HotelIndex.aspx");
+            }
+
+            if (jcategory == "restaurant")
+            {
+                Response.Redirect("RestIndex.aspx");
+            }
+
+            if (jcategory == "ride")
+            {
+                Response.Redirect("RideIndex.aspx");
+            }
         }
     }
 }

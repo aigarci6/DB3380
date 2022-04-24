@@ -33,13 +33,13 @@ namespace rnrtp2
         protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// date_textbox control.
+        /// date1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox date_textbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl date1;
 
         /// <summary>
         /// Label1 control.
@@ -51,13 +51,13 @@ namespace rnrtp2
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// date2_textbox control.
+        /// date2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox date2_textbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl date2;
 
         /// <summary>
         /// Button1 control.
@@ -67,5 +67,14 @@ namespace rnrtp2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// linkGoSomewhere control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkGoSomewhere;
     }
 }

@@ -105,13 +105,22 @@ namespace rnrtp2
         protected global::System.Web.UI.WebControls.Label Label10;
 
         /// <summary>
-        /// sjsite_textbox control.
+        /// sjsite control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox sjsite_textbox;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect sjsite;
+
+        /// <summary>
+        /// updateerrormessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label updateerrormessage;
 
         /// <summary>
         /// Label9 control.
@@ -150,6 +159,24 @@ namespace rnrtp2
         protected global::System.Web.UI.WebControls.TextBox last_textbox;
 
         /// <summary>
+        /// Label13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label13;
+
+        /// <summary>
+        /// email_textbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox email_textbox;
+
+        /// <summary>
         /// Label5 control.
         /// </summary>
         /// <remarks>
@@ -159,13 +186,13 @@ namespace rnrtp2
         protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// gender_textbox control.
+        /// gender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox gender_textbox;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect gender;
 
         /// <summary>
         /// Label6 control.
@@ -195,13 +222,13 @@ namespace rnrtp2
         protected global::System.Web.UI.WebControls.Label Label8;
 
         /// <summary>
-        /// jid_textbox control.
+        /// DropDownList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox jid_textbox;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
 
         /// <summary>
         /// Button1 control.
@@ -292,5 +319,23 @@ namespace rnrtp2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button3;
+
+        /// <summary>
+        /// deleteerrormessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label deleteerrormessage;
+
+        /// <summary>
+        /// linkGoSomewhere control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkGoSomewhere;
     }
 }

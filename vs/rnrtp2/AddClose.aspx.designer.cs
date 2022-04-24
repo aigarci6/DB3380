@@ -24,6 +24,15 @@ namespace rnrtp2
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// testing control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label testing;
+
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -51,13 +60,13 @@ namespace rnrtp2
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// rid_textbox control.
+        /// DropDownList2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox rid_textbox;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
 
         /// <summary>
         /// Label3 control.
@@ -69,13 +78,13 @@ namespace rnrtp2
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// date_textbox control.
+        /// date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox date_textbox;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl date;
 
         /// <summary>
         /// Label4 control.
@@ -96,6 +105,15 @@ namespace rnrtp2
         protected global::System.Web.UI.WebControls.TextBox time_textbox;
 
         /// <summary>
+        /// type control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect type;
+
+        /// <summary>
         /// Label5 control.
         /// </summary>
         /// <remarks>
@@ -105,13 +123,13 @@ namespace rnrtp2
         protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// type_textbox control.
+        /// cost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox type_textbox;
+        protected global::System.Web.UI.WebControls.TextBox cost;
 
         /// <summary>
         /// Button1 control.
@@ -121,5 +139,14 @@ namespace rnrtp2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// linkGoSomewhere control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkGoSomewhere;
     }
 }

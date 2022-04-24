@@ -12,12 +12,87 @@ namespace rnrtp2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //auth
+            if (Session["username"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+
+            string jcategory = "";
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
+            dbcon.Open();
+            MySqlCommand search = new MySqlCommand("SELECT jobCategory FROM credentials WHERE userName = @username", dbcon);
+            search.Parameters.AddWithValue("@username", (string)Session["username"]);
+            MySqlDataReader sReader = search.ExecuteReader();
+            while (sReader.Read())
+            {
+                jcategory = sReader.GetString(0);
+            }
+            sReader.Close();
+
+            if (jcategory != "HR")
+            {
+                Response.Redirect("BadAccessP.aspx");
+            }
             
+
+            updateerrormessage.Visible = false;
+            deleteerrormessage.Visible = false;
+
+            //dropdownlist
+            MySqlConnection dbconn = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred; Allow User Variables=True;");
+            MySqlCommand jobid = new MySqlCommand("SELECT hotelID, name FROM hotel ORDER BY name ASC;", dbconn);
+            MySqlCommand rideid = new MySqlCommand("SELECT rideID, name FROM rides ORDER BY name ASC;", dbconn);
+            MySqlCommand restid = new MySqlCommand("SELECT restaurantID, name FROM restaurant ORDER BY name ASC;", dbconn);
+
+            ListItem firstListItem = new ListItem("SELECT", "000");
+            DropDownList1.Items.Add(firstListItem);
+
+            dbconn.Open();
+            MySqlDataReader jobReader = jobid.ExecuteReader();
+            if (!IsPostBack)
+            {
+                while (jobReader.Read())
+                {
+                    string name = "(Hotel) " + jobReader.GetString(1);
+                    string id = jobReader.GetString(0);
+                    ListItem newListItem = new ListItem(name, id);
+                    DropDownList1.Items.Add(newListItem);
+                }
+            }
+            jobReader.Close();
+
+            MySqlDataReader rideReader = rideid.ExecuteReader();
+            if (!IsPostBack)
+            {
+                while (rideReader.Read())
+                {
+                    string name = "(Ride) " + rideReader.GetString(1);
+                    string id = rideReader.GetString(0);
+                    ListItem newListItem = new ListItem(name, id);
+                    DropDownList1.Items.Add(newListItem);
+                }
+            }
+            rideReader.Close();
+
+            MySqlDataReader restReader = restid.ExecuteReader();
+            if (!IsPostBack)
+            {
+                while (restReader.Read())
+                {
+                    string name = "(Restaurant) " + restReader.GetString(1);
+                    string id = restReader.GetString(0);
+                    ListItem newListItem = new ListItem(name, id);
+                    DropDownList1.Items.Add(newListItem);
+                }
+            }
+            restReader.Close();
+            dbconn.Close();
         }
 
         public string getData()
         {
-            MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
 
             int id;
             string first;
@@ -26,14 +101,21 @@ namespace rnrtp2
             int salary;
             string category;
             int jobid = 0;
+            string email;
             string htmlStr = "";
 
             dbcon.Open();
 
-            //auto (all)
+            //none
             if (search.Value == "none")
             {
-                MySqlCommand search = new MySqlCommand("SELECT employeeID, firstName, lastName, gender, weeklySalary, IFNULL(jobCategory, @autocategory), IFNULL(restID, @autoid), IFNULL(hotID, @autoid), IFNULL(rID, @autoid) FROM staff LEFT OUTER JOIN works_restaurant ON employeeID = works_restaurant.staID LEFT OUTER JOIN works_hotel ON employeeID = works_hotel.staID LEFT OUTER JOIN works_ride ON employeeID = works_ride.staID WHERE staff.archived <= @archived ORDER BY employeeID ASC;", dbcon);
+
+            }
+
+            //* (all)
+            if (search.Value == "all")
+            {
+                MySqlCommand search = new MySqlCommand("SELECT employeeID, firstName, lastName, gender, weeklySalary, IFNULL(jobCategory, @autocategory), email, IFNULL(restID, @autoid), IFNULL(hotID, @autoid), IFNULL(rID, @autoid) FROM staff LEFT OUTER JOIN works_restaurant ON employeeID = works_restaurant.staID LEFT OUTER JOIN works_hotel ON employeeID = works_hotel.staID LEFT OUTER JOIN works_ride ON employeeID = works_ride.staID WHERE staff.archived <= @archived ORDER BY employeeID ASC;", dbcon);
                 search.Parameters.AddWithValue("@autocategory", "N/A");
                 search.Parameters.AddWithValue("@autoid", 0);
 
@@ -56,23 +138,24 @@ namespace rnrtp2
                     gender = reader.GetChar(3);
                     salary = reader.GetInt32(4);
                     category = reader.GetString(5);
+                    email = reader.GetString(6);
 
                     if (category == "restaurant")
-                    {
-                        jobid = reader.GetInt32(6);
-                    }
-
-                    if (category == "hotel")
                     {
                         jobid = reader.GetInt32(7);
                     }
 
-                    if (category == "ride")
+                    if (category == "hotel")
                     {
                         jobid = reader.GetInt32(8);
                     }
 
-                    htmlStr += "<tr><td>" + id + "</td><td>" + first + "</td><td>" + last + "</td><td>" + gender + "</td><td>" + salary + "</td><td>" + category + "</td><td>" + jobid + "</td></tr>";
+                    if (category == "ride")
+                    {
+                        jobid = reader.GetInt32(9);
+                    }
+
+                    htmlStr += "<tr><td>" + id + "</td><td>" + first + "</td><td>" + last + "</td><td>" + email + "</td><td>" + gender + "</td><td>" + salary + "</td><td>" + category + "</td><td>" + jobid + "</td></tr>";
                 }
                 reader.Close();
             }
@@ -271,11 +354,6 @@ namespace rnrtp2
 
                     reader.Close();
                 }
-
-                else
-                {
-                    field_textbox.Text = "INVALID: m/f/u ONLY";
-                }
             }
 
             //salary more than
@@ -441,9 +519,9 @@ namespace rnrtp2
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (sid_textbox.Text.Length > 0 && sfirst_textbox.Text.Length > 0 && sjsite_textbox.Text.Length > 0)
+            if (sid_textbox.Text.Length > 0 && sfirst_textbox.Text.Length > 0 && sjsite.Value != "SELECT")
             {
-                MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
+                MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
 
                 //first name
                 MySqlCommand updateFirst = new MySqlCommand("UPDATE staff SET firstName = @first WHERE employeeID = @id AND firstName = @sfirst;", dbcon);
@@ -465,16 +543,16 @@ namespace rnrtp2
 
                 //gender
                 MySqlCommand updateGender = new MySqlCommand("UPDATE staff SET gender = @gender WHERE employeeID = @id AND firstName = @first;", dbcon);
-                if (gender_textbox.Text.Length == 1)
+                if (gender.Value != "SELECT")
                 {
                     updateGender.Parameters.AddWithValue("@id", sid_textbox.Text);
                     updateGender.Parameters.AddWithValue("@first", sfirst_textbox.Text);
-                    updateGender.Parameters.AddWithValue("@gender", gender_textbox.Text);
+                    updateGender.Parameters.AddWithValue("@gender", gender.Value);
                 }
 
                 //salary
                 MySqlCommand updateSalary = new MySqlCommand("UPDATE staff SET weeklySalary = @salary WHERE employeeID = @id AND firstName = @first;", dbcon); ;
-                if (sjsite_textbox.Text.ToLower() == "hotel" && salary_textbox.Text.Length > 0)
+                if (salary_textbox.Text.Length > 0)
                 {
                     updateSalary.Parameters.AddWithValue("@id", sid_textbox.Text);
                     updateSalary.Parameters.AddWithValue("@first", sfirst_textbox.Text);
@@ -485,39 +563,35 @@ namespace rnrtp2
                 //jid
                 //hotel
                 MySqlCommand updateHID = new MySqlCommand("UPDATE works_hotel SET hotID = @jid WHERE staID = @id;", dbcon);
-                if (sjsite_textbox.Text.ToLower() == "hotel" && jid_textbox.Text.Length > 0)
+                if (sjsite.Value.ToLower() == "hotel" && DropDownList1.SelectedItem.Text.Contains("Hotel"))
                 {
                     updateHID.Parameters.AddWithValue("@id", sid_textbox.Text);
-                    updateHID.Parameters.AddWithValue("@jid", jid_textbox.Text);
+                    updateHID.Parameters.AddWithValue("@jid", DropDownList1.SelectedValue);
                 }
 
                 //restaurant
                 MySqlCommand updateRestID = new MySqlCommand("UPDATE works_restaurant SET restID = @jid WHERE staID = @id;", dbcon);
-                if (sjsite_textbox.Text.ToLower() == "restaurant" && jid_textbox.Text.Length > 0)
+                if (sjsite.Value.ToLower() == "restaurant" && DropDownList1.SelectedItem.Text.Contains("Restaurant"))
                 {
                     updateRestID.Parameters.AddWithValue("@id", sid_textbox.Text);
-                    updateRestID.Parameters.AddWithValue("@jid", jid_textbox.Text);
+                    updateRestID.Parameters.AddWithValue("@jid", DropDownList1.SelectedValue);
                 }
 
                 //ride
                 MySqlCommand updateRID = new MySqlCommand("UPDATE works_ride SET rID = @jid WHERE staID = @id;", dbcon);
-                if (sjsite_textbox.Text.ToLower() == "ride" && jid_textbox.Text.Length > 0)
+                if (sjsite.Value.ToLower() == "ride" && DropDownList1.SelectedItem.Text.Contains("Ride"))
                 {
                     updateRID.Parameters.AddWithValue("@id", sid_textbox.Text);
-                    updateRID.Parameters.AddWithValue("@jid", jid_textbox.Text);
+                    updateRID.Parameters.AddWithValue("@jid", DropDownList1.SelectedValue);
                 }
 
 
                 dbcon.Open();
-                if (first_textbox.Text.Length > 0)
-                {
-                    updateFirst.ExecuteNonQuery();
-                }
                 if (last_textbox.Text.Length > 0)
                 {
                     updateLast.ExecuteNonQuery();
                 }
-                if (gender_textbox.Text.Length == 1)
+                if (gender.Value.Length == 1)
                 {
                     updateGender.ExecuteNonQuery();
                 }
@@ -525,17 +599,21 @@ namespace rnrtp2
                 {
                     updateSalary.ExecuteNonQuery();
                 }
+                if (first_textbox.Text.Length > 0)
+                {
+                    updateFirst.ExecuteNonQuery();
+                }
 
                 //job id
-                if (sjsite_textbox.Text.ToLower() == "hotel" && jid_textbox.Text.Length > 0)
+                if (sjsite.Value.ToLower() == "hotel" && DropDownList1.SelectedItem.Text.Contains("Hotel"))
                 {
                     updateHID.ExecuteNonQuery();
                 }
-                if (sjsite_textbox.Text.ToLower() == "restaurant" && jid_textbox.Text.Length > 0)
+                if (sjsite.Value.ToLower() == "restaurant" && DropDownList1.SelectedItem.Text.Contains("Restaurant"))
                 {
                     updateRestID.ExecuteNonQuery();
                 }
-                if (sjsite_textbox.Text.ToLower() == "ride" && jid_textbox.Text.Length > 0)
+                if (sjsite.Value.ToLower() == "ride" && DropDownList1.SelectedItem.Text.Contains("Ride"))
                 {
                     updateRID.ExecuteNonQuery();
                 }
@@ -546,18 +624,22 @@ namespace rnrtp2
                 {
                     sid_textbox.Text = "";
                     sfirst_textbox.Text = "";
-                    sjsite_textbox.Text = "";
+                    sjsite.Value = "";
                     first_textbox.Text = "";
                     last_textbox.Text = "";
-                    gender_textbox.Text = "";
+                    gender.Value = "";
                     salary_textbox.Text = "";
-                    jid_textbox.Text = "";
                 }
 
                 if (IsPostBack == true)
                 {
-                    Button1.Text = "Updated!";
+                    Response.Write("<script>alert('Employee updated successfully!')</script>");
                 }
+            }
+
+            else
+            {
+                updateerrormessage.Visible = true;
             }
         }
 
@@ -565,7 +647,7 @@ namespace rnrtp2
         {
             if (delete_id.Text.Length > 0 && delete_fname.Text.Length > 0 && delete_lname.Text.Length > 0)
             {
-                MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
+                MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
                 MySqlCommand delete = new MySqlCommand("UPDATE staff SET archived = 1 WHERE employeeID = @id AND firstName = @fname AND lastName = @lname", dbcon);
                 delete.Parameters.AddWithValue("@id", delete_id.Text);
                 delete.Parameters.AddWithValue("@fname", delete_fname.Text);
@@ -627,8 +709,48 @@ namespace rnrtp2
 
                 if (IsPostBack == true)
                 {
-                    Button3.Text = "Deleted!";
+                    Response.Write("<script>alert('Employee deleted successfully!')</script>");
                 }
+            }
+
+            else
+            {
+                deleteerrormessage.Visible = true;
+            }
+        }
+
+        protected void HomeLink(object sender, EventArgs e)
+        {
+            string jcategory = "";
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
+            dbcon.Open();
+            MySqlCommand search = new MySqlCommand("SELECT jobCategory FROM credentials WHERE userName = @username", dbcon);
+            search.Parameters.AddWithValue("@username", (string)Session["username"]);
+            MySqlDataReader sReader = search.ExecuteReader();
+            while (sReader.Read())
+            {
+                jcategory = sReader.GetString(0);
+            }
+            sReader.Close();
+
+            if (jcategory == "HR")
+            {
+                Response.Redirect("Index.aspx");
+            }
+
+            if (jcategory == "hotel")
+            {
+                Response.Redirect("HotelIndex.aspx");
+            }
+
+            if (jcategory == "restaurant")
+            {
+                Response.Redirect("RestIndex.aspx");
+            }
+
+            if (jcategory == "ride")
+            {
+                Response.Redirect("RideIndex.aspx");
             }
         }
     }

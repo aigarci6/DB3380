@@ -4,19 +4,24 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using MySql.Data.MySqlClient;
 
 namespace rnrtp2
 {
-    public partial class Index : System.Web.UI.Page
+    public partial class NewIndex : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (Session["username"] == null)
             {
                 Response.Redirect("Login.aspx");
             }
         }
 
+        protected void LogoutGo(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("Login.aspx");
+        }
     }
 }

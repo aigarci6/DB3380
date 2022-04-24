@@ -4,20 +4,55 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <link rel="stylesheet" href="CCSMAIN.css"/>
+    <title>manage credentials</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        tr {
+            background-color: lightgray;
+            text-align: left;
+            color: #333;
+            font-size:small;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        td {
+            padding: 5px;
+        }
+
+        tr:first-child {
+            background-color: lightblue;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+        tr:nth-child(even) {
+            background-color: #efefef;
+        }
+    </style>
 </head>
-<body>
+<body id="searchCred">
     <form id="form1" runat="server">
         <div>
-            <!-- SEARCH -->
+            <h1 style="color:black;">manage credentials</h1>
+            <fieldset>
+                <!-- SEARCH -->
             <h1>Search By:</h1>
-            <asp:Label ID="Label5" runat="server" Text="User ID: "></asp:Label>
-            <asp:TextBox ID="sid_textbox" runat="server"></asp:TextBox>
-            <asp:Label ID="Label4" runat="server" Text="Username: "></asp:Label>
-            <asp:TextBox ID="suser_textbox" runat="server"></asp:TextBox>
+                <select name="search" style="width:130px;" id="search" runat="server">
+                <option value="none"> </option>
+                <option value="id">User ID</option>
+                <option value="user">Username</option>
+                <option value="all">*</option>
+            </select>
+            <asp:TextBox ID="field_textbox" runat="server"></asp:TextBox><br />
             <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search" />
-            <table width="50%" align="center" cellpadding="2" cellspacing="2" border="0" bgcolor="#EAEAEA">
-            <tr align="left" style="background-color: #004080; color: White;">
+            <table width="100%" align="center" cellpadding="2" cellspacing="2" border="0" bgcolor="#EAEAEA">
+            <tr>
                 <td> user id </td>
                 <td> username </td>
                 <td> password </td>
@@ -29,17 +64,22 @@
             <br />
 
             <!-- UPDATE -->
-            <h1>credential information</h1>
+            <h1>Update:</h1>
+            <h3>credential information</h3>
             <asp:Label ID="Label1" runat="server" Text="User ID: "></asp:Label>
             <asp:TextBox ID="id_textbox" runat="server"></asp:TextBox><br /><br />
+            <asp:Label ID="errormessage" font-size="small" runat="server" Text="ERROR: Missing field(s)!" ForeColor="Red"></asp:Label>
 
-            <h1>update information</h1>
+            <h3>update</h3>
             <asp:Label ID="Label2" runat="server" Text="Username: "></asp:Label>
             <asp:TextBox ID="user_textbox" runat="server"></asp:TextBox><br /><br />
             <asp:Label ID="Label3" runat="server" Text="Password: "></asp:Label>
             <asp:TextBox ID="pass_textbox" runat="server"></asp:TextBox><br /><br />
 
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Update" />
+            <br /><br /><br />
+            <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: white;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
+            </fieldset>
         </div>
     </form>
 </body>

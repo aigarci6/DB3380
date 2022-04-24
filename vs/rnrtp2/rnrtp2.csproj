@@ -65,6 +65,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -200,13 +201,27 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="BadAccessP.aspx.cs">
+      <DependentUpon>BadAccessP.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="BadAccessP.aspx.designer.cs">
+      <DependentUpon>BadAccessP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HotelIndex.aspx.cs">
+      <DependentUpon>HotelIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HotelIndex.aspx.designer.cs">
+      <DependentUpon>HotelIndex.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -215,7 +230,35 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestIndex.aspx.cs">
+      <DependentUpon>RestIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RestIndex.aspx.designer.cs">
+      <DependentUpon>RestIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="revenueReport.aspx.cs">
+      <DependentUpon>revenueReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="revenueReport.aspx.designer.cs">
+      <DependentUpon>revenueReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RideIndex.aspx.cs">
+      <DependentUpon>RideIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RideIndex.aspx.designer.cs">
+      <DependentUpon>RideIndex.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SearchCredentials.aspx.cs">
       <DependentUpon>SearchCredentials.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -286,9 +329,18 @@
     <Compile Include="TicketReport.aspx.designer.cs">
       <DependentUpon>TicketReport.aspx</DependentUpon>
     </Compile>
+    <Compile Include="VisitorCountReport.aspx.cs">
+      <DependentUpon>VisitorCountReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VisitorCountReport.aspx.designer.cs">
+      <DependentUpon>VisitorCountReport.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="adcred.jpg" />
     <Content Include="AddClose.aspx" />
+    <Content Include="AddClose.jpg" />
     <Content Include="AddCredentials.aspx" />
     <Content Include="AddEmployee.aspx" />
     <Content Include="AddHotel.aspx" />
@@ -298,6 +350,8 @@
     <Content Include="AddVisitHotel.aspx" />
     <Content Include="AddVisitor.aspx" />
     <Content Include="AddVisitRestaurant.aspx" />
+    <Content Include="BadAccess.html" />
+    <Content Include="BadAccessP.aspx" />
     <Content Include="CCSMAIN.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -307,16 +361,23 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Site.css" />
+    <Content Include="Home.aspx" />
     <Content Include="hotel.jpg" />
-    <Content Include="Index.aspx" />
+    <Content Include="HotelIndex.aspx" />
     <Content Include="Location.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="Login.jpg" />
-    <Content Include="MainPg.html" />
+    <Content Include="MainImage.jpg" />
+    <Content Include="Index.aspx" />
+    <Content Include="newindex.jpg" />
+    <Content Include="RestIndex.aspx" />
+    <Content Include="revenueReport.aspx" />
+    <Content Include="RideIndex.aspx" />
     <Content Include="Rides.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\rocknrollthemepark - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\rocknrollthemepark - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -329,6 +390,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="SearchCredentials.aspx" />
+    <Content Include="SearchCredentials.jpg" />
     <Content Include="SearchEmployee.aspx" />
     <Content Include="SearchEmployee.jpg" />
     <Content Include="SearchHotel.aspx" />
@@ -348,6 +410,7 @@
     <Content Include="Theme.jpg" />
     <Content Include="TicketReport.aspx" />
     <Content Include="Visitor.jpg" />
+    <Content Include="VisitorCountReport.aspx" />
     <Content Include="VisitRest.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

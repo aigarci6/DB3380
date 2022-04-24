@@ -16,7 +16,7 @@
     background-image: url("https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
     background-attachment: fixed;
     text-align: center;
-    padding-top: 10%;
+    padding-top: 5%;
     font-size: 23px;
     color: white;
 }
@@ -62,7 +62,7 @@
     background-attachment: fixed;
     text-align: center;
     color: white;
-    padding-top: 10%;
+    padding-top: 5%;
     font-size: 23px;
     color: white;
 }
@@ -74,19 +74,19 @@
     background-attachment: fixed;
     text-align: center;
     color: white;
-    padding-top: 10%;
+    padding-top: 5%;
     font-size: 23px;
     color: white;
 }
 
 #AddClose {
-    background-image: url("");
+    background-image: url("AddClose.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     text-align: center;
     color: white;
-    padding-top: 10%;
+    padding-top: 5%;
     font-size: 23px;
     color: white;
 }
@@ -98,7 +98,7 @@
     background-attachment: fixed;
     text-align: center;
     color: white;
-    padding-top: 10%;
+    padding-top: 5%;
     font-size: 23px;
     color: white;
 }
@@ -109,7 +109,7 @@
     background-size: auto;
     background-attachment: fixed;
     text-align: center;
-    padding-top: 10%;
+    padding-top: 5%;
     font-size: 23px;
     color: white;
 }
@@ -131,7 +131,7 @@
     background-size: cover;
     background-attachment: fixed;
     text-align: center;
-    padding-top: 10%;
+    padding-top: 5%;
     font-size: 23px;
     color: white;
 }
@@ -142,7 +142,7 @@
     background-size: cover;
     background-attachment: fixed;
     text-align: center;
-    padding-top: 10%;
+    padding-top: 5%;
     font-size: 23px;
     color: white;
 }
@@ -153,7 +153,7 @@
     background-size: auto;
     background-attachment: fixed;
     text-align: center;
-    padding-top: 10%;
+    padding-top: 5%;
     font-size: 23px;
     color: white;
 }
@@ -203,7 +203,7 @@
 }
 
 #searchCred {
-    background-image: url("");
+    background-image: url("SearchCredentials.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -213,13 +213,13 @@
     color: white;
 }
 
-
 #mainNav {
-    background-color: rgb(0,0,0);
+    background-color: #fff;
     padding: 2px;
-    color: rgb(255, 0, 0);
+    color: #f2f2f2;
     top: 0;
-    width: 200px;
+    width: 50%;
+    height: 100%
 }
 
     #mainNav ul {
@@ -271,7 +271,8 @@ fieldset {
     border-block-color:white;
     border-spacing:2px;
     padding-right: 125px;
-    padding-top: 30px;
+    padding-top: 4%;
+    padding-bottom:4%;
     text-align: right;
     width: 390px;
     vertical-align: top;
@@ -336,7 +337,6 @@ fieldset3 {
   
 }
 
-
 fieldset4 {
     display: inline-block;
     align-content: center;
@@ -351,4 +351,93 @@ fieldset4 {
     font-size: 20px;
     color: white;
     font-size:20px;
+}
+
+.badaccess {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    border: 3px solid white;
+    
+}
+
+.badaccesstext {
+    font-family: FreeMono, monospace;
+}
+
+.mainnav {
+    background: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    margin-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-family: FreeMono, monospace;
+}
+
+.mainnav2 {
+    display:table;
+    width:90%;
+    overflow: hidden;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-family: FreeMono, monospace;
+}
+
+.mainnav a.login {
+    float: right;
+    color: #333;
+    background-color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: 0.5s;
+    border-style: solid;
+    border-color: #fff;
+    font-weight: bold;
+}
+
+.mainnav a.login:hover {
+    background-color: lightblue;
+    color: #333;
+    border-color: #fff;
+}
+
+.mainnav a.title {
+    float: left;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.maincol {
+    display: table-cell;
+    background: rgba(0, 0, 0, .6);
+    width: 45%;
+}
+
+.maincol2 {
+    display: table-cell;
+    background: rgba(0, 0, 0, .6);
+    width: 100%;
+    padding-bottom: 5%;
+    padding-top: 2%;
+}
+
+.boxes {
+    margin: auto;
+    overflow: hidden;
+    font-family: FreeMono, monospace;
+    color: #f2f2f2;
+    padding: 3% 5% 5% 10%;
+}
+
+#homepage {
+    background-image: url("MainImage.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }

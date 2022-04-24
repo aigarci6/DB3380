@@ -7,6 +7,11 @@ using System.Web.UI.WebControls;
 using MySql.Data.MySqlClient;
 using System.Data;
 using System.Configuration;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.IO;
+using System.Text;
+using System.Web.SessionState;
 
 namespace rnrtp2
 {
@@ -14,13 +19,35 @@ namespace rnrtp2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //auth
+            if (Session["username"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
 
+            string jcategory = "";
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
+            dbcon.Open();
+            MySqlCommand search = new MySqlCommand("SELECT jobCategory FROM credentials WHERE userName = @username", dbcon);
+            search.Parameters.AddWithValue("@username", (string)Session["username"]);
+            MySqlDataReader sReader = search.ExecuteReader();
+            while (sReader.Read())
+            {
+                jcategory = sReader.GetString(0);
+            }
+            sReader.Close();
+
+            if (jcategory != "HR" && jcategory != "hotel" && jcategory != "ride" && jcategory != "restaurant")
+            {
+                Response.Redirect("BadAccessP.aspx");
+            }
+            
         }
 
 
         public string genTotals()
         {
-            MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
             MySqlCommand genTotals = new MySqlCommand("SELECT COUNT(*) AS totalNum, SUM(ticketCost) FROM visitor WHERE ticketType = @ticketType;", dbcon);
             MySqlCommand seasTotals = new MySqlCommand("SELECT COUNT(*) AS totalNum, SUM(ticketCost) FROM visitor WHERE ticketType = @ticketType;", dbcon);
             genTotals.Parameters.AddWithValue("@ticketType", "general");
@@ -60,13 +87,13 @@ namespace rnrtp2
             DateTime thisDay = DateTime.Today;
             string fin;
             
-            if (date_textbox.Text.Length > 0 && date2_textbox.Text.Length == 0) {
-                fin = "Daily Ticket Totals Report For " + date_textbox.Text;
+            if (date1.Value.Length > 0 && date2.Value.Length == 0) {
+                fin = "Daily Ticket Totals Report For " + date1.Value;
             }
 
-            else if (date_textbox.Text.Length > 0 && date2_textbox.Text.Length > 0)
+            else if (date1.Value.Length > 0 && date2.Value.Length > 0)
             {
-                fin = "Daily Ticket Totals Report For " + date_textbox.Text + " - " + date2_textbox.Text;
+                fin = "Daily Ticket Totals Report For " + date1.Value + " - " + date2.Value;
             }
 
             else
@@ -84,39 +111,39 @@ namespace rnrtp2
 
         public string currTotals()
         {
-            MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
-            
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
+
             //find date
             DateTime thisDay = DateTime.Today;
             string date;
-            string date2;
+            string date3;
             
-            if (date_textbox.Text.Length > 0 && date2_textbox.Text.Length == 0)
+            if (date1.Value.Length > 0 && date2.Value.Length == 0)
             {
-                date = date_textbox.Text;
-                date2 = date;
+                date = date1.Value;
+                date3 = date;
             }
 
-            else if (date_textbox.Text.Length > 0 && date2_textbox.Text.Length > 0)
+            else if (date1.Value.Length > 0 && date2.Value.Length > 0)
             {
-                date = date_textbox.Text;
-                date2 = date2_textbox.Text;
+                date = date1.Value;
+                date3 = date2.Value;
             }
 
             else
             {
                 date = thisDay.ToString("yyyy") + "-" + thisDay.ToString("dd") + "-" + thisDay.ToString("MM");
-                date2 = date;
+                date3 = date;
             }
 
             MySqlCommand genTickets = new MySqlCommand("SELECT ticketID, ticketType, ticketCost, email, visitDate FROM visitor WHERE ticketType = @ticketType AND visitDate BETWEEN @date AND @date2 ORDER BY visitDate ASC;", dbcon);
             genTickets.Parameters.AddWithValue("@ticketType", "general");
             genTickets.Parameters.AddWithValue("@date", date);
-            genTickets.Parameters.AddWithValue("@date2", date2);
+            genTickets.Parameters.AddWithValue("@date2", date3);
             MySqlCommand seasTickets = new MySqlCommand("SELECT ticketID, ticketType, ticketCost, email, visitDate FROM visitor WHERE ticketType = @ticketType AND visitDate BETWEEN @date AND @date2 ORDER BY visitDate ASC;", dbcon);
             seasTickets.Parameters.AddWithValue("@ticketType", "seasonal");
             seasTickets.Parameters.AddWithValue("@date", date);
-            seasTickets.Parameters.AddWithValue("@date2", date2);
+            seasTickets.Parameters.AddWithValue("@date2", date3);
 
             string htmlStr = "";
 
@@ -177,6 +204,41 @@ namespace rnrtp2
 
             dbcon.Close();
             return htmlStr;
+        }
+
+        protected void HomeLink(object sender, EventArgs e)
+        {
+            string jcategory = "";
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
+            dbcon.Open();
+            MySqlCommand search = new MySqlCommand("SELECT jobCategory FROM credentials WHERE userName = @username", dbcon);
+            search.Parameters.AddWithValue("@username", (string)Session["username"]);
+            MySqlDataReader sReader = search.ExecuteReader();
+            while (sReader.Read())
+            {
+                jcategory = sReader.GetString(0);
+            }
+            sReader.Close();
+
+            if (jcategory == "HR")
+            {
+                Response.Redirect("Index.aspx");
+            }
+
+            if (jcategory == "hotel")
+            {
+                Response.Redirect("HotelIndex.aspx");
+            }
+
+            if (jcategory == "restaurant")
+            {
+                Response.Redirect("RestIndex.aspx");
+            }
+
+            if (jcategory == "ride")
+            {
+                Response.Redirect("RideIndex.aspx");
+            }
         }
     }
 }

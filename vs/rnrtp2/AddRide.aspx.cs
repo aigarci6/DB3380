@@ -12,15 +12,61 @@ namespace rnrtp2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //auth
+            if (Session["username"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+
+            string jcategory = "";
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
+            dbcon.Open();
+            MySqlCommand search = new MySqlCommand("SELECT jobCategory FROM credentials WHERE userName = @username", dbcon);
+            search.Parameters.AddWithValue("@username", (string)Session["username"]);
+            MySqlDataReader sReader = search.ExecuteReader();
+            while (sReader.Read())
+            {
+                jcategory = sReader.GetString(0);
+            }
+            sReader.Close();
+
+            if (jcategory != "HR")
+            {
+                Response.Redirect("BadAccessP.aspx");
+            }
+            
+
             if (IsPostBack == true)
             {
                 Response.Write("<script>alert('Ride added successfully!')</script>");
             }
+
+            //dropdownlist
+            MySqlConnection dbconn = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred; Allow User Variables=True;");
+            MySqlCommand locid = new MySqlCommand("SELECT locationID, locationName FROM location ORDER BY locationName ASC;", dbconn);
+
+            ListItem firstListItem = new ListItem("SELECT", "000");
+            DropDownList1.Items.Add(firstListItem);
+
+            dbconn.Open();
+            MySqlDataReader locReader = locid.ExecuteReader();
+            if (!IsPostBack)
+            {
+                while (locReader.Read())
+                {
+                    string name = locReader.GetString(1);
+                    string id = locReader.GetString(0);
+                    ListItem newListItem = new ListItem(name, id);
+                    DropDownList1.Items.Add(newListItem);
+                }
+            }
+            locReader.Close();
+            dbconn.Close();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            MySqlConnection dbcon = new MySqlConnection("Server = rocknrollthemepark.mysql.database.azure.com; Port = 3306; Database = theme_park; Uid = ziyan@rocknrollthemepark; Pwd = Cosc3380!; SslMode = Preferred;");
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
             MySqlCommand insert = new MySqlCommand("CALL InsertRide(@rideID, @capacity, @name, @maxWeight, @minHeight, @minAge, @rlocID);", dbcon);
             insert.Parameters.AddWithValue("@rideID", id_textbox.Text);
             insert.Parameters.AddWithValue("@capacity", capacity_textbox.Text);
@@ -28,7 +74,7 @@ namespace rnrtp2
             insert.Parameters.AddWithValue("@maxWeight", maxweight_textbox.Text);
             insert.Parameters.AddWithValue("@minHeight", minheight_textbox.Text);
             insert.Parameters.AddWithValue("@minAge", minage_textbox.Text);
-            insert.Parameters.AddWithValue("@rlocID", location_textbox.Text);
+            insert.Parameters.AddWithValue("@rlocID", DropDownList1.SelectedValue);
 
             dbcon.Open();
             insert.ExecuteNonQuery();
@@ -42,7 +88,41 @@ namespace rnrtp2
                 maxweight_textbox.Text = "";
                 minheight_textbox.Text = "";
                 minage_textbox.Text = "";
-                location_textbox.Text = "";
+            }
+        }
+
+        protected void HomeLink(object sender, EventArgs e)
+        {
+            string jcategory = "";
+            MySqlConnection dbcon = new MySqlConnection("Server=rnrthemepark-db3380.mysql.database.azure.com; Port=3306; Database=theme_park; Uid=courtney@rnrthemepark-db3380; Pwd=cosc3380!; SslMode=Preferred;");
+            dbcon.Open();
+            MySqlCommand search = new MySqlCommand("SELECT jobCategory FROM credentials WHERE userName = @username", dbcon);
+            search.Parameters.AddWithValue("@username", (string)Session["username"]);
+            MySqlDataReader sReader = search.ExecuteReader();
+            while (sReader.Read())
+            {
+                jcategory = sReader.GetString(0);
+            }
+            sReader.Close();
+
+            if (jcategory == "HR")
+            {
+                Response.Redirect("Index.aspx");
+            }
+
+            if (jcategory == "hotel")
+            {
+                Response.Redirect("HotelIndex.aspx");
+            }
+
+            if (jcategory == "restaurant")
+            {
+                Response.Redirect("RestIndex.aspx");
+            }
+
+            if (jcategory == "ride")
+            {
+                Response.Redirect("RideIndex.aspx");
             }
         }
     }
