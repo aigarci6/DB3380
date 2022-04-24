@@ -3,7 +3,7 @@ DB 3380 class for theme park team
 
 Programs we used to develop this Project:
 Visual Studio (Program used for Front-End and Connecting to Back-end)
-Github (Used for Repository to)
+Github (Used for Repository to share our files and store our project)
 MySQL (DBMS used for Schema and Back-end)
 Microsoft Azure (Web Application Hosting Platform)
 
