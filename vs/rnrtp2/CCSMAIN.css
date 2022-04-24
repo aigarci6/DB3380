@@ -268,16 +268,17 @@
 
 fieldset {
     display: inline-block;
-    border-block-color:white;
-    border-spacing:2px;
+    
+    
     padding-right: 125px;
     padding-top: 4%;
     padding-bottom:4%;
     text-align: right;
     width: 390px;
     vertical-align: top;
-    background-color: rgb(0,0,0,0.8);
+    
     font-size: 20px;
+    color:black;
 }
 
 #mainNav1 {

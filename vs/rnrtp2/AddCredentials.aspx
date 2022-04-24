@@ -34,7 +34,7 @@
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
 
             <br /><br /><br />
-            <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: white;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
+            <asp:LinkButton ID="linkGoSomewhere" style="color:black; font-size: medium; font-family: FreeMono, monospace; color: white;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
                 </fieldset>
         </div>
     </form>
