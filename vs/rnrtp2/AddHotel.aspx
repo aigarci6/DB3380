@@ -8,7 +8,7 @@
     <title>add new hotel</title>
 </head>
 <body id="hotel">
-    <h1 class="row">new hotel form</h1>
+    <h1 class="row" style="color: black;">new hotel form</h1>
     <form id="form1" runat="server">
 
         <fieldset>
@@ -28,7 +28,7 @@
             <asp:TextBox ID="exp_textbox" runat="server"></asp:TextBox><br /><br />
             <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" align="left" />
             <br /><br /><br />
-            <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: white;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
+            <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: black;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
         </fieldset>
         </form>
 </body>

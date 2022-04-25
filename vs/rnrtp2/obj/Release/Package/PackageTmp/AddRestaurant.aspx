@@ -13,7 +13,7 @@
 </head>
 <body id="restaurant">
     <div class="widget">
-        <h1 class="row">new restaurant form</h1>
+        <h1 class="row" style="color: black;">new restaurant form</h1>
         <form id="form1" runat="server">
             <fieldset>
                 <asp:Label ID="Label1" runat="server" Text="ID: "></asp:Label>
@@ -33,7 +33,7 @@
                 <br />
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
                 <br /><br /><br />
-            <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: white;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
+            <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: black;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
             </fieldset>
         </form>
     </div>

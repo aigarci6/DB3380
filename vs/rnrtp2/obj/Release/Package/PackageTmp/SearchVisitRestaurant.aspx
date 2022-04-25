@@ -37,7 +37,7 @@
     </style>
 </head>
 <body id="SearchVisitRestaurant">
-    <h1>manage restaurant visits</h1>
+    <h1><font color="black">manage restaurant visits></font></h1>
     <form id="form1" runat="server">
         <div>
             <fieldset>
@@ -65,7 +65,7 @@
                 <% Response.Write(getData()); %>
             </table>
                 <br /><br /><br />
-            <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: white;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
+            <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: black;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
             </fieldset>
         </div>
     </form>

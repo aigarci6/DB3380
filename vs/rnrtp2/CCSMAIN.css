@@ -268,17 +268,13 @@
 
 fieldset {
     display: inline-block;
-    
-    
-    padding-right: 125px;
-    padding-top: 4%;
-    padding-bottom:4%;
-    text-align: right;
+    padding-bottom: 4%;
+    text-align: left;
     width: 390px;
     vertical-align: top;
-    
+    border: 1px #fff solid;
     font-size: 20px;
-    color:black;
+    color: black;
 }
 
 #mainNav1 {
@@ -295,8 +291,6 @@ fieldset1 {
     background-color:white;
     font-size: 18px;
     text-align: center;
-    border:double;
-    border-block-color:black;
 }
 
 #Login {

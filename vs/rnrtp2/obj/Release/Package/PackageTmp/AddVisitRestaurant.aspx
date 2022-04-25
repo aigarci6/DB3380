@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
         <div>
             
-            <h1>restaurant visitor form</h1>
+            <h1><font color="black">restaurant visitor form</font></h1>
             <fieldset>
                 <asp:Label ID="Label5" runat="server" Text="Date: "></asp:Label>
                 <input type="date" name="date" id="date" runat="server" value="" style="width:130px;" required="required"/> <br /><br />
@@ -26,7 +26,7 @@
 
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
                 <br /><br /><br />
-            <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: white;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
+            <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: black;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
             </fieldset>
         </div>
     </form>

@@ -37,7 +37,7 @@
     </style>
 </head>
 <body id ="SearchVisitor">
-    <h1>manage visitors</h1>
+    <h1><font color="black">manage visitors</font></h1>
     <form id="form1" runat="server">
         <div>
             <fieldset>
@@ -87,7 +87,7 @@
 
                 <asp:Button ID="Button1" runat="server" Text="Update" OnClick="Button1_Click" />
                 <br /><br /><br />
-            <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: white;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
+            <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: black;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
             </fieldset>
         </div>
     </form>

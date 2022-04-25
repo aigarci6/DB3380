@@ -8,7 +8,7 @@
     <title>add a new visitor</title>
 </head>
 <body id="Visitor">
-    <h1><font color="white">new visitor form</font></h1>
+    <h1><font color="black">new visitor form</font></h1>
     <form id="form1" class="form" runat="server">
         <div>
             <fieldset>
@@ -25,7 +25,7 @@
                 <asp:Label ID="errormessage" font-size="small" runat="server" Text="ERROR SENDING EMAIL. TRY AGAIN." ForeColor="Red"></asp:Label> <br /><br />
                 <asp:Button ID="Button2" runat="server" Text="Submit" OnClick="buttonClick"  /> 
                 <br /><br /><br />
-           <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: white;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
+           <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: black;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
            </fieldset>
             
         </div>

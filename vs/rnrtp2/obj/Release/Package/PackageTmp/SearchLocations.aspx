@@ -37,7 +37,7 @@
     </style>
 </head>
 <body id="SearchLocations">
-    <h1>manage locations</h1>
+    <h1><font color="black">manage locations</font></h1>
     <form id="form1" runat="server">
         <div>
             
@@ -75,7 +75,7 @@
 
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Update" />
                 <br /><br /><br />
-                <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: white;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
+                <asp:LinkButton ID="linkGoSomewhere" style="font-size: medium; font-family: FreeMono, monospace; color: black;" runat="server" OnClick="HomeLink" Text="GO BACK TO HOME"/>
             </fieldset>
         </div>
     </form>
