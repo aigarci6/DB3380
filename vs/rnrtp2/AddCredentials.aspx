@@ -9,7 +9,6 @@
 
     <style>
         #addCred {
-            background-image: url("adcred.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-attachment: fixed;
